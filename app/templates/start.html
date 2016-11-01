@@ -1,0 +1,68 @@
+<!DOCTYPE doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                The HTML5 Herald
+            </title>
+            <meta content="The HTML5 Herald" name="description">
+                <meta content="SitePoint" name="author">
+                    <link href="css/styles.css?v=1.0" rel="stylesheet">
+                        <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+                    </link>
+                </meta>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <table border="0" dir="ltr" width="500">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Name
+                    </th>
+                    <th scope="col">
+                        Quantity
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                {% for p in product %}
+                <tr>
+                    <td>
+                        {{ p.name }}
+                    </td>
+                    <td>
+                        {{ p.quantity }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tfoot>
+        </table>
+        <hr>
+            <hr>
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if product.has_previous %}
+                        <a href="?page={{ product.previous_page_number }}">
+                            previous
+                        </a>
+                        {% endif %}
+                        <span class="current">
+                            Page {{ product.number }} of {{ product.paginator.num_pages }}.
+                        </span>
+                        {% if product.has_next %}
+                        <a href="?page={{ product.next_page_number }}">
+                            next
+                        </a>
+                        {% endif %}
+                    </span>
+                </div>
+                <script src="js/scripts.js">
+                </script>
+            </hr>
+        </hr>
+    </body>
+</html>

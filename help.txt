@@ -1,0 +1,88 @@
+PYTHON
+
+
+python get-pip.py
+python manage.py runserver
+django-admin startproject mysite
+python manage.py startapp polls
+
+Install MySQL:
+easy_install MySQL-python or pip install MySQL-python
+python manage.py inspectdb
+python manage.py makemigrations
+python manage.py migrate
+
+Create ADMIN:
+pip install django-registration-redux
+python manage.py createsuperuser
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+Many to one through
+
+class Person(models.Model):
+    name = models.CharField(max_length=128)
+
+    def __unicode__(self):
+        return self.name
+
+class Group(models.Model):
+    name = models.CharField(max_length=128)
+    members = models.ManyToManyField(Person, through='Membership')
+
+    def __unicode__(self):
+        return self.name
+
+class Membership(models.Model):
+    person = models.ForeignKey(Person)
+    group = models.ForeignKey(Group)
+    date_joined = models.DateField()
+    invite_reason = models.CharField(max_length=64)
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+You can subclass Django's AdminSite (put it eg. in admin.py in your project root):
+
+from django.contrib.admin.sites import AdminSite
+
+class MyAdminSite(AdminSite):
+    pass
+    #or overwrite some methods for different functionality
+
+myadmin = MyAdminSite()
+Then you can use it in your app's admin.py the same way as you do with the normal AdminSite instance:
+
+from myproject.admin import myadmin
+myadmin.register(MyModel_A)
+You also need to define some urls for it (in your project's urls.py):
+
+from myproject.admin import admin, user_site
+from myproject.admin import myadmin
+urlpatterns = patterns('',
+    ...
+    (r'^admin/', include(admin.site.urls)),
+    (r'^myadmin/', include(myadmin.urls)),
+
+Have been digging into the built-in forms and views from django.contrib.auth.
+I always knew you could get generic views for login, logout, even password reset,
+but I didn't know you could actually handle new user creation as well!
+
+There's a form in django.contrib.auth.forms,
+and a class-based view for creating new objects called CreateView,
+and I believe this is all you need for a working registration form/view:
+
+from django.views.generic.edit import CreateView
+from django.contrib.auth.forms import UserCreationForm
+
+urlpatterns = patterns('',
+    url('^register/', CreateView.as_view(
+            template_name='register.html',
+            form_class=UserCreationForm,
+            success_url='/'
+    )),
+    url('^accounts/', include('django.contrib.auth.urls')),
+
+    # rest of your URLs as normal
+)
+Then, in register.html (which you do have to create yourself), you get a {{ form }} you can use,
+including a username, password and password confirmation, and it handles validation errors and EVERYTHING.

@@ -1,0 +1,55 @@
+<!DOCTYPE doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                The HTML5 Herald
+            </title>
+            <meta content="The HTML5 Herald" name="description">
+                <meta content="SitePoint" name="author">
+                    <link href="css/styles.css?v=1.0" rel="stylesheet">
+                        <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+                    </link>
+                </meta>
+            </meta>
+        </meta>
+    </head>
+    <body>
+        <table border="0" dir="ltr" width="500">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        Date
+                    </th>
+                    <th scope="col">
+                        Size
+                    </th>
+                    <th scope="col">
+                        Color
+                    </th>
+                    <th scope="col">
+                        Amount
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>
+                        {{ result.order_date }}
+                    </td>
+                    <td>
+                        {{ result.size }}
+                    </td>
+                    <td>
+                        {{ result.color }}
+                    </td>
+                    <td>
+                        {{ result.amount }}
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

@@ -16,17 +16,17 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from product.admin import admin_site
 from django.conf import settings
-from app import views
+# from product.admin import admin_site
+# from app import views
 
 urlpatterns = [
-    url(r'^$', views.index),
-    url(r'^web/', include('app.urls')),
-    url(r'^web/admins', include('app.urls')),
-    url(r'^product_admin/', admin_site.urls),
+    url(r'^', include('frontend.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('registration.backends.simple.urls')),
+    # url(r'^web/admins', include('app.urls')),
+    # url(r'^product_admin/', admin_site.urls),
+    # url(r'^$', views.index),
     # url(r'^accounts/', include('registration.backends.default.urls')),
     # #for registration profile with send email
 ]

@@ -1,0 +1,38 @@
+<!--==========TOP_SLIDER==========-->
+{% load static %}
+<div class="slider-container slider-filter active">
+    <div class="slider-wrap">
+        <div class="swiper-container main-slider" id="slider-1" data-autoplay="4000" data-touch="1"
+             data-mouse="0" data-slides-per-view="1" data-loop="0" data-speed="1200" data-mode="horizontal">
+            <div class="count">
+                <h3><span>0<i>1</i></span>/03</h3></div>
+            <div class="swiper-wrapper">
+                {% for slide in sliders %}
+                <div class="swiper-slide swiper-h slide-res">
+                    <div class="clip">
+                        <div class="bg-slide"
+                             style="background-image:url({{MEDIA_URL}}/{{ slide.img }})">
+                        </div>
+                    </div>
+                    <div class="slide-title">
+                        <!-- content slide -->
+                        <h2>{{ slide.title }}</h2>
+                        <img src="{% static "images/separetor.png" %}" height="10" width="48" alt="">
+                        <h5>{{ slide.category }}</h5>
+                    </div>
+                    <!-- .content slide -->
+                </div>
+                {% endfor %}
+            </div>
+            <div class="slide-prev arrow-prev-onload">
+                <p>prev project</p>
+            </div>
+            <div class="slide-next arrow-next-onload">
+                <p>next project</p>
+            </div>
+            <div class="pagination vertical-mode pagination-index"></div>
+        </div>
+    </div>
+</div>
+
+<!-- .top slider -->

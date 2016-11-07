@@ -1,0 +1,96 @@
+{% extends "frontend/base.html" %}
+{% load static %}
+{% block content %}
+
+    <!--==========Content============-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="contact-5">
+                <div class="map_shortcode_wrapper" id="map1450961113845587996" style="width:100%; height: 450px;">
+                    <div class="map-marker" data-title="London, UK" data-latlng="51.508823,-0.127802">
+                        <div class="map-infowindow">London, UK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid no-padd bg-c-1">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container">
+                    <div class="row marg-xs-t50 marg-lg-t110">
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="contact-5-info ">
+                                <h5 class="info-title">Press Related</h5>
+                                <p class="info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                                    officiis, voluptatibus molestias. Officia sit repellendus eum error facere
+                                    facilis, accusamus aliquam et, consectetur deleniti ipsam quam magni quisquam
+                                    saepe cumque..
+                                </p>
+                                <p><strong>Email:</strong> <a class="" href="mailto:#">info@miami.com</a>
+                                    <br>
+                                    <strong>Phone:</strong> +1 432-980-6360
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="contact-5-info ">
+                                <h5 class="info-title">Press Related</h5>
+                                <p class="info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                                    officiis, voluptatibus molestias. Officia sit repellendus eum error facere
+                                    facilis, accusamus aliquam et, consectetur deleniti ipsam quam magni quisquam
+                                    saepe cumque..
+                                </p>
+                                <p><strong>Email:</strong> <a class="" href="mailto:#">info@miami.com</a>
+                                    <br>
+                                    <strong>Phone:</strong> +1 432-980-6360
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="team">
+        <div class="col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-12">
+            <div class="team-block">
+                <img src="{% static "images/team-6.jpg" %}" alt="">
+                <div class="later-team">
+                    <h4>tom smith</h4>
+                    <h6>CEO - Webdesign</h6>
+                    <div class="hiden-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusantium, temporibus
+                            distinctio commodi harum</p>
+                        <div class="team-share">
+                            <a href="#" class="fa fa-facebook"></a>
+                            <a href="#" class="fa fa-twitter"></a>
+                            <a href="#" class="fa fa-pinterest"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-form-2 style-2">
+            <h2>Say Hello</h2>
+            <form action="http://wp.city/" class="marg-lg-t30">
+                <fieldset class="clearfix">
+                    <input type="text" class="cont-5-inp name" placeholder="First Name*">
+                    <input type="text" class="cont-5-inp email" placeholder="Last Name">
+                </fieldset>
+                <fieldset class="clearfix">
+                    <input type="email" class="cont-5-inp name" placeholder="E-mail address*">
+                    <input type="text" class="cont-5-inp email" placeholder="Website">
+                </fieldset>
+                <fieldset>
+                    <textarea cols="40" rows="6" class="cont-5-inp" placeholder="Message*"></textarea>
+                </fieldset>
+                <fieldset class="submit-fieldset">
+                    <input type="submit" class="submit" value="Send Email">
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}

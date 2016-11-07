@@ -101,7 +101,7 @@ li, span {font-family: 'Lato', sans-serif;}
 .table-cell {display: table-cell; vertical-align: middle; height: inherit;}
 .vertical-align {-webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); top:50%; position: absolute; width: 100%; left: 0px;}
 .padd-none {padding: 0;}
-.no-padd {padding-left: 0; padding-right: 0; padding-top: 15px;}
+.no-padd {padding-left: 0; padding-right: 0;}
 .padd-15-all {padding: 15px 15px 0 15px;}
 .padd-15{padding: 0 15px}
 .padd-30{padding: 0 30px}

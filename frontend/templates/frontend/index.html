@@ -1,81 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>Personal Portfoliio</title>
-    {% load static %}
-    <link rel="icon" href="{% static "images/favicon.png" %}" type="image/x-icon">
-    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/animate.css" %}">
-
-    <link rel="stylesheet" type="text/css" href="{% static "css/magnific-popup.css" %}">
-    <link href='https://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static "css/menu/component.css" %}">
-
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-</head>
-
-<body>
-<div class="preloader">
-    <div class="preloader-img"><img src="{% static "images/loader.gif" %}" alt="preloader"></div>
-</div>
-
-<!--==========HEADER============-->
-
-<header class="miami-header">
+<!--==========Content============-->
+{% extends "frontend/base.html" %}
+{% block content %}
+{% load static %}
+<div class="content">
     <div class="container-fluid">
-        <div class="header">
-            <div class="logo">
-                <!-- logo -->
-                <a href="" class="table-cell"><img src="{% static "images/logo_1.png" %}" alt="logo"></a>
-            </div>
-            <!-- .logo -->
-            <div class="nav-menu-icon">
-                <a href="#" class="table-cell"><i></i></a>
-            </div>
-            <div class="navigation">
-                <!-- navigation -->
-                <nav id="dl-menu" class="menu dl-menuwrapper">
-                    <div class="close-menu">
-                        <div><i class="fa fa-times"></i></div>
-                    </div>
-                    <ul class="table-cell dl-menu dl-menuopen">
-                        <li class="menu-item active"><a href="#">Home<span class="fa fa-angle-down"></span></a>
-                        </li>
-                        <li class="menu-item"><a href="#">Portfolio<span class="fa fa-angle-down"></span></a>
-                        </li>
-                        <li class="menu-item"><a href="#">Services<span class="fa fa-angle-down"></span></a>
-                        </li>
-                        <li class="menu-item"><a href="#">About Me<span class="fa fa-angle-down"></span></a>
-                        </li>
-                        <li class="menu-item"><a href="#">Contacts<span class="fa fa-angle-down"></span></a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="second-menu dl-trigger">
-                    <div class="table-cell">
-                        <div class="open-menu">
-                            <span></span>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="slider-container slider-filter active" data-filter="nature">
+                    <div class="slider-wrap">
+                        <div class="swiper-container main-slider" id="slider-1" data-autoplay="4000" data-touch="1"
+                             data-mouse="0" data-slides-per-view="1" data-loop="0" data-speed="1200"
+                             data-mode="horizontal">
+                            <div class="count">
+                                <h4><span>0<i>1</i></span>/03</h4></div>
+                            <div class="swiper-wrapper">
+                                {% for slide in sliders %}
+                                <div class="swiper-slide">
+                                    <div class="clip height-container">
+                                        <div class="bg-slide" style="background-image:url({{MEDIA_URL}}/{{ slide.image }})">
+                                        </div>
+                                    </div>
+                                    <div class="main-title title-home">
+                                        <h2>{{ slide.title }}</h2>
+                                        <div class="img-seperator"></div>
+                                        <h5>{{ slide.cat }}</h5>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="slide-prev"><i class="fa fa-long-arrow-left"></i></div>
+                            <div class="slide-next"><i class="fa fa-long-arrow-right"></i></div>
+                            <div class="pagination vertical-mode pagination-index"></div>
                         </div>
                     </div>
                 </div>
+
             </div>
-            <!-- .navigation -->
         </div>
     </div>
-</header>
-
-<!--==========Content============-->
-{% include "frontend/sliders.html" %}
-{% include "frontend/aboutme.html" %}
-{% include "frontend/footer.html" %}
-{% include "frontend/jsscripts.html" %}
-
-</body>
-</html>
+</div>
+{% endblock %}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2016 at 11:06 PM
+-- Generation Time: Nov 07, 2016 at 03:51 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$30000$0ogIQaBfGAxD$e2yGO9gF/HgRgLiLKJM9pWBYz6Wd4dB4sxX9suPCS8w=', '2016-11-06 21:19:36.328000', 1, 'admin', 'Admin', 'admin', 'raylight75@gmail.com', 1, 1, '2016-09-29 15:28:24.019000'),
+(1, 'pbkdf2_sha256$30000$0ogIQaBfGAxD$e2yGO9gF/HgRgLiLKJM9pWBYz6Wd4dB4sxX9suPCS8w=', '2016-11-07 10:59:17.211000', 1, 'admin', 'Admin', 'admin', 'raylight75@gmail.com', 1, 1, '2016-09-29 15:28:24.019000'),
 (2, 'pbkdf2_sha256$30000$t6XjNB5AixMd$DfyScV/hVbBq+Z3u28Xxt8d9CCaO0Rf1aVxoCRM3U7s=', '2016-10-27 20:25:53.068000', 0, 'ana', 'Ana', 'Blajeva', 'ana.blajeva@abv.bg', 1, 1, '2016-09-29 15:30:38.168000'),
 (5, 'pbkdf2_sha256$30000$b55ZL4KcdJ2C$mJkECpkCmOO0RO/dwRQf6vethF8fPRzVp6/3AmeRyXY=', '2016-10-06 19:15:29.156000', 0, 'Ivan', 'Ivan', 'Ivanov', 'Ivan@abv.bg', 1, 1, '2016-10-05 18:01:13.050000');
 
@@ -202,7 +202,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -218,7 +218,15 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (7, '2016-10-05 18:02:19.180000', '5', 'Ivan', 2, '[{"changed": {"fields": ["first_name", "last_name", "is_staff"]}}]', 9, 1),
 (8, '2016-11-06 20:56:51.154000', '1', 'Slider object', 1, '[{"added": {}}]', 15, 1),
 (9, '2016-11-06 21:07:08.081000', '1', 'Slider object', 2, '[{"changed": {"fields": ["img"]}}]', 15, 1),
-(10, '2016-11-06 21:21:44.104000', '2', 'Slider object', 1, '[{"added": {}}]', 15, 1);
+(10, '2016-11-06 21:21:44.104000', '2', 'Slider object', 1, '[{"added": {}}]', 15, 1),
+(11, '2016-11-07 10:59:55.152000', '2', 'cars', 1, '[{"added": {}}]', 16, 1),
+(12, '2016-11-07 11:00:14.404000', '3', 'Interiors', 1, '[{"added": {}}]', 16, 1),
+(13, '2016-11-07 11:00:53.861000', '4', 'Models', 1, '[{"added": {}}]', 16, 1),
+(14, '2016-11-07 11:01:10.466000', '5', 'Various', 1, '[{"added": {}}]', 16, 1),
+(15, '2016-11-07 11:01:28.666000', '6', 'Architectural', 1, '[{"added": {}}]', 16, 1),
+(16, '2016-11-07 11:02:00.811000', '7', 'Sliders', 1, '[{"added": {}}]', 16, 1),
+(17, '2016-11-07 11:11:44.951000', '1', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(18, '2016-11-07 11:12:28.191000', '2', 'Image object', 1, '[{"added": {}}]', 17, 1);
 
 -- --------------------------------------------------------
 
@@ -230,7 +238,7 @@ CREATE TABLE IF NOT EXISTS `django_content_type` (
 `id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_content_type`
@@ -247,6 +255,8 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (10, 'auth', 'group'),
 (8, 'auth', 'permission'),
 (9, 'auth', 'user'),
+(17, 'backend', 'image'),
+(16, 'backend', 'img_cat'),
 (11, 'contenttypes', 'contenttype'),
 (15, 'frontend', 'slider'),
 (14, 'product', 'product'),
@@ -306,8 +316,53 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('9f82mmjau95hskx2pjkw085oi4ufd6sj', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-21 10:59:17.380000'),
 ('ht34dr3yb04sy8tsjtxofqzaabuk90sj', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-20 21:19:36.423000'),
 ('kktzz2lqq0gradbxukqsilyb3n80dgkn', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-10-16 16:41:55.455000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image`
+--
+
+CREATE TABLE IF NOT EXISTS `image` (
+`id` int(11) NOT NULL,
+  `title` varchar(32) NOT NULL,
+  `cat_id` int(11) NOT NULL,
+  `image` varchar(32) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`id`, `title`, `cat_id`, `image`) VALUES
+(1, 'Focal', 7, 'images/baner-bg-2-3_WOmcw5k.jpg'),
+(2, 'Willisau', 7, 'images/baner-bg-3-3_iUEXKaL.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `img_cat`
+--
+
+CREATE TABLE IF NOT EXISTS `img_cat` (
+`id` int(11) NOT NULL,
+  `cat` varchar(32) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `img_cat`
+--
+
+INSERT INTO `img_cat` (`id`, `cat`) VALUES
+(2, 'Cars'),
+(3, 'Interiors'),
+(4, 'Models'),
+(5, 'Various'),
+(6, 'Architectural'),
+(7, 'Sliders');
 
 -- --------------------------------------------------------
 
@@ -797,6 +852,18 @@ ALTER TABLE `django_session`
  ADD PRIMARY KEY (`session_key`), ADD KEY `django_session_de54fa62` (`expire_date`);
 
 --
+-- Indexes for table `image`
+--
+ALTER TABLE `image`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `img_cat`
+--
+ALTER TABLE `img_cat`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
@@ -875,17 +942,27 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT for table `image`
+--
+ALTER TABLE `image`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `img_cat`
+--
+ALTER TABLE `img_cat`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `order`
 --

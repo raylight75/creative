@@ -101,7 +101,7 @@ li, span {font-family: 'Lato', sans-serif;}
 .table-cell {display: table-cell; vertical-align: middle; height: inherit;}
 .vertical-align {-webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); top:50%; position: absolute; width: 100%; left: 0px;}
 .padd-none {padding: 0;}
-.no-padd {padding-left: 0; padding-right: 0;}
+.no-padd {padding-left: 0; padding-right: 0; padding-top: 15px;}
 .padd-15-all {padding: 15px 15px 0 15px;}
 .padd-15{padding: 0 15px}
 .padd-30{padding: 0 30px}
@@ -2275,7 +2275,7 @@ q.alignright:after {position: absolute; content: ""; top: 0; left: 0; width: 5px
 .share a { float: left; color: #fff; line-height: 33px; padding-left: 13px; padding-right: 45px; }
 .share li i { padding-right: 13px; display: inline-block; position: relative; }
 .share li span { position: absolute; right: 0px; height: 100%; top: 0px; padding: 0px 10px; color: #fff; -moz-border-radius: 3px; border-radius: 3px; font-size: 13px; font-weight: 700; }
-.contact-socail.large a {font-size: 20px; color:#ff6600;}
+.contact-socail.large a {font-size: 30px; color:#ff6600;}
 .buttons-wrap .contact-socail {margin-bottom: 20px;}
 
 .contact-socail {text-align: center;}

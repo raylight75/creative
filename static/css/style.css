@@ -2275,7 +2275,7 @@ q.alignright:after {position: absolute; content: ""; top: 0; left: 0; width: 5px
 .share a { float: left; color: #fff; line-height: 33px; padding-left: 13px; padding-right: 45px; }
 .share li i { padding-right: 13px; display: inline-block; position: relative; }
 .share li span { position: absolute; right: 0px; height: 100%; top: 0px; padding: 0px 10px; color: #fff; -moz-border-radius: 3px; border-radius: 3px; font-size: 13px; font-weight: 700; }
-.contact-socail.large a {font-size: 30px; color:#ff6600;}
+.contact-socail.large a {font-size: 30px; color:#f89b1c;}
 .buttons-wrap .contact-socail {margin-bottom: 20px;}
 
 .contact-socail {text-align: center;}
@@ -3683,7 +3683,7 @@ a:focus, a:hover {color: inherit;}
 }
 
 .contact-5-info p a{
-    color: #ed494f;    
+    color: #f89b1c;    
 }
 
 .contact-5-tabs .tab-nav{
@@ -3718,7 +3718,7 @@ a:focus, a:hover {color: inherit;}
 .contact-5-tabs .tab-nav li.active a{
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #ff4556;    
+    border-bottom: 1px solid #f89b1c;    
 }
 
 .contact-5-tab{

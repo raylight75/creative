@@ -1,5 +1,12 @@
 PYTHON
 
+GIT
+
+git clone https://github.com/libgit2/libgit2
+git pull origin master
+git add .
+git push origin master
+
 
 python get-pip.py
 python manage.py runserver

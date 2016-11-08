@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from backend.models import Image
+from backend.models import Image, Info
 
 
 def index(request):
@@ -12,4 +12,5 @@ def aboutme(request):
 
 
 def contacts(request):
-    return render(request, 'frontend/contacts.html')
+    info = Info.objects.all()
+    return render(request, 'frontend/contacts.html', {'info': info})

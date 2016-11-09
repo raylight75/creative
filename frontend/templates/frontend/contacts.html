@@ -21,27 +21,43 @@
                 <div class="container">
                     <div class="row marg-xs-t50 marg-lg-t110">
                         <div class="col-xs-12 col-sm-6">
-                        {% for i in info %}
+                            {% for i in info %}
+                                <div class="contact-5-info ">
+                                    <h4 class="info-title">Contact Info</h4>
+                                    <p class="info-text"><strong>Notice:</strong> {{ i.contact_info }}</p>
+                                    <p><strong>Email:</strong> <a class="" href="mailto:#">{{ i.email }}</a>
+                                        <br>
+                                        <strong>Phone:</strong> {{ i.phone }}
+                                        <br>
+                                        <strong>Skype:</strong> {{ i.skype }}
+                                        <br>
+                                        <strong>Address:</strong> {{ i.address }}
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-xs-12 col-sm-6">
                             <div class="contact-5-info ">
-                                <h4 class="info-title">Contact Info</h4>
-                                <p class="info-text"><strong>Phone:</strong> {{ i.contact_info }}</p>                       
-                                <p><strong>Email:</strong> <a class="" href="mailto:#">{{ i.email }}</a>
+                                <h5 class="info-title">Additional Info</h5>
+                                <p class="info-text">I currently work full-time as a 3d Artist at Designconnected
+                                    my responsibilities include rendering, modeling, texturing,
+                                    lighting and basic animation.
+                                    I have experience with Autodesk products and above 10 years with 3DS Max.
+                                </p>
+                                <p><strong>Email:</strong> <a class="" href="mailto:#">tihomir@designconnected.com</a>
                                     <br>
-                                    <strong>Phone:</strong> {{ i.phone }}
+                                    <strong>Designconnected</strong>
                                     <br>
-                                    <strong>Skype:</strong> {{ i.skype }}
-                                    <br>
-                                    <strong>Addrerss:</strong> {{ i.address }}
+                                    <strong>Skype :</strong> tiho_blazhev
                                 </p>
                             </div>
                         </div>
-                        {% endfor %}                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   <div class="container-fluid">
+    <div class="container-fluid">
         <div class="team">
             <div class="col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-12">
                 <div class="team-block">
@@ -50,8 +66,8 @@
                         <h4>Tihomir Blajev</h4>
                         <h6>3D Artist</h6>
                         <div class="hiden-text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus accusantium, temporibus
-                                distinctio commodi harum</p>
+                            <p>For more aditional information like PDF,
+                                complete CV, feel free to contact me.</p>
                             <div class="team-share">
                                 <a href="#" class="fa fa-facebook"></a>
                                 <a href="#" class="fa fa-twitter"></a>

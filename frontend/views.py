@@ -14,3 +14,8 @@ def aboutme(request):
 def contacts(request):
     info = Info.objects.all()
     return render(request, 'frontend/contacts.html', {'info': info})
+
+
+def services(request):
+    info = Info.objects.all()
+    return render(request, 'frontend/services.html', {'info': info})

@@ -8,7 +8,9 @@ def index(request):
 
 
 def aboutme(request):
-    return render(request, 'frontend/aboutme.html')
+    info = Info.objects.get(id=1)
+    sliders = Image.objects.filter(cat_id=9)
+    return render(request, 'frontend/aboutme.html', {'info': info, 'sliders': sliders})
 
 
 def contacts(request):

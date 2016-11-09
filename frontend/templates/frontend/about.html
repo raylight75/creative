@@ -6,21 +6,9 @@
                 <div class="swiper-container" data-autoplay="0" data-center="0" data-loop="1" data-slides-per-view="1"
                      data-speed="500">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide swiper-details active s-back-switch" data-val="0">
                             <img alt="slider-about" class="img-responsive s-img-switch" data-s-hidden="1"
-                                 src="{% static "images/slider-about.jpg" %}">
+                                 src="{% static "images/dezeen_banner.jpg" %}">
                             </img>
-                        </div>
-                        <div class="swiper-slide s-back-switch" data-val="1">
-                            <img alt="slider-about" class="img-responsive s-img-switch" data-s-hidden="1"
-                                 src="{% static "images/slider-about.jpg" %}">
-                            </img>
-                        </div>
-                        <div class="swiper-slide s-back-switch" data-val="2">
-                            <img alt="slider-about" class="img-responsive s-img-switch" data-s-hidden="1"
-                                 src="{% static "images/slider-about.jpg" %}">
-                            </img>
-                        </div>
                     </div>
                     <div class="pagination paginat-about">
                     </div>
@@ -36,24 +24,7 @@
                     </h2>
                 </div>
                 <img src="{% static "images/title-separetor.png" %}" class="center-block" alt="img-title-categories">
-                <p>
-                    Hi my name is Tihomir Blajev, a 3d Artist from Bulgaria,Plovdiv welcome to my online portfolio site
-                    showcasing a range of 3D images.
-                    Here is the place where you can find a small selection of some of the things I’ve been involved with
-                    over the years as a 3D Artist and freelancer. I started early in 2004 with Alias Maya and gradually
-                    made the transition to 3DS Max and other 3d packages and I find it a very exciting programs to use.
-                    I have many awards and front pages on popular sites like, Evermotion, CGTalk, CGArena, CGArchitect,
-                    3D Total, 3Dbg, Blender Guru, Blender Artist, renders as well in many online magazines and books
-                    such, The art of Blender, 3d Artist, 3D World , CGArena, Ceiga.
-                    I am skilled in, lighting, rendering, 3D modelling, texturing, uwunwraping and basic animation.
-                    I currently work full-time as a 3d Artist at Designconnected my responsibilities include rendering,
-                    modeling, texturing, lighting and basic animation.I worked 6 year like freelance artist and from
-                    2010 at designconnected as 3D Artist.I have experience with Autodesk products and around 7 years
-                    with 3DS Max.
-                </p>
-                <p class="special-text">
-                    don't be so shy
-                </p>
+                <p>{{ info.aboutme }}</p>
             </div>
             <!-- .title categories -->
         </div>

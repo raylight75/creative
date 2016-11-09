@@ -1,5 +1,48 @@
 {% extends "frontend/base.html" %}
 {% load static %}
 {% block content %}
-    <!--==========Content============-->
+    <!--==========CONTENT============-->
+    <div class="content">
+        <div class="header-content half-height">
+            <!-- header content -->
+            <div class="bg-header-content" style="background-image:url({{MEDIA_URL}}/{{ sliders.image }})"></div>
+            <div class="row">
+                <div class="text-header-portf center-block">
+                    <div class="main-title whitecolor">
+                        <h2>SERVICES</h2>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .header content -->
+        <div class="container">        
+            <div class="row marg-lg-t50">
+            {% for s in service %}
+                <div class="col-xs-12 col-sm-4">                
+                    <div class="service-1-box">
+                        <div class="service-1-icon">
+                            <img src="{{MEDIA_URL}}/{{ s.image }}" class="img-responsive" alt="alt">
+                        </div>
+                        <h3 class="service-1-title">{{ s.name }}</h3>
+                        <div class="service-1-desc">{{ s.text }}
+                        </div>
+                    </div>                     
+                </div>
+            {% endfor %}                 
+            </div>                               
+        </div>
+        <div class="container">
+            <div class="row marg-xs-t40 marg-xs-b40 marg-lg-t140 marg-lg-b140">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="serv-ban-info drk-c">
+                        <h3 class="ban-heading">WORK PROCESS</h3>
+                        <div class="ban-text">
+                            <p>Presents your ideas with skeches, drawings, send me 3D files or CAD plans to discuss and choose the most appropriate solution for them.I will try to get for you the best product and quality in rendering, modeling and texturing compared to global standards in CG industry.
+                            </p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>       
+    </div>
 {% endblock %}

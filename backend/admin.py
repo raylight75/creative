@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from backend.models import Img_cat, Image, Info
+from backend.models import Img_cat, Image, Info, Service
 
 
 @admin.register(Img_cat)
@@ -24,6 +24,13 @@ class InfoAdmin(admin.ModelAdmin):
     list_filter = ('email', 'skype')
     list_display = ('id', 'aboutme', 'email', 'phone', 'skype', 'address')
     search_fields = ('id', 'email',)
+
+
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    list_filter = ('name',)
+    list_display = ('id', 'text', 'name', 'image', 'thumb')
+    search_fields = ('id', 'name',)
 
 
 admin.site.site_header = 'Portfolio Admin'

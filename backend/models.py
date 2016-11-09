@@ -40,3 +40,18 @@ class Info(models.Model):
 
     class Meta:
         db_table = 'info'
+
+
+class Service(models.Model):
+    text = models.TextField()
+    name = models.CharField(max_length=32)
+    image = models.ImageField(upload_to="images")
+
+    def thumb(self):
+        return mark_safe('<img src="/public/%s" width="20" height="20" />' % (self.image))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'service'

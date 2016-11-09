@@ -1400,7 +1400,7 @@ button.mfp-close, button.mfp-arrow {width: 40px; height: 40px; background-color:
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
 .header-about {background: url("../images/baner-bg-5.jpg") no-repeat center center fixed; background-size: cover;}
-.sec-about {display: inline-block; padding-top: 25px; text-align: center;}
+.sec-about {display: inline-block; padding-top: 100px; text-align: center;}
 .sec-about img {display: block; margin-top: 25px; margin-bottom: 50px;}
 .sec-about .about-img {margin-top: 80px;}
 .text-header-portf img {margin-top: 25px; margin-bottom: 25px;}

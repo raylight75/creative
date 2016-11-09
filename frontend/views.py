@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from backend.models import Image, Info
+from backend.models import Image, Info, Service
 
 
 def index(request):
@@ -17,5 +17,6 @@ def contacts(request):
 
 
 def services(request):
-    info = Info.objects.all()
-    return render(request, 'frontend/services.html', {'info': info})
+    service = Service.objects.all()
+    sliders = Image.objects.get(cat_id=8)
+    return render(request, 'frontend/services.html', {'service': service, 'sliders': sliders})

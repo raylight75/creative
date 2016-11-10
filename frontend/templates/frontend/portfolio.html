@@ -25,7 +25,7 @@
                         <div class="izotope-container col-4 popup-gallery low-space">
                             <div class="grid-sizer"></div>
                             {% for i in images %}
-                            <div class="item item-portf wedding wow fadeInUpBig">
+                            <div class="item item-portf {{ i.cat }} wow fadeInUpBig">
                                     <img src="{{MEDIA_URL}}/{{ i.image}}" alt="">
                                     <a href="{{MEDIA_URL}}/{{ i.image}}" class="item-desc view-item" data-effect="zoomIn">
                                         <div class="item-info">

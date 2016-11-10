@@ -14,17 +14,17 @@ class ImgcatAdmin(admin.ModelAdmin):
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
     list_per_page = 10
-    list_filter = ('id', 'title')
+    list_filter = ('cat', 'title')
     list_display = ('id', 'thumb', 'title', 'cat', 'image',)
-    search_fields = ('id', 'title',)
+    search_fields = ('cat', 'title',)
 
 
 @admin.register(Slider)
 class SliderAdmin(admin.ModelAdmin):
     list_per_page = 10
-    list_filter = ('id', 'title')
+    list_filter = ('cat', 'title')
     list_display = ('id', 'thumb', 'title', 'cat', 'image',)
-    search_fields = ('id', 'title',)
+    search_fields = ('cat', 'title',)
 
 
 @admin.register(Info)

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2016 at 04:42 PM
+-- Generation Time: Nov 10, 2016 at 10:21 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -223,7 +223,28 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (36, '2016-11-10 13:34:25.407000', '2', 'Image object', 1, '[{"added": {}}]', 17, 1),
 (37, '2016-11-10 15:22:49.226000', '3', 'Image object', 1, '[{"added": {}}]', 17, 1),
 (38, '2016-11-10 15:24:07.837000', '4', 'Image object', 1, '[{"added": {}}]', 17, 1),
-(39, '2016-11-10 15:40:49.636000', '5', 'Image object', 1, '[{"added": {}}]', 17, 1);
+(39, '2016-11-10 15:40:49.636000', '5', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(40, '2016-11-10 19:23:49.932000', '6', 'Slider object', 1, '[{"added": {}}]', 20, 1),
+(41, '2016-11-10 19:45:29.082000', '6', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(42, '2016-11-10 19:46:03.510000', '7', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(43, '2016-11-10 19:46:42.433000', '8', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(44, '2016-11-10 19:49:34.937000', '9', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(45, '2016-11-10 19:50:30.067000', '10', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(46, '2016-11-10 19:51:21.996000', '11', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(47, '2016-11-10 19:52:46.694000', '12', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(48, '2016-11-10 19:57:12.410000', '13', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(49, '2016-11-10 19:57:38.734000', '14', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(50, '2016-11-10 19:59:48.265000', '15', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(51, '2016-11-10 20:00:27.808000', '16', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(52, '2016-11-10 20:01:49.915000', '17', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(53, '2016-11-10 20:03:18.929000', '18', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(54, '2016-11-10 20:05:01.420000', '19', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(55, '2016-11-10 20:05:50.149000', '20', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(56, '2016-11-10 20:07:06.764000', '21', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(57, '2016-11-10 20:08:50.835000', '22', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(58, '2016-11-10 20:09:21.652000', '23', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(59, '2016-11-10 20:10:55.562000', '24', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(60, '2016-11-10 20:14:23.348000', '21', 'Image object', 2, '[]', 17, 1);
 
 -- --------------------------------------------------------
 
@@ -333,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   `title` varchar(32) NOT NULL,
   `cat_id` int(11) NOT NULL,
   `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `image`
@@ -344,7 +365,26 @@ INSERT INTO `image` (`id`, `title`, `cat_id`, `image`) VALUES
 (2, 'Arion Render', 2, 'images/a10.jpg'),
 (3, 'View', 6, 'images/ar3.jpg'),
 (4, 'Style', 3, 'images/new_scene3.jpg'),
-(5, 'Kitchen', 3, 'images/i15.jpg');
+(5, 'Kitchen', 3, 'images/i15.jpg'),
+(6, 'Leopard', 5, 'images/m1.jpg'),
+(7, 'Hero', 5, 'images/m6.jpg'),
+(8, 'Mac', 4, 'images/b11.jpg'),
+(9, 'BO', 3, 'images/i1.jpg'),
+(10, 'Lamborgini', 2, 'images/a4.jpg'),
+(11, 'Night', 6, 'images/ar6.jpg'),
+(12, 'Tiger WW2', 5, 'images/m2.jpg'),
+(13, 'Blender Cycles', 3, 'images/i7.jpg'),
+(14, 'Prism', 5, 'images/l3.jpg'),
+(15, 'Tadao', 6, 'images/test5_fina_3.jpg'),
+(16, 'Fighter', 5, 'images/m7.jpg'),
+(17, 'Contemporary', 3, 'images/contemporary_2.jpg'),
+(18, 'Audi Motion', 2, 'images/a7.jpg'),
+(19, 'BMW M3', 2, 'images/a13.jpg'),
+(20, 'BMW DOF', 2, 'images/a15.jpg'),
+(21, 'Lights', 4, 'images/designhouses.jpg'),
+(22, 'Interior', 3, 'images/kipriana_4.jpg'),
+(23, 'Modern Kitchen', 3, 'images/Kitchen_Final.jpg'),
+(24, 'Nimbus', 3, 'images/Nimbus_Roxanne.jpg');
 
 -- --------------------------------------------------------
 
@@ -444,7 +484,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `title` varchar(32) NOT NULL,
   `cat_id` int(11) NOT NULL,
   `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `slider`
@@ -452,10 +492,11 @@ CREATE TABLE IF NOT EXISTS `slider` (
 
 INSERT INTO `slider` (`id`, `title`, `cat_id`, `image`) VALUES
 (1, 'Focal', 7, 'images/baner-bg-2-3_WOmcw5k.jpg'),
-(2, 'Willisau', 7, 'images/baner-bg-3-3_iUEXKaL.jpg'),
+(2, 'Tadao Ando', 7, 'images/baner-bg-3-3_iUEXKaL.jpg'),
 (3, 'service_bg', 8, 'images/contact-sep2.jpg'),
 (4, 'Slide_aboutme', 9, 'images/dezeen_banner2.jpg'),
-(5, 'About_top', 10, 'images/baner-bg-11.jpg');
+(5, 'About_top', 10, 'images/baner-bg-11.jpg'),
+(6, 'Miura', 7, 'images/miura.jpg');
 
 --
 -- Indexes for dumped tables
@@ -595,7 +636,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
@@ -610,7 +651,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `img_cat`
 --
@@ -635,7 +676,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --

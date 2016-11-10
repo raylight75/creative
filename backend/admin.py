@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from backend.models import Img_cat, Image, Info, Service
+from backend.models import Img_cat, Slider, Info, Service, Image
 
 
 @admin.register(Img_cat)
@@ -13,6 +13,14 @@ class ImgcatAdmin(admin.ModelAdmin):
 
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
+    list_per_page = 10
+    list_filter = ('id', 'title')
+    list_display = ('id', 'thumb', 'title', 'cat', 'image',)
+    search_fields = ('id', 'title',)
+
+
+@admin.register(Slider)
+class SliderAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_filter = ('id', 'title')
     list_display = ('id', 'thumb', 'title', 'cat', 'image',)

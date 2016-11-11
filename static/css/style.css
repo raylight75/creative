@@ -398,7 +398,7 @@ nav {height: inherit; position: relative; float: left;}
 .menu ul > li > ul > li > a:hover {color: #333;}
 .menu ul > li .multi-menu {width: 580px; min-height: 270px; left: inherit; right: 0;}
 .menu ul > li .multi-menu li {display: inline-block; width: 190px;}
-.menu .menu-item.active {background:#f5f5f5;}
+.menu .menu-item.active {color: #333; border-bottom: 2px solid #f89b1c; transition: all .3s ease-out;}
 .dl-back{
 	display: none !important;
 }
@@ -939,7 +939,7 @@ transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 10ms;}
 .fillter-wrap {text-align: center; padding: 15px 0;}
 .fillter-wrap ul li {display: inline-block; position: relative; line-height: 28px; padding: 8px 15px;}
 .fillter-wrap .but {display: block; font: 700 11px 'Lato', sans-serif;  text-transform: uppercase; letter-spacing: 3px; color: #999; padding: 5px 0; border-bottom: 1px solid #fff;}
-.fillter-wrap .active-fillter {color: #333; border-bottom: 1px solid #333; transition: all .3s ease-out;}
+.fillter-wrap .active-fillter {color: #333; border-bottom: 2px solid #f89b1c; transition: all .3s ease-out;}
 
 
 .izotope-container .item:hover .item-content {opacity: 1; cursor: pointer; -webkit-transition: opacity .4s ease; -moz-transition: opacity .4s ease; transition: opacity .4s ease;}

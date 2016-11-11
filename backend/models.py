@@ -11,7 +11,19 @@ class Img_cat(models.Model):
         return self.cat
 
     class Meta:
+        ordering = ('id',)
         db_table = 'img_cat'
+
+
+class Sld_cat(models.Model):
+    cat = models.CharField(max_length=32)
+
+    def __str__(self):
+        return self.cat
+
+    class Meta:
+        ordering = ('id',)
+        db_table = 'sld_cat'
 
 
 class Image(models.Model):
@@ -29,7 +41,7 @@ class Image(models.Model):
 
 class Slider(models.Model):
     title = models.CharField(max_length=32)
-    cat = models.ForeignKey(Img_cat)
+    cat = models.ForeignKey(Sld_cat)
     image = models.ImageField(upload_to="images")
 
     def thumb(self):
@@ -67,4 +79,5 @@ class Service(models.Model):
         return self.name
 
     class Meta:
+        ordering = ('id',)
         db_table = 'service'

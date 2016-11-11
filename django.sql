@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2016 at 10:21 PM
+-- Generation Time: Nov 11, 2016 at 02:00 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$30000$0ogIQaBfGAxD$e2yGO9gF/HgRgLiLKJM9pWBYz6Wd4dB4sxX9suPCS8w=', '2016-11-10 15:38:50.899000', 1, 'admin', 'Admin', 'admin', 'raylight75@gmail.com', 1, 1, '2016-09-29 15:28:24.019000'),
+(1, 'pbkdf2_sha256$30000$0ogIQaBfGAxD$e2yGO9gF/HgRgLiLKJM9pWBYz6Wd4dB4sxX9suPCS8w=', '2016-11-11 08:32:32.967000', 1, 'admin', 'Admin', 'admin', 'raylight75@gmail.com', 1, 1, '2016-09-29 15:28:24.019000'),
 (2, 'pbkdf2_sha256$30000$t6XjNB5AixMd$DfyScV/hVbBq+Z3u28Xxt8d9CCaO0Rf1aVxoCRM3U7s=', '2016-10-27 20:25:53.068000', 0, 'ana', 'Ana', 'Blajeva', 'ana.blajeva@abv.bg', 1, 1, '2016-09-29 15:30:38.168000'),
 (5, 'pbkdf2_sha256$30000$b55ZL4KcdJ2C$mJkECpkCmOO0RO/dwRQf6vethF8fPRzVp6/3AmeRyXY=', '2016-10-06 19:15:29.156000', 0, 'Ivan', 'Ivan', 'Ivanov', 'Ivan@abv.bg', 1, 1, '2016-10-05 18:01:13.050000');
 
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -244,7 +244,28 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (57, '2016-11-10 20:08:50.835000', '22', 'Image object', 1, '[{"added": {}}]', 17, 1),
 (58, '2016-11-10 20:09:21.652000', '23', 'Image object', 1, '[{"added": {}}]', 17, 1),
 (59, '2016-11-10 20:10:55.562000', '24', 'Image object', 1, '[{"added": {}}]', 17, 1),
-(60, '2016-11-10 20:14:23.348000', '21', 'Image object', 2, '[]', 17, 1);
+(60, '2016-11-10 20:14:23.348000', '21', 'Image object', 2, '[]', 17, 1),
+(61, '2016-11-11 08:53:08.218000', '25', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(62, '2016-11-11 08:55:33.593000', '26', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(63, '2016-11-11 08:56:15.088000', '27', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(64, '2016-11-11 08:57:12.868000', '28', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(65, '2016-11-11 08:57:12.868000', '29', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(66, '2016-11-11 08:59:00.779000', '29', 'Image object', 2, '[{"changed": {"fields": ["title", "image"]}}]', 17, 1),
+(67, '2016-11-11 09:22:47.448000', '30', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(68, '2016-11-11 09:24:27.066000', '31', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(69, '2016-11-11 09:25:06.868000', '32', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(70, '2016-11-11 09:28:35.577000', '33', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(71, '2016-11-11 10:46:46.245000', '34', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(72, '2016-11-11 11:18:07.532000', '35', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(73, '2016-11-11 12:13:24.556000', '36', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(74, '2016-11-11 12:14:55.184000', '37', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(75, '2016-11-11 12:16:50.271000', '38', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(76, '2016-11-11 12:17:29.574000', '38', 'Image object', 2, '[{"changed": {"fields": ["image"]}}]', 17, 1),
+(77, '2016-11-11 12:18:19.879000', '39', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(78, '2016-11-11 12:18:19.942000', '40', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(79, '2016-11-11 12:18:50.761000', '41', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(80, '2016-11-11 12:19:45.498000', '42', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(81, '2016-11-11 12:21:26.902000', '40', 'Image object', 3, '', 17, 1);
 
 -- --------------------------------------------------------
 
@@ -341,6 +362,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('glco278pwno3jb63sye7yts448y0ihe1', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-23 08:16:10.226000'),
 ('ht34dr3yb04sy8tsjtxofqzaabuk90sj', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-20 21:19:36.423000'),
 ('kktzz2lqq0gradbxukqsilyb3n80dgkn', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-10-16 16:41:55.455000'),
+('mkad6nh2pu7yucxk9u2mje446cwvvcjv', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-25 08:32:33.128000'),
 ('rwlajmj43to520268ot2bnjx211rft58', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-24 15:38:51.106000');
 
 -- --------------------------------------------------------
@@ -354,7 +376,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   `title` varchar(32) NOT NULL,
   `cat_id` int(11) NOT NULL,
   `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `image`
@@ -384,7 +406,24 @@ INSERT INTO `image` (`id`, `title`, `cat_id`, `image`) VALUES
 (21, 'Lights', 4, 'images/designhouses.jpg'),
 (22, 'Interior', 3, 'images/kipriana_4.jpg'),
 (23, 'Modern Kitchen', 3, 'images/Kitchen_Final.jpg'),
-(24, 'Nimbus', 3, 'images/Nimbus_Roxanne.jpg');
+(24, 'Nimbus', 3, 'images/Nimbus_Roxanne.jpg'),
+(25, 'Jar', 4, 'images/Jar_of_Sandwich.jpg'),
+(26, 'Armchairs', 4, 'images/b12.jpg'),
+(27, 'Sofa', 4, 'images/test_sofa_7.jpg'),
+(28, 'Audi', 2, 'images/a6.jpg'),
+(29, 'Lancer EVO', 2, 'images/Lancer_EVO.jpg'),
+(30, 'OKA', 3, 'images/nkuku_oka_film_9.jpg'),
+(31, 'Bedroom', 3, 'images/i9.jpg'),
+(32, 'Japan Architecture', 6, 'images/ar5.jpg'),
+(33, 'Vertical Windows', 3, 'images/scene_06.jpg'),
+(34, 'Elephant', 4, 'images/elephant_03.jpg'),
+(35, 'Spartan', 1, 'images/test17.jpg'),
+(36, 'teutonic knight', 1, 'images/m9.jpg'),
+(37, 'Yasmin', 4, 'images/yasmin_chair_02.jpg'),
+(38, 'Tadao Ando View', 6, 'images/ar2_eOWhPqA.jpg'),
+(39, 'Sofa Brown', 4, 'images/b6.jpg'),
+(41, 'WW2', 5, 'images/m5.jpg'),
+(42, 'Honda CRZ', 2, 'images/a9.jpg');
 
 -- --------------------------------------------------------
 
@@ -402,15 +441,12 @@ CREATE TABLE IF NOT EXISTS `img_cat` (
 --
 
 INSERT INTO `img_cat` (`id`, `cat`) VALUES
+(1, 'Sculpting'),
 (2, 'Cars'),
 (3, 'Interiors'),
 (4, 'Models'),
 (5, 'Various'),
-(6, 'Architectural'),
-(7, 'Sliders'),
-(8, 'Service Slider'),
-(9, 'Aboutme'),
-(10, 'about_top');
+(6, 'Architectural');
 
 -- --------------------------------------------------------
 
@@ -476,6 +512,27 @@ INSERT INTO `service` (`id`, `text`, `name`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sld_cat`
+--
+
+CREATE TABLE IF NOT EXISTS `sld_cat` (
+`id` int(11) NOT NULL,
+  `cat` varchar(32) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sld_cat`
+--
+
+INSERT INTO `sld_cat` (`id`, `cat`) VALUES
+(1, 'Sliders'),
+(2, 'Service Slider'),
+(3, 'Aboutme'),
+(4, 'about_top');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `slider`
 --
 
@@ -491,12 +548,12 @@ CREATE TABLE IF NOT EXISTS `slider` (
 --
 
 INSERT INTO `slider` (`id`, `title`, `cat_id`, `image`) VALUES
-(1, 'Focal', 7, 'images/baner-bg-2-3_WOmcw5k.jpg'),
-(2, 'Tadao Ando', 7, 'images/baner-bg-3-3_iUEXKaL.jpg'),
-(3, 'service_bg', 8, 'images/contact-sep2.jpg'),
-(4, 'Slide_aboutme', 9, 'images/dezeen_banner2.jpg'),
-(5, 'About_top', 10, 'images/baner-bg-11.jpg'),
-(6, 'Miura', 7, 'images/miura.jpg');
+(1, 'Focal', 1, 'images/baner-bg-2-3_WOmcw5k.jpg'),
+(2, 'Tadao Ando', 1, 'images/baner-bg-3-3_iUEXKaL.jpg'),
+(3, 'service_bg', 2, 'images/contact-sep2.jpg'),
+(4, 'Slide_aboutme', 3, 'images/dezeen_banner2.jpg'),
+(5, 'About_top', 4, 'images/baner-bg-11.jpg'),
+(6, 'Miura', 1, 'images/miura.jpg');
 
 --
 -- Indexes for dumped tables
@@ -593,6 +650,12 @@ ALTER TABLE `service`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sld_cat`
+--
+ALTER TABLE `sld_cat`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `slider`
 --
 ALTER TABLE `slider`
@@ -636,7 +699,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=61;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
@@ -651,7 +714,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `img_cat`
 --
@@ -672,6 +735,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `service`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `sld_cat`
+--
+ALTER TABLE `sld_cat`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `slider`
 --

@@ -15,6 +15,8 @@ python manage.py startapp polls
 
 Install MySQL:
 easy_install MySQL-python or pip install MySQL-python
+pip install Pillow
+pip install django-ckeditor
 python manage.py inspectdb
 python manage.py makemigrations
 python manage.py migrate

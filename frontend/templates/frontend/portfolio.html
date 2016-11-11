@@ -1,46 +1,47 @@
 {% extends "frontend/base.html" %}
 {% load static %}
-{% block content %}    
+{% block content %}
     <!--==========Content============-->
     <div class="categories">
-            <!-- portfolio categories -->
-            <div class="container-fluid">
-                <div class="main-categories categories-albums">
-                    <!-- main categories -->
-                    <div class="row">
-                        <div id="filters" class="fillter-wrap">
-                            <!-- filters -->
-                            <ul>
+        <!-- portfolio categories -->
+        <div class="container-fluid">
+            <div class="main-categories categories-albums">
+                <!-- main categories -->
+                <div class="row">
+                    <div id="filters" class="fillter-wrap">
+                        <!-- filters -->
+                        <ul>
+                            <li>
+                                <button class="but active-fillter" data-filter="*">All</button>
+                            </li>
+                            {% for c in cats %}
                                 <li>
-                                    <button class="but active-fillter" data-filter="*">All </button>
+                                    <button class="but" data-filter=".{{ c.cat }}"> {{ c.cat }}</button>
                                 </li>
-                                {% for c in cats %}
-                                <li>
-                                    <button class="but" data-filter=".{{ c.cat}}"> {{ c.cat }}</button>
-                                </li>
-                                {% endfor %}                          
-                            </ul>
-                        </div>
-                        <!-- .filters -->
-                        <div class="izotope-container col-4 popup-gallery low-space">
-                            <div class="grid-sizer"></div>
-                            {% for i in images %}
-                            <div class="item item-portf {{ i.cat }} wow fadeInUpBig">
-                                    <img src="{{MEDIA_URL}}/{{ i.image}}" alt="">
-                                    <a href="{{MEDIA_URL}}/{{ i.image}}" class="item-desc view-item" data-effect="zoomIn">
-                                        <div class="item-info">
-                                            <h2>{{ i.title }}</h2>
-                                            <h6>{{ i.cat }}</h6>
-                                        </div>
-                                    </a>
-                                </div>
                             {% endfor %}
-                        </div>
+                        </ul>
+                    </div>
+                    <!-- .filters -->
+                    <div class="izotope-container col-4 popup-gallery low-space">
+                        <div class="grid-sizer"></div>
+                        {% for i in images %}
+                            <div class="item item-portf {{ i.cat }} wow fadeInUpBig">
+                                <img src="{{ MEDIA_URL }}/{{ i.image }}" alt="">
+                                <a href="{{ MEDIA_URL }}/{{ i.image }}" class="item-desc view-item"
+                                   data-effect="zoomIn">
+                                    <div class="item-info">
+                                        <h2>{{ i.title }}</h2>
+                                        <h6>{{ i.cat }}</h6>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
-                <!-- .main categories -->
             </div>
+            <!-- .main categories -->
         </div>
-        <!-- .portfolio categories -->
+    </div>
+    <!-- .portfolio categories -->
     </div>
 {% endblock %}

@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..').replace('\\','/')
+PROJECT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..').replace('\\', '/')
 SITE_ROOT = PROJECT_ROOT
 
 # Path to media files, e.g. images
@@ -22,7 +22,6 @@ MEDIA_ROOT = os.path.join(SITE_ROOT, 'public')
 MEDIA_URL = '/portfolio/public/'
 STATIC_ROOT = "/home/tihoblaj/public_html/portfolio/static"
 STATIC_URL = '/portfolio/static/'
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -35,12 +34,11 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.tihoblajev.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
     'backend.apps.BackendConfig',
-    'frontend.apps.FrontendConfig', 
+    'frontend.apps.FrontendConfig',
     'django.contrib.admin',
     'registration',
     'django.contrib.auth',
@@ -81,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cms.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -95,7 +92,6 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -115,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -129,13 +124,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-REGISTRATION_OPEN = True        # If True, users can register
-ACCOUNT_ACTIVATION_DAYS = 7     # One-week activation window; you may, of course, use a different value.
+REGISTRATION_OPEN = True  # If True, users can register
+ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
 REGISTRATION_AUTO_LOGIN = True  # If True, the user will be automatically logged in.
 INCLUDE_AUTH_URLS = True
 INCLUDE_REGISTER_URL = True
 LOGIN_REDIRECT_URL = '/web/profile'
+
+# For email
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'sender@gmail.com'
+# EMAIL_HOST_PASSWORD = 'app_specific_password'
+# EMAIL_PORT = 587
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

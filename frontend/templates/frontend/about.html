@@ -23,8 +23,31 @@
                         Few Words About Me
                     </h2>
                 </div>
-                <img src="{% static "images/title-separetor.png" %}" class="center-block" alt="img-title-categories">
-                <p>{{ info.aboutme }}</p>
+                <div class="shortcodes-page">
+                <div class="column-price">
+                    <div class="quotes-content">
+                        <!-- quotes content -->
+                        <div class="quotes-column">
+                            <div class="content-quotes-column">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text-wrapper-quotes">
+                                            <p>{{ info.aboutme }}
+                                                {% comment %}<q class=" alignright">Vivamus ultrices nibh sed quam vehicula, eget
+                                                    hendrerit ipsum molestie. Sed non vehicula enim. Ut nisl felis,
+                                                    tincidunt vitae auctor et, malesuada porta lorem. Praesent vel
+                                                    metus lectus.
+                                                </q>{% endcomment %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .quotes content -->
+                </div>
+            </div>
             </div>
             <!-- .title categories -->
         </div>

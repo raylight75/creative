@@ -4,7 +4,7 @@ from django.utils.safestring import mark_safe
 from django.db import models
 
 
-class Img_cat(models.Model):
+class Img_Cat(models.Model):
     cat = models.CharField(max_length=32)
 
     def __str__(self):
@@ -15,7 +15,7 @@ class Img_cat(models.Model):
         db_table = 'img_cat'
 
 
-class Sld_cat(models.Model):
+class Sld_Cat(models.Model):
     cat = models.CharField(max_length=32)
 
     def __str__(self):
@@ -28,7 +28,7 @@ class Sld_cat(models.Model):
 
 class Image(models.Model):
     title = models.CharField(max_length=32)
-    cat = models.ForeignKey(Img_cat)
+    cat = models.ForeignKey(Img_Cat)
     image = models.ImageField(upload_to="images")
 
     def thumb(self):
@@ -41,7 +41,7 @@ class Image(models.Model):
 
 class Slider(models.Model):
     title = models.CharField(max_length=32)
-    cat = models.ForeignKey(Sld_cat)
+    cat = models.ForeignKey(Sld_Cat)
     image = models.ImageField(upload_to="images")
 
     def thumb(self):

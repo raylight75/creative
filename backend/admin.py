@@ -1,18 +1,18 @@
 from django.contrib import admin
 
-from backend.models import Img_cat, Slider, Info, Service, Image, Sld_cat
+from backend.models import Img_Cat, Slider, Info, Service, Image, Sld_Cat
 
 
-@admin.register(Img_cat)
-class ImgcatAdmin(admin.ModelAdmin):
+@admin.register(Img_Cat)
+class ImgCatAdmin(admin.ModelAdmin):
     list_per_page = 5
     list_filter = ('cat',)
     list_display = ('id', 'cat',)
     search_fields = ('cat',)
 
 
-@admin.register(Sld_cat)
-class SldcatAdmin(admin.ModelAdmin):
+@admin.register(Sld_Cat)
+class SldCatAdmin(admin.ModelAdmin):
     list_per_page = 5
     list_filter = ('cat',)
     list_display = ('id', 'cat',)

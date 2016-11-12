@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from backend.models import Slider, Info, Service, Image, Img_cat
+from backend.models import Slider, Info, Service, Image, Img_Cat
 
 
 def index(request):
@@ -20,7 +20,7 @@ def contacts(request):
 
 def portfolio(request):
     images = Image.objects.all()
-    cats = Img_cat.objects.all()    
+    cats = Img_Cat.objects.all()
     return render(request, 'frontend/portfolio.html', {'images': images, 'cats': cats})
 
 

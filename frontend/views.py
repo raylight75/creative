@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from backend.models import Slider, Info, Service, Image, Img_Cat
+from .forms import ContactForm
 
 
 def index(request):
@@ -14,8 +15,9 @@ def aboutme(request):
 
 
 def contacts(request):
+    form_class = ContactForm
     info = Info.objects.all()
-    return render(request, 'frontend/contacts.html', {'info': info})
+    return render(request, 'frontend/contacts.html', {'info': info, 'form': form_class})
 
 
 def portfolio(request):

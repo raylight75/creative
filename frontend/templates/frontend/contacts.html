@@ -56,45 +56,48 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="team">
-            <div class="col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-12">
-                <div class="team-block">
-                    <img src="{% static "images/team-6.jpg" %}" alt="">
-                    <div class="later-team">
-                        <h4>Tihomir Blajev</h4>
-                        <h6>3D Artist</h6>
-                        <div class="hiden-text">
-                            <p>For more aditional information like PDF,
-                                complete CV, feel free to contact me.</p>
-                            <div class="team-share">
-                                <a href="#" class="fa fa-facebook"></a>
-                                <a href="#" class="fa fa-twitter"></a>
-                                <a href="#" class="fa fa-pinterest"></a>
-                            </div>
-                        </div>
-                    </div>
+	<div class="container-fluid">
+		<div class="team">
+			<div
+				class="col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-12">
+				<div class="team-block">
+					<img src="{% static "images/team-6.jpg" %}" alt="">
+					<div class="later-team">
+						<h4>Tihomir Blajev</h4>
+						<h6>3D Artist</h6>
+						<div class="hiden-text">
+							<p>For more aditional information like PDF, complete CV, feel
+								free to contact me.</p>
+							<div class="team-share">
+								<a href="#" class="fa fa-facebook"></a> <a href="#"
+									class="fa fa-twitter"></a> <a href="#" class="fa fa-pinterest"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="contact-form-2 style-2">               
+				{% for field in form %}
+				<div class="col-sm-offset-2 col-sm-10">
+					<span class="text-danger small">{{ field.errors }}</span>
+				</div>                
+				{% endfor %}
+				<h2>Drop me a line</h2>
+				<form action="" class="marg-lg-t30" method="post">
+					{% csrf_token %}
+					<fieldset class="clearfix">{{ form.contact_email }} {{form.subject }}</fieldset>
+					<fieldset>{{ form.message }}</fieldset>
+					<fieldset class="submit-fieldset">
+						<input type="submit" class="submit" value="Send Email">
+					</fieldset>
+				</form>
+			</div>
+		</div>         
+	</div>
+    {% for message in messages %}
+                <div class="alert alert-success {{ message.tags }}" 
+                     {% if message.tags %} 
+                     {% endif %}>{{ message }}
                 </div>
-            </div>
-            <div class="contact-form-2 style-2">
-                <h2>Drop me a line</h2>
-                <form action="http://wp.city/" class="marg-lg-t30">
-                    <fieldset class="clearfix">
-                        <input type="text" class="cont-5-inp name" placeholder="First Name*">
-                        <input type="text" class="cont-5-inp email" placeholder="Last Name">
-                    </fieldset>
-                    <fieldset class="clearfix">
-                        <input type="email" class="cont-5-inp name" placeholder="E-mail address*">
-                        <input type="text" class="cont-5-inp email" placeholder="Website">
-                    </fieldset>
-                    <fieldset>
-                        <textarea cols="40" rows="6" class="cont-5-inp" placeholder="Message*"></textarea>
-                    </fieldset>
-                    <fieldset class="submit-fieldset">
-                        <input type="submit" class="submit" value="Send Email">
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 {% endblock %}

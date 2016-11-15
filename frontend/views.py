@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib import messages
 from backend.models import Slider, Info, Service, Image, Img_Cat
 from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 
 def index(request):
@@ -14,10 +17,31 @@ def aboutme(request):
     return render(request, 'frontend/aboutme.html', {'info': info, 'sliders': sliders})
 
 
-def contacts(request):
+def contacts(request):    
+    if request.method == 'GET':
+        form_class = ContactForm
+        info = Info.objects.all() 
+        context = {"form": form_class, "info": info}
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():            
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['contact_email']            
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['admin@example.com'])                
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('thanks')       
+    return render(request, 'frontend/contacts.html', context)
+
+
+def thanks(request):
+    messages.success(request, 'Thank you for your Email.')
     form_class = ContactForm
-    info = Info.objects.all()
-    return render(request, 'frontend/contacts.html', {'info': info, 'form': form_class})
+    info = Info.objects.all() 
+    context = {"form": form_class, "info": info}
+    return render(request, 'frontend/contacts.html', context)
 
 
 def portfolio(request):

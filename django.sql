@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.0.10.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 11, 2016 at 02:00 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: localhost:3306
+-- Generation Time: Nov 15, 2016 at 09:39 AM
+-- Server version: 5.6.33-cll-lve
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `django`
+-- Database: `tihoblaj_django`
 --
 
 -- --------------------------------------------------------
@@ -27,9 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group` (
-`id` int(11) NOT NULL,
-  `name` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -38,10 +40,13 @@ CREATE TABLE IF NOT EXISTS `auth_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
-  `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` (`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -50,11 +55,13 @@ CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_permission` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
-  `codename` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_01ab375a_uniq` (`content_type_id`,`codename`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
 
 --
 -- Dumping data for table `auth_permission`
@@ -109,7 +116,7 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `password` varchar(128) NOT NULL,
   `last_login` datetime(6) DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
@@ -119,17 +126,20 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `email` varchar(254) NOT NULL,
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
-  `date_joined` datetime(6) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `date_joined` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$30000$0ogIQaBfGAxD$e2yGO9gF/HgRgLiLKJM9pWBYz6Wd4dB4sxX9suPCS8w=', '2016-11-11 08:32:32.967000', 1, 'admin', 'Admin', 'admin', 'raylight75@gmail.com', 1, 1, '2016-09-29 15:28:24.019000'),
+(1, 'pbkdf2_sha256$30000$0ogIQaBfGAxD$e2yGO9gF/HgRgLiLKJM9pWBYz6Wd4dB4sxX9suPCS8w=', '2016-11-15 07:36:49.119620', 1, 'admin', 'Admin', 'admin', 'raylight75@gmail.com', 1, 1, '2016-09-29 15:28:24.019000'),
 (2, 'pbkdf2_sha256$30000$t6XjNB5AixMd$DfyScV/hVbBq+Z3u28Xxt8d9CCaO0Rf1aVxoCRM3U7s=', '2016-10-27 20:25:53.068000', 0, 'ana', 'Ana', 'Blajeva', 'ana.blajeva@abv.bg', 1, 1, '2016-09-29 15:30:38.168000'),
-(5, 'pbkdf2_sha256$30000$b55ZL4KcdJ2C$mJkECpkCmOO0RO/dwRQf6vethF8fPRzVp6/3AmeRyXY=', '2016-10-06 19:15:29.156000', 0, 'Ivan', 'Ivan', 'Ivanov', 'Ivan@abv.bg', 1, 1, '2016-10-05 18:01:13.050000');
+(5, 'pbkdf2_sha256$30000$b55ZL4KcdJ2C$mJkECpkCmOO0RO/dwRQf6vethF8fPRzVp6/3AmeRyXY=', '2016-10-06 19:15:29.156000', 0, 'Ivan', 'Ivan', 'Ivanov', 'Ivan@abv.bg', 1, 1, '2016-10-05 18:01:13.050000'),
+(6, 'pbkdf2_sha256$30000$tNC4wsxMgVdA$TrpJK9fdazmhM3L+1rDhEIWSBj4lAJ7u4eg+ogjVEpg=', '2016-11-14 16:59:29.573952', 1, 'Goro', '', '', '', 1, 1, '2016-11-12 16:58:21.000000');
 
 -- --------------------------------------------------------
 
@@ -138,10 +148,13 @@ INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `userna
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user_groups` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `group_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_groups_user_id_94350c0c_uniq` (`user_id`,`group_id`),
+  KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -150,10 +163,13 @@ CREATE TABLE IF NOT EXISTS `auth_user_groups` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_user_permissions_user_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  KEY `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` (`permission_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `auth_user_user_permissions`
@@ -170,15 +186,18 @@ INSERT INTO `auth_user_user_permissions` (`id`, `user_id`, `permission_id`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `django_admin_log` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `action_time` datetime(6) NOT NULL,
   `object_id` longtext,
   `object_repr` varchar(200) NOT NULL,
   `action_flag` smallint(5) unsigned NOT NULL,
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -265,7 +284,27 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (78, '2016-11-11 12:18:19.942000', '40', 'Image object', 1, '[{"added": {}}]', 17, 1),
 (79, '2016-11-11 12:18:50.761000', '41', 'Image object', 1, '[{"added": {}}]', 17, 1),
 (80, '2016-11-11 12:19:45.498000', '42', 'Image object', 1, '[{"added": {}}]', 17, 1),
-(81, '2016-11-11 12:21:26.902000', '40', 'Image object', 3, '', 17, 1);
+(81, '2016-11-11 12:21:26.902000', '40', 'Image object', 3, '', 17, 1),
+(82, '2016-11-11 17:43:43.030400', '43', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(83, '2016-11-11 21:25:57.853887', '44', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(84, '2016-11-12 16:58:21.782106', '6', 'Goro', 1, '[{"added": {}}]', 9, 1),
+(85, '2016-11-12 16:58:41.852891', '6', 'Goro', 2, '[{"changed": {"fields": ["is_staff", "is_superuser"]}}]', 9, 1),
+(86, '2016-11-14 22:33:07.318930', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme", "contact_info"]}}]', 18, 1),
+(87, '2016-11-14 22:33:48.078350', '1', 'raylight75@gmail.com', 2, '[]', 18, 1),
+(88, '2016-11-14 22:34:40.408470', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(89, '2016-11-14 22:37:27.978537', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(90, '2016-11-14 22:38:09.160496', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(91, '2016-11-14 22:43:45.464167', '1', 'raylight75@gmail.com', 2, '[]', 18, 1),
+(92, '2016-11-14 22:43:59.611552', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(93, '2016-11-14 22:46:03.877027', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(94, '2016-11-14 22:46:24.882463', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(95, '2016-11-14 22:47:04.449341', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(96, '2016-11-14 22:47:30.617707', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(97, '2016-11-14 22:47:42.503935', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(98, '2016-11-14 22:48:16.001636', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(99, '2016-11-14 22:51:39.537499', '1', 'raylight75@gmail.com', 2, '[]', 18, 1),
+(100, '2016-11-14 22:56:12.811151', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
+(101, '2016-11-14 23:13:06.215522', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["contact_info"]}}]', 18, 1);
 
 -- --------------------------------------------------------
 
@@ -274,10 +313,12 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 --
 
 CREATE TABLE IF NOT EXISTS `django_content_type` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `app_label` varchar(100) NOT NULL,
-  `model` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `django_content_type`
@@ -312,11 +353,12 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `django_migrations` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `applied` datetime(6) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `django_migrations`
@@ -350,7 +392,9 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 CREATE TABLE IF NOT EXISTS `django_session` (
   `session_key` varchar(40) NOT NULL,
   `session_data` longtext NOT NULL,
-  `expire_date` datetime(6) NOT NULL
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_de54fa62` (`expire_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -372,11 +416,12 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `image` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(32) NOT NULL,
   `cat_id` int(11) NOT NULL,
-  `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+  `image` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
 
 --
 -- Dumping data for table `image`
@@ -423,7 +468,9 @@ INSERT INTO `image` (`id`, `title`, `cat_id`, `image`) VALUES
 (38, 'Tadao Ando View', 6, 'images/ar2_eOWhPqA.jpg'),
 (39, 'Sofa Brown', 4, 'images/b6.jpg'),
 (41, 'WW2', 5, 'images/m5.jpg'),
-(42, 'Honda CRZ', 2, 'images/a9.jpg');
+(42, 'Honda CRZ', 2, 'images/a9.jpg'),
+(43, 'TRex', 1, 'images/T_rex.jpg'),
+(44, 'Closeup', 3, 'images/Robert_Abbey.jpg');
 
 -- --------------------------------------------------------
 
@@ -432,9 +479,10 @@ INSERT INTO `image` (`id`, `title`, `cat_id`, `image`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `img_cat` (
-`id` int(11) NOT NULL,
-  `cat` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `img_cat`
@@ -455,21 +503,22 @@ INSERT INTO `img_cat` (`id`, `cat`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `info` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `aboutme` longtext NOT NULL,
   `email` varchar(32) NOT NULL,
   `phone` varchar(32) NOT NULL,
   `skype` varchar(32) NOT NULL,
   `address` varchar(32) NOT NULL,
-  `contact_info` longtext NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `contact_info` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `info`
 --
 
 INSERT INTO `info` (`id`, `aboutme`, `email`, `phone`, `skype`, `address`, `contact_info`) VALUES
-(1, 'Hi my name is Tihomir Blajev, a 3d Artist from Bulgaria,Plovdiv welcome to my online portfolio site\r\n                    showcasing a range of 3D images.\r\n                    Here is the place where you can find a small selection of some of the things I’ve been involved with\r\n                    over the years as a 3D Artist and freelancer. I started early in 2004 with Alias Maya and gradually\r\n                    made the transition to 3DS Max and other 3d packages and I find it a very exciting programs to use.\r\n                    I have many awards and front pages on popular sites like, Evermotion, CGTalk, CGArena, CGArchitect,\r\n                    3D Total, 3Dbg, Blender Guru, Blender Artist, renders as well in many online magazines and books\r\n                    such, The art of Blender, 3d Artist, 3D World , CGArena, Ceiga.\r\n                    I am skilled in, lighting, rendering, 3D modelling, texturing, uwunwraping and basic animation.\r\n                    I currently work full-time as a 3d Artist at Designconnected my responsibilities include rendering,\r\n                    modeling, texturing, lighting and basic animation.I worked 6 year like freelance artist and from\r\n                    2010 at designconnected as 3D Artist.I have experience with Autodesk products and around 7 years\r\n                    with 3DS Max.', 'raylight75@gmail.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'For more aditional information like PDF, complete CV, feel free to contact me.');
+(1, 'Hello, my name is Tihomir Blajev. I am a 3d Artist from the city of Plovdiv, Bulgaria. Welcome to my online portfolio website showcasing a range of 3D images created by me. This is the place where you can see a small selection of the projects that I’ve been involved with over the years as a 3D Artist. I started my work early in 2004 using `Alias Maya` and gradually made the transition to `3DS Max` and other 3d packages. I find them all very exciting programs to use and create projects with. I have won many awards and my work has been posted on the front pages of popular websites like `Evermotion`, `CGTalk`, `CGArena`, `CGArchitect`, `3D Total`, `3Dbg`, `Blender Guru`, `Blender Artist`. Many of my renders were posted by online magazines and books like `The art of Blender`, `3d Artist`, `3D World` , `CGArena`, `Ceiga`. I am quite skilled in lighting, rendering, 3D modelling, texturing, unwraping and basic animation. I currently work full-time as a 3d Artist at Designconnected where my responsibilities include rendering, modeling, texturing, lighting and creating basic animation. I have been working for 6 years as a freelance artist as well as a 3D Artist at Designconnected. For the past 7 years I have been creating with `3DS Max` and also have a lot of experience working with `Autodesk` products.\r\nThe projects seen on my website are a result of 10 years work and experience. I must say that in some of them, to become so pretty my designer colleagues form Designconnected have taken part.\r\nMy latest interest has become programming. I am especially interested in web orientated programming with `PhP`,`Python` and `Ruby`.\r\nI am very passionate and devoted to my work and constantly trying to better my knowledge and learn new skills.', 'raylight75@gmail.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'For more aditional information like PDF, complete CV, feel free to contact me.');
 
 -- --------------------------------------------------------
 
@@ -478,11 +527,13 @@ INSERT INTO `info` (`id`, `aboutme`, `email`, `phone`, `skype`, `address`, `cont
 --
 
 CREATE TABLE IF NOT EXISTS `registration_registrationprofile` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `activation_key` varchar(40) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `activated` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `activated` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -491,11 +542,12 @@ CREATE TABLE IF NOT EXISTS `registration_registrationprofile` (
 --
 
 CREATE TABLE IF NOT EXISTS `service` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` longtext NOT NULL,
   `name` varchar(32) NOT NULL,
-  `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `image` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `service`
@@ -516,9 +568,10 @@ INSERT INTO `service` (`id`, `text`, `name`, `image`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sld_cat` (
-`id` int(11) NOT NULL,
-  `cat` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `sld_cat`
@@ -537,11 +590,12 @@ INSERT INTO `sld_cat` (`id`, `cat`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `slider` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(32) NOT NULL,
   `cat_id` int(11) NOT NULL,
-  `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `image` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `slider`
@@ -556,196 +610,6 @@ INSERT INTO `slider` (`id`, `title`, `cat_id`, `image`) VALUES
 (6, 'Miura', 1, 'images/miura.jpg');
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `auth_group`
---
-ALTER TABLE `auth_group`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`);
-
---
--- Indexes for table `auth_group_permissions`
---
-ALTER TABLE `auth_group_permissions`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_group_permissions_group_id_0cd325b0_uniq` (`group_id`,`permission_id`), ADD KEY `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` (`permission_id`);
-
---
--- Indexes for table `auth_permission`
---
-ALTER TABLE `auth_permission`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_permission_content_type_id_01ab375a_uniq` (`content_type_id`,`codename`);
-
---
--- Indexes for table `auth_user`
---
-ALTER TABLE `auth_user`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
-
---
--- Indexes for table `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_user_groups_user_id_94350c0c_uniq` (`user_id`,`group_id`), ADD KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`);
-
---
--- Indexes for table `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_user_user_permissions_user_id_14a6b632_uniq` (`user_id`,`permission_id`), ADD KEY `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` (`permission_id`);
-
---
--- Indexes for table `django_admin_log`
---
-ALTER TABLE `django_admin_log`
- ADD PRIMARY KEY (`id`), ADD KEY `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` (`content_type_id`), ADD KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`);
-
---
--- Indexes for table `django_content_type`
---
-ALTER TABLE `django_content_type`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_content_type_app_label_76bd3d3b_uniq` (`app_label`,`model`);
-
---
--- Indexes for table `django_migrations`
---
-ALTER TABLE `django_migrations`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `django_session`
---
-ALTER TABLE `django_session`
- ADD PRIMARY KEY (`session_key`), ADD KEY `django_session_de54fa62` (`expire_date`);
-
---
--- Indexes for table `image`
---
-ALTER TABLE `image`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `img_cat`
---
-ALTER TABLE `img_cat`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `info`
---
-ALTER TABLE `info`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `registration_registrationprofile`
---
-ALTER TABLE `registration_registrationprofile`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`);
-
---
--- Indexes for table `service`
---
-ALTER TABLE `service`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sld_cat`
---
-ALTER TABLE `sld_cat`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `slider`
---
-ALTER TABLE `slider`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `auth_group`
---
-ALTER TABLE `auth_group`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `auth_group_permissions`
---
-ALTER TABLE `auth_group_permissions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `auth_permission`
---
-ALTER TABLE `auth_permission`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
---
--- AUTO_INCREMENT for table `auth_user`
---
-ALTER TABLE `auth_user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `django_admin_log`
---
-ALTER TABLE `django_admin_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=82;
---
--- AUTO_INCREMENT for table `django_content_type`
---
-ALTER TABLE `django_content_type`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
---
--- AUTO_INCREMENT for table `django_migrations`
---
-ALTER TABLE `django_migrations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
---
--- AUTO_INCREMENT for table `image`
---
-ALTER TABLE `image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
---
--- AUTO_INCREMENT for table `img_cat`
---
-ALTER TABLE `img_cat`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `info`
---
-ALTER TABLE `info`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `registration_registrationprofile`
---
-ALTER TABLE `registration_registrationprofile`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `service`
---
-ALTER TABLE `service`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `sld_cat`
---
-ALTER TABLE `sld_cat`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `slider`
---
-ALTER TABLE `slider`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
 -- Constraints for dumped tables
 --
 
@@ -753,41 +617,41 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- Constraints for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-ADD CONSTRAINT `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
+  ADD CONSTRAINT `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
 
 --
 -- Constraints for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-ADD CONSTRAINT `auth_permissi_content_type_id_2f476e4b_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
+  ADD CONSTRAINT `auth_permissi_content_type_id_2f476e4b_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
 -- Constraints for table `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-ADD CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-ADD CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  ADD CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Constraints for table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-ADD CONSTRAINT `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  ADD CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Constraints for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-ADD CONSTRAINT `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
-ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  ADD CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Constraints for table `registration_registrationprofile`
 --
 ALTER TABLE `registration_registrationprofile`
-ADD CONSTRAINT `registration_registrationprofil_user_id_5fcbf725_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `registration_registrationprofil_user_id_5fcbf725_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

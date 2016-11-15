@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from backend.models import Slider, Info, Service, Image, Img_Cat
 from .forms import ContactForm

@@ -19,7 +19,7 @@ class ContactForm(forms.Form):
     message = forms.CharField(
     	label="",
     	required=True,
-        max_length=20,
+        max_length=200,
         widget=forms.Textarea(
             attrs={'class': "cont-5-inp", 'placeholder': "Message*"}),
     )    

@@ -32,13 +32,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-wrapper-quotes">
-                                            <p>{{ info.aboutme }}
-                                                {% comment %}<q class=" alignright">Vivamus ultrices nibh sed quam vehicula, eget
-                                                    hendrerit ipsum molestie. Sed non vehicula enim. Ut nisl felis,
-                                                    tincidunt vitae auctor et, malesuada porta lorem. Praesent vel
-                                                    metus lectus.
-                                                </q>{% endcomment %}
-                                            </p>
+                                            {% autoescape off %}{{ info.aboutme }}{% endautoescape %}
                                         </div>
                                     </div>
                                 </div>

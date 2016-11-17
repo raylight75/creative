@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Nov 15, 2016 at 09:39 AM
+-- Generation Time: Nov 17, 2016 at 10:14 AM
 -- Server version: 5.6.33-cll-lve
 -- PHP Version: 5.6.20
 
@@ -136,10 +136,8 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$30000$0ogIQaBfGAxD$e2yGO9gF/HgRgLiLKJM9pWBYz6Wd4dB4sxX9suPCS8w=', '2016-11-15 07:36:49.119620', 1, 'admin', 'Admin', 'admin', 'raylight75@gmail.com', 1, 1, '2016-09-29 15:28:24.019000'),
-(2, 'pbkdf2_sha256$30000$t6XjNB5AixMd$DfyScV/hVbBq+Z3u28Xxt8d9CCaO0Rf1aVxoCRM3U7s=', '2016-10-27 20:25:53.068000', 0, 'ana', 'Ana', 'Blajeva', 'ana.blajeva@abv.bg', 1, 1, '2016-09-29 15:30:38.168000'),
-(5, 'pbkdf2_sha256$30000$b55ZL4KcdJ2C$mJkECpkCmOO0RO/dwRQf6vethF8fPRzVp6/3AmeRyXY=', '2016-10-06 19:15:29.156000', 0, 'Ivan', 'Ivan', 'Ivanov', 'Ivan@abv.bg', 1, 1, '2016-10-05 18:01:13.050000'),
-(6, 'pbkdf2_sha256$30000$tNC4wsxMgVdA$TrpJK9fdazmhM3L+1rDhEIWSBj4lAJ7u4eg+ogjVEpg=', '2016-11-14 16:59:29.573952', 1, 'Goro', '', '', '', 1, 1, '2016-11-12 16:58:21.000000');
+(1, 'pbkdf2_sha256$30000$0ogIQaBfGAxD$e2yGO9gF/HgRgLiLKJM9pWBYz6Wd4dB4sxX9suPCS8w=', '2016-11-15 18:06:50.614245', 1, 'admin', 'Admin', 'admin', 'raylight75@gmail.com', 1, 1, '2016-09-29 15:28:24.019000'),
+(2, 'pbkdf2_sha256$30000$t6XjNB5AixMd$DfyScV/hVbBq+Z3u28Xxt8d9CCaO0Rf1aVxoCRM3U7s=', '2016-10-27 20:25:53.068000', 0, 'ana', 'Ana', 'Blajeva', 'ana.blajeva@abv.bg', 1, 1, '2016-09-29 15:30:38.168000');
 
 -- --------------------------------------------------------
 
@@ -176,8 +174,7 @@ CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
 --
 
 INSERT INTO `auth_user_user_permissions` (`id`, `user_id`, `permission_id`) VALUES
-(1, 2, 7),
-(2, 5, 7);
+(1, 2, 7);
 
 -- --------------------------------------------------------
 
@@ -197,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` (`content_type_id`),
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=113 ;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -304,7 +301,18 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (98, '2016-11-14 22:48:16.001636', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
 (99, '2016-11-14 22:51:39.537499', '1', 'raylight75@gmail.com', 2, '[]', 18, 1),
 (100, '2016-11-14 22:56:12.811151', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 18, 1),
-(101, '2016-11-14 23:13:06.215522', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["contact_info"]}}]', 18, 1);
+(101, '2016-11-14 23:13:06.215522', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["contact_info"]}}]', 18, 1),
+(102, '2016-11-15 18:07:05.377750', '6', 'Goro', 3, '', 9, 1),
+(103, '2016-11-15 18:07:05.380285', '5', 'Ivan', 3, '', 9, 1),
+(104, '2016-11-15 18:10:13.465356', '45', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(105, '2016-11-15 18:11:26.595982', '46', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(106, '2016-11-15 18:13:06.492052', '47', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(107, '2016-11-15 18:15:17.169922', '48', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(108, '2016-11-15 18:15:43.411340', '49', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(109, '2016-11-15 18:20:01.582071', '50', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(110, '2016-11-15 18:21:35.309874', '50', 'Image object', 2, '[{"changed": {"fields": ["image"]}}]', 17, 1),
+(111, '2016-11-15 18:22:46.604761', '47', 'Image object', 2, '[{"changed": {"fields": ["image"]}}]', 17, 1),
+(112, '2016-11-15 18:24:12.734522', '51', 'Image object', 1, '[{"added": {}}]', 17, 1);
 
 -- --------------------------------------------------------
 
@@ -421,7 +429,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   `cat_id` int(11) NOT NULL,
   `image` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
 --
 -- Dumping data for table `image`
@@ -470,7 +478,14 @@ INSERT INTO `image` (`id`, `title`, `cat_id`, `image`) VALUES
 (41, 'WW2', 5, 'images/m5.jpg'),
 (42, 'Honda CRZ', 2, 'images/a9.jpg'),
 (43, 'TRex', 1, 'images/T_rex.jpg'),
-(44, 'Closeup', 3, 'images/Robert_Abbey.jpg');
+(44, 'Closeup', 3, 'images/Robert_Abbey.jpg'),
+(45, 'Exterior', 6, 'images/Final22.jpg'),
+(46, 'Corona', 3, 'images/final_corona.jpg'),
+(47, 'Bedroom', 3, 'images/contemporary_1.jpg'),
+(48, 'Black Lambo', 2, 'images/a3.jpg'),
+(49, 'Sunset', 2, 'images/a2.jpg'),
+(50, 'Room', 3, 'images/Suny_Room_2.jpg'),
+(51, 'McLaren', 2, 'images/corona_Mclaren.jpg');
 
 -- --------------------------------------------------------
 
@@ -518,7 +533,7 @@ CREATE TABLE IF NOT EXISTS `info` (
 --
 
 INSERT INTO `info` (`id`, `aboutme`, `email`, `phone`, `skype`, `address`, `contact_info`) VALUES
-(1, 'Hello, my name is Tihomir Blajev. I am a 3d Artist from the city of Plovdiv, Bulgaria. Welcome to my online portfolio website showcasing a range of 3D images created by me. This is the place where you can see a small selection of the projects that I’ve been involved with over the years as a 3D Artist. I started my work early in 2004 using `Alias Maya` and gradually made the transition to `3DS Max` and other 3d packages. I find them all very exciting programs to use and create projects with. I have won many awards and my work has been posted on the front pages of popular websites like `Evermotion`, `CGTalk`, `CGArena`, `CGArchitect`, `3D Total`, `3Dbg`, `Blender Guru`, `Blender Artist`. Many of my renders were posted by online magazines and books like `The art of Blender`, `3d Artist`, `3D World` , `CGArena`, `Ceiga`. I am quite skilled in lighting, rendering, 3D modelling, texturing, unwraping and basic animation. I currently work full-time as a 3d Artist at Designconnected where my responsibilities include rendering, modeling, texturing, lighting and creating basic animation. I have been working for 6 years as a freelance artist as well as a 3D Artist at Designconnected. For the past 7 years I have been creating with `3DS Max` and also have a lot of experience working with `Autodesk` products.\r\nThe projects seen on my website are a result of 10 years work and experience. I must say that in some of them, to become so pretty my designer colleagues form Designconnected have taken part.\r\nMy latest interest has become programming. I am especially interested in web orientated programming with `PhP`,`Python` and `Ruby`.\r\nI am very passionate and devoted to my work and constantly trying to better my knowledge and learn new skills.', 'raylight75@gmail.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'For more aditional information like PDF, complete CV, feel free to contact me.');
+(1, '<p>\r\n     Hello, my name is Tihomir Blajev. I am a 3d Artist from the city of Plovdiv, Bulgaria. \r\nWelcome to my online portfolio website showcasing a range of 3D generated images created by me. This is the place where you can see a very small selection of the projects that I’ve been involved with over the years as a 3D Artist. \r\nI currently work full-time last 5 year as a 3d Artist at Designconnected  where my responsibilities include rendering, modeling, texturing, lighting and creating basic animation. I have been working also for 6 years as a freelance 3d artist. \r\n<q class=" alignleft">\r\nThe projects seen on my website are a result of 10 years work and experience. I must say that in some of them, become so pretty because our modelers in Designconnected did great work on 3d models.\r\n</q>\r\nI started my work early in 2004 using  Alias Maya and gradually made the transition to Autodesk 3D Max and other 3d packages. I am skilled in lighting, rendering, 3D modelling, texturing, unwraping and basic animation and also have a lot of experience working with Autodesk products. I find them all very exciting programs to use and create projects with.\r\n     I have won many awards and my work has been posted on the front pages of popular websites like Evermotion, CGTalk, CGArena ,  CGArchitect,  3D Total,  3DBG ,  Blender Guru,  Blender Artist .  Many of my renders were posted by online magazines and books like The art of Blender,  3d Artist ,  3D World  ,  CGArena ,  Ceiga .\r\n<q class=" alignright"> \r\n     My latest interest has become programming. I am especially interested  and very passionate in web orientated programming and Frameworks with PHP, Python and  Ruby. I am very passionate and devoted to my work and constantly trying to better my knowledge and learn new skills in this dinamic situation.\r\n</q>\r\n</p>', 'raylight75@gmail.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'For more aditional information like PDF, complete CV, feel free to contact me.');
 
 -- --------------------------------------------------------
 

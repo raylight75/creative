@@ -17,6 +17,11 @@ Install MySQL:
 easy_install MySQL-python or pip install MySQL-python
 pip install Pillow
 pip install django-tinymce
+
+for BLOG
+pip install django-blog-zinnia
+pip install django-app-namespace-template-loader
+
 python manage.py inspectdb
 python manage.py makemigrations
 python manage.py migrate

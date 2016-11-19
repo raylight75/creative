@@ -28,7 +28,10 @@ urlpatterns = [
     # url(r'^product_admin/', admin_site.urls),
     # url(r'^$', views.index),
     # url(r'^accounts/', include('registration.backends.default.urls')),
-    # #for registration profile with send email
+    # for registration profile with send email
+    # for BLOG
+    url(r'^weblog/', include('zinnia.urls')),
+    url(r'^comments/', include('django_comments.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # for production

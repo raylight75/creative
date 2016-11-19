@@ -1,0 +1,174 @@
+{% load i18n staticfiles %}
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="utf-8">
+    <title>Zinnia's Weblog -
+        {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
+    <meta name="robots" content="follow, all"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="
+            {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
+    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
+    <meta name="author" content="Fantomas42"/>
+    {% block meta %}{% endblock meta %}
+    <link rel="pingback" href="/xmlrpc/"/>
+    <link rel="home" href="{% url 'zinnia:entry_archive_index' %}"/>
+    <link rel="stylesheet" href="{% static "zinnia_bootstrap/bootstrap/css/bootstrap.min.css" %}"/>
+    <link rel="icon" href="{% static "images/favicon.png" %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/magnific-popup.css" %}">
+    <link href='https://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static "css/menu/component.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+    <!--[if lt IE 9]>
+        <script src="{% static "zinnia_bootstrap/assets/js/html5shiv.js" %}"></script>
+        <script src="{% static "zinnia_bootstrap/assets/js/respond.min.js" %}"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="{% static "zinnia/theme/img/favicon.ico" %}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-144-precomposed.png" %}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-114-precomposed.png" %}"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-72-precomposed.png" %}"/>
+    <link rel="apple-touch-icon-precomposed"
+          href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-57-precomposed.png" %}"/>
+    {% block link %}{% endblock link %}
+    {% block script %}{% endblock script %}
+</head>
+<body>
+
+<header class="miami-header">
+    <div class="container-fluid">
+        <div class="header">
+            <div class="logo">
+                <!-- logo -->
+                <a href="https://www.djangoproject.com/"
+                   class="table-cell"><img src="{% static "images/django.png" %}" alt="logo"></a>
+            </div>
+            <!-- .logo -->
+            <div class="nav-menu-icon">
+                <a href="#" class="table-cell"><i></i></a>
+            </div>
+            <div class="navigation">
+                <!-- navigation -->
+                <nav id="dl-menu" class="menu dl-menuwrapper">
+                    <div class="close-menu">
+                        <div><i class="fa fa-times"></i></div>
+                    </div>
+                    <ul class="table-cell dl-menu dl-menuopen">
+                        <li class="menu-item active"><a href="http://127.0.0.1:8000">Home<span class="fa fa-angle-down"></span></a>
+                        </li>
+                        <li class="menu-item"><a href="http://127.0.0.1:8000/portfolio">Portfolio<span class="fa fa-angle-down"></span></a>
+                        </li>
+                        <li class="menu-item"><a href="http://127.0.0.1:8000/services">Services<span class="fa fa-angle-down"></span></a>
+                        </li>
+                        <li class="menu-item"><a href="http://127.0.0.1:8000/weblog">Blog<span class="fa fa-angle-down"></span></a>
+                        </li>
+                        <li class="menu-item"><a href="http://127.0.0.1:8000/aboutme">About Me<span class="fa fa-angle-down"></span></a>
+                        </li>
+                        <li class="menu-item"><a href="http://127.0.0.1:8000/contacts">Contacts
+                            <span class="fa fa-angle-down"></span></a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="second-menu dl-trigger">
+                    <div class="table-cell">
+                        <div class="open-menu">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .navigation -->
+        </div>
+    </div>
+</header>
+
+{% block slider %}{% endblock %}
+<div class="container-fluid">
+    <div class="header-content half-height">
+        <!-- header content -->
+        <div class="bg-header-content" style="background-image:url({% static "images/baner-bg-2.jpg" %})"></div>
+        <div class="row">
+            <div class="text-header-portf center-block">
+                <div class="main-title whitecolor">
+                    <h2>SERVICES</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid main-content">
+        <div class="search">
+            <h3>{% trans "Search" %}</h3>
+            {% include "zinnia/tags/search_form.html" %}
+        </div>
+        <div id="content" class="hfeed col-md-8">
+            {% block breadcrumbs %}{% endblock %}
+            {% block content %}
+                <div class="links">
+                    <h3>{% trans "Useful links" %}</h3>
+                    <ul>
+                        <li>
+                            <a href="{% url 'zinnia:entry_archive_index' %}" title="{% trans "Weblog index" %}">
+                                {% trans "Weblog index" %}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'zinnia:sitemap' %}" title="{% trans "Sitemap" %}">
+                                {% trans "Sitemap" %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% endblock content %}
+        </div>
+        <div id="sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            {% block sidebar %}
+            {% endblock sidebar %}
+        </div>
+    </div>
+</div>
+<!--==========miami-footer============-->
+<footer class="miami-footer">
+    <div class="container-fluid">
+        <div class="footer">
+            <div class="vertical-align">
+                <div class="contact-socail large">
+                    <a href="https://www.facebook.com/tblajev">
+                        <i class="fa fa-facebook"></i></a>
+                    <a href="contacts"><i class="fa fa-envelope"></i></a>
+                    <a href="skype:tiho_blazhev?userinfo"><i class="fa fa-skype"></i></a>
+                    <a href="https://plus.google.com/u/0/111015710125146416925">
+                        <i class="fa fa-google-plus"></i></a>
+                    <a href="http://www.facebook.com/sharer/sharer.php?u=www.tihoblajev.com">
+                        <i class="fa fa-share"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fa fa-behance"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="{% static "zinnia_bootstrap/assets/js/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "zinnia_bootstrap/bootstrap/js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/modernizr.custom.js" %}"></script>
+<script src="{% static "js/appear.js" %}"></script>
+<script src="{% static "js/device.min.js" %}"></script>
+<script src="{% static "js/jquery.circliful.min.js" %}"></script>
+<script src="{% static "js/jquery.dlmenu.js" %}"></script>
+<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
+<script src="{% static "js/jquery.event.move.js" %}"></script>
+<script src="{% static "js/jquery.spincrement.js" %}"></script>
+<script src="{% static "js/jquery.twentytwenty.js" %}"></script>
+<script src="{% static "js/wow.min.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
+</body>
+</html>

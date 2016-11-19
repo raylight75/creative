@@ -33,19 +33,27 @@ SECRET_KEY = '#0$j^&yh6q337v0^#o8m&7x=@l4k(2+k^oh_8%%5_0^p^7l(1-'
 DEBUG = False
 
 ALLOWED_HOSTS = ['www.tihoblajev.com']
+SITE_ID = 1
 
 # Application definition
 
 INSTALLED_APPS = [
     'backend.apps.BackendConfig',
     'frontend.apps.FrontendConfig',
+    'blog.apps.BlogConfig',
     'django.contrib.admin',
+    'django.contrib.sites',
     'registration',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_comments',
+    'mptt',
+    'tagging',
+    'zinnia_bootstrap',
+    'zinnia',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +72,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -72,6 +80,11 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'loaders': [
+                'app_namespace.Loader',
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
             ],
         },
     },

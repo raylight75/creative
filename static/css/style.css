@@ -82,6 +82,9 @@ button {background: none; border:0px none;}
 ul {list-style: none;}
 h1, h2, h3, h4, h5, h6, p{margin:0px; padding:0px;}
 button {outline: none; border: none; box-shadow: none; background: none;}
+@media screen and (min-width: 1280px){
+  .side-menu {padding-top: 255px;}
+}
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/

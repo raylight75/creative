@@ -2,7 +2,9 @@
 <article id="entry-{{ object.pk }}" class="hentry{% if object.featured %} featured{% endif %}">
   {% block entry-header %}
   <header class="entry-header page-header">
-    <h2 class="entry-title">
+  <div class="action-box action-before">
+      <div class="text-action-box">
+          <h3 class="entry-title">
     {% block entry-title %}
       <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
         {{ object.title|widont }}
@@ -17,7 +19,8 @@
         {% trans "Written by" %}
         {% for author in authors %}
         <span class="vcard author">
-          <a href="{{ author.get_absolute_url }}" class="fn url{% if not author.get_full_name %} nickname{% endif %}" rel="author"
+          <a href="{{ author.get_absolute_url }}"
+             class="fn url{% if not author.get_full_name %} nickname{% endif %}" rel="author"
              title="{% blocktrans %}Show all {{ author }}'s entries{% endblocktrans %}">{{ author }}</a></span>{% if not forloop.last %}, {% endif %}
         {% endfor %}
         {% trans "on" context "on date" %}
@@ -41,7 +44,9 @@
         {% endblock entry-categories %}
       </small>
     {% endblock entry-info %}
-    </h2>
+          </h3>
+      </div>
+  </div>
     {% block entry-last-update %}
     <p class="entry-last-update" style="display: none;">
       {% trans "Last update on" %} <time class="updated" datetime="{{ object.last_update|date:"c" }}">{{ object.last_update|date:"DATE_FORMAT" }}</time>.
@@ -67,9 +72,25 @@
     </div>
     {% endif %}
     {% endblock entry-image %}
+     <div class="share clearfix">
+          <ul>
+              <li class="color-fb">
+                  <a href="http://www.facebook.com/sharer/sharer.php?u={{ object.short_url }}">
+                  <i class="fa fa-facebook"></i>facebook<span class="color-fb-2">0</span></a></li>
+              <li class="color-tw">
+                  <a href="#">
+                  <i class="fa fa-twitter"></i>twitter<span class="color-tw-2">0</span></a></li>
+              <li class="color-gg">
+                  <a href="#">
+                  <i class="fa fa-google-plus"></i>google +<span class="color-gg-2">0</span></a></li>
+              <li class="color-pin">
+                  <a href="#">
+                  <i class="fa fa-pinterest"></i>pinterest<span class="color-pin-2">0</span></a></li>
+          </ul>
+     </div>
     {% block entry-content %}
     <div class="entry-content lead">
-      {{ object_content|safe }}
+      <h5>{{ object_content|safe }}</h5>
     </div>
     {% endblock entry-content %}
     {% block continue-reading %}

@@ -3,7 +3,7 @@
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="utf-8">
-    <title>Zinnia's Weblog -
+    <title>Tihomir Blajev Blog -
         {% block title %}{% endblock title %}{% block title-page %}{% endblock title-page %}</title>
     <meta name="robots" content="follow, all"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -14,7 +14,6 @@
     {% block meta %}{% endblock meta %}
     <link rel="pingback" href="/xmlrpc/"/>
     <link rel="home" href="{% url 'zinnia:entry_archive_index' %}"/>
-    <link rel="stylesheet" href="{% static "zinnia_bootstrap/bootstrap/css/bootstrap.min.css" %}"/>
     <link rel="icon" href="{% static "images/favicon.png" %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
     <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
@@ -23,25 +22,16 @@
     <link href='https://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static "css/menu/component.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
-
-    <!--[if lt IE 9]>
-        <script src="{% static "zinnia_bootstrap/assets/js/html5shiv.js" %}"></script>
-        <script src="{% static "zinnia_bootstrap/assets/js/respond.min.js" %}"></script>
-    <![endif]-->
-    <link rel="shortcut icon" href="{% static "zinnia/theme/img/favicon.ico" %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-144-precomposed.png" %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-114-precomposed.png" %}"/>
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-72-precomposed.png" %}"/>
-    <link rel="apple-touch-icon-precomposed"
-          href="{% static "zinnia_bootstrap/assets/ico/apple-touch-icon-57-precomposed.png" %}"/>
     {% block link %}{% endblock link %}
     {% block script %}{% endblock script %}
 </head>
 <body>
 
+<div class="preloader">
+    <div class="preloader-img"><img src="{% static "images/loader.gif" %}" alt="preloader"></div>
+</div>
+
+<!--==========HEADER============-->
 <header class="miami-header">
     <div class="container-fluid">
         <div class="header">
@@ -104,8 +94,7 @@
     </div>
     <br>
     <div class="container-fluid main-content">
-        <div class="search">
-            <h3>{% trans "Search" %}</h3>
+        <div class="row">
             {% include "zinnia/tags/search_form.html" %}
         </div>
         <div id="content" class="hfeed col-md-8">

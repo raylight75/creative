@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2016 at 10:26 PM
+-- Generation Time: Nov 20, 2016 at 06:47 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -54,53 +54,62 @@ CREATE TABLE IF NOT EXISTS `auth_permission` (
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `codename` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `auth_permission`
 --
 
 INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALUES
-(1, 'Can add fos user', 1, 'add_fosuser'),
-(2, 'Can change fos user', 1, 'change_fosuser'),
-(3, 'Can delete fos user', 1, 'delete_fosuser'),
-(4, 'Can add order', 2, 'add_order'),
-(5, 'Can change order', 2, 'change_order'),
-(6, 'Can delete order', 2, 'delete_order'),
-(7, 'Can view order', 2, 'view_order'),
-(8, 'Can add size', 3, 'add_size'),
-(9, 'Can change size', 3, 'change_size'),
-(10, 'Can delete size', 3, 'delete_size'),
-(11, 'Can add brand', 4, 'add_brand'),
-(12, 'Can change brand', 4, 'change_brand'),
-(13, 'Can delete brand', 4, 'delete_brand'),
-(14, 'Can add productsize', 5, 'add_productsize'),
-(15, 'Can change productsize', 5, 'change_productsize'),
-(16, 'Can delete productsize', 5, 'delete_productsize'),
-(17, 'Can add product', 6, 'add_product'),
-(18, 'Can change product', 6, 'change_product'),
-(19, 'Can delete product', 6, 'delete_product'),
-(20, 'Can add log entry', 7, 'add_logentry'),
-(21, 'Can change log entry', 7, 'change_logentry'),
-(22, 'Can delete log entry', 7, 'delete_logentry'),
-(23, 'Can add permission', 8, 'add_permission'),
-(24, 'Can change permission', 8, 'change_permission'),
-(25, 'Can delete permission', 8, 'delete_permission'),
-(26, 'Can add user', 9, 'add_user'),
-(27, 'Can change user', 9, 'change_user'),
-(28, 'Can delete user', 9, 'delete_user'),
-(29, 'Can add group', 10, 'add_group'),
-(30, 'Can change group', 10, 'change_group'),
-(31, 'Can delete group', 10, 'delete_group'),
-(32, 'Can add content type', 11, 'add_contenttype'),
-(33, 'Can change content type', 11, 'change_contenttype'),
-(34, 'Can delete content type', 11, 'delete_contenttype'),
-(35, 'Can add session', 12, 'add_session'),
-(36, 'Can change session', 12, 'change_session'),
-(37, 'Can delete session', 12, 'delete_session'),
-(38, 'Can add registration profile', 13, 'add_registrationprofile'),
-(39, 'Can change registration profile', 13, 'change_registrationprofile'),
-(40, 'Can delete registration profile', 13, 'delete_registrationprofile');
+(1, 'Can add log entry', 1, 'add_logentry'),
+(2, 'Can change log entry', 1, 'change_logentry'),
+(3, 'Can delete log entry', 1, 'delete_logentry'),
+(4, 'Can add site', 2, 'add_site'),
+(5, 'Can change site', 2, 'change_site'),
+(6, 'Can delete site', 2, 'delete_site'),
+(7, 'Can add registration profile', 3, 'add_registrationprofile'),
+(8, 'Can change registration profile', 3, 'change_registrationprofile'),
+(9, 'Can delete registration profile', 3, 'delete_registrationprofile'),
+(10, 'Can add group', 4, 'add_group'),
+(11, 'Can change group', 4, 'change_group'),
+(12, 'Can delete group', 4, 'delete_group'),
+(13, 'Can add user', 5, 'add_user'),
+(14, 'Can change user', 5, 'change_user'),
+(15, 'Can delete user', 5, 'delete_user'),
+(16, 'Can add permission', 6, 'add_permission'),
+(17, 'Can change permission', 6, 'change_permission'),
+(18, 'Can delete permission', 6, 'delete_permission'),
+(19, 'Can add content type', 7, 'add_contenttype'),
+(20, 'Can change content type', 7, 'change_contenttype'),
+(21, 'Can delete content type', 7, 'delete_contenttype'),
+(22, 'Can add session', 8, 'add_session'),
+(23, 'Can change session', 8, 'change_session'),
+(24, 'Can delete session', 8, 'delete_session'),
+(25, 'Can add comment flag', 9, 'add_commentflag'),
+(26, 'Can change comment flag', 9, 'change_commentflag'),
+(27, 'Can delete comment flag', 9, 'delete_commentflag'),
+(28, 'Can add comment', 10, 'add_comment'),
+(29, 'Can change comment', 10, 'change_comment'),
+(30, 'Can delete comment', 10, 'delete_comment'),
+(31, 'Can moderate comments', 10, 'can_moderate'),
+(32, 'Can add tagged item', 11, 'add_taggeditem'),
+(33, 'Can change tagged item', 11, 'change_taggeditem'),
+(34, 'Can delete tagged item', 11, 'delete_taggeditem'),
+(35, 'Can add tag', 12, 'add_tag'),
+(36, 'Can change tag', 12, 'change_tag'),
+(37, 'Can delete tag', 12, 'delete_tag'),
+(38, 'Can add category', 13, 'add_category'),
+(39, 'Can change category', 13, 'change_category'),
+(40, 'Can delete category', 13, 'delete_category'),
+(41, 'Can add entry', 14, 'add_entry'),
+(42, 'Can change entry', 14, 'change_entry'),
+(43, 'Can delete entry', 14, 'delete_entry'),
+(44, 'Can view all entries', 14, 'can_view_all'),
+(45, 'Can change status', 14, 'can_change_status'),
+(46, 'Can change author(s)', 14, 'can_change_author'),
+(47, 'Can add author', 5, 'add_author'),
+(48, 'Can change author', 5, 'change_author'),
+(49, 'Can delete author', 5, 'delete_author');
 
 -- --------------------------------------------------------
 
@@ -120,14 +129,15 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime(6) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$30000$GC7IFpgUvOgl$q2wMVsquhf7ZONzSptEJ+OyghvuCpDHcb1NLyX+tEPg=', '2016-11-19 21:11:34.206000', 1, 'admin', '', '', 'raylight75@gmail.com', 1, 1, '2016-11-19 20:41:23.706000');
+(1, 'pbkdf2_sha256$30000$GC7IFpgUvOgl$q2wMVsquhf7ZONzSptEJ+OyghvuCpDHcb1NLyX+tEPg=', '2016-11-20 19:37:39.746000', 1, 'admin', '', '', 'raylight75@gmail.com', 1, 1, '2016-11-19 20:41:23.706000'),
+(2, 'pbkdf2_sha256$30000$5E3E6asuZOdq$jAuyAgLXwMgGiGYMro7N3G3F1fPhQPFcAapUQcVlrc0=', '2016-11-20 19:38:51.502000', 0, 'raylight75', 'Tiho', 'Blajev', 'raylight75@gmail.com', 1, 1, '2016-11-20 18:40:25.817000');
 
 -- --------------------------------------------------------
 
@@ -151,7 +161,15 @@ CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
 `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
+INSERT INTO `auth_user_user_permissions` (`id`, `user_id`, `permission_id`) VALUES
+(5, 2, 42),
+(4, 2, 44);
 
 -- --------------------------------------------------------
 
@@ -168,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -286,7 +304,29 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (109, '2016-11-15 18:20:01.582071', '50', 'Image object', 1, '[{"added": {}}]', 17, 1),
 (110, '2016-11-15 18:21:35.309874', '50', 'Image object', 2, '[{"changed": {"fields": ["image"]}}]', 17, 1),
 (111, '2016-11-15 18:22:46.604761', '47', 'Image object', 2, '[{"changed": {"fields": ["image"]}}]', 17, 1),
-(112, '2016-11-15 18:24:12.734522', '51', 'Image object', 1, '[{"added": {}}]', 17, 1);
+(112, '2016-11-15 18:24:12.734522', '51', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(113, '2016-11-19 21:32:10.240000', '1', 'Design', 1, '[{"added": {}}]', 18, 1),
+(114, '2016-11-19 21:32:18.143000', '2', 'Interior', 1, '[{"added": {}}]', 18, 1),
+(115, '2016-11-19 21:32:29.792000', '3', 'Exterior', 1, '[{"added": {}}]', 18, 1),
+(116, '2016-11-19 21:33:49.668000', '1', 'Scandinavian Interior: published', 1, '[{"added": {}}]', 20, 1),
+(117, '2016-11-19 21:34:32.605000', '1', 'Design', 1, '[{"added": {}}]', 19, 1),
+(118, '2016-11-19 21:34:52.827000', '2', 'Interior', 1, '[{"added": {}}]', 19, 1),
+(119, '2016-11-19 21:35:05.815000', '1', 'Scandinavian Interior: published', 2, '[{"changed": {"fields": ["categories"]}}]', 20, 1),
+(120, '2016-11-19 21:35:28.147000', '1', 'Scandinavian Interior: published [Design]', 1, '[{"added": {}}]', 17, 1),
+(121, '2016-11-19 21:35:41.825000', '1', 'Scandinavian Interior: published', 2, '[{"changed": {"fields": ["tags"]}}]', 20, 1),
+(122, '2016-11-19 21:36:51.529000', '2', 'Norway House: published', 1, '[{"added": {}}]', 20, 1),
+(123, '2016-11-19 21:37:11.306000', '2', 'Norway House: published [Exterior]', 1, '[{"added": {}}]', 17, 1),
+(124, '2016-11-19 21:37:21.785000', '2', 'Norway House: published', 2, '[{"changed": {"fields": ["tags"]}}]', 20, 1),
+(125, '2016-11-19 21:37:37.320000', '3', 'Exterior', 1, '[{"added": {}}]', 19, 1),
+(126, '2016-11-19 21:38:33.241000', '3', 'Japan Nobua House: draft', 1, '[{"added": {}}]', 20, 1),
+(127, '2016-11-19 21:38:40.057000', '3', 'Japan Nobua House: published', 2, '[{"changed": {"fields": ["status"]}}]', 20, 1),
+(128, '2016-11-19 21:38:55.037000', '3', 'Japan Nobua House: published [Design]', 1, '[{"added": {}}]', 17, 1),
+(129, '2016-11-20 14:02:17.664000', '3', 'Japan Nobua House: published', 2, '[{"changed": {"fields": ["lead"]}}]', 20, 1),
+(130, '2016-11-20 18:40:25.938000', '2', 'raylight75', 1, '[{"added": {}}]', 11, 1),
+(131, '2016-11-20 18:41:24.279000', '2', 'raylight75', 2, '[{"changed": {"fields": ["first_name", "last_name", "email", "is_staff"]}}]', 11, 1),
+(132, '2016-11-20 19:35:35.755000', '2', 'raylight75', 2, '[]', 5, 1),
+(133, '2016-11-20 19:37:14.697000', '2', 'raylight75', 2, '[]', 5, 1),
+(134, '2016-11-20 19:38:42.709000', '2', 'raylight75', 2, '[]', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -308,7 +348,14 @@ CREATE TABLE IF NOT EXISTS `django_comments` (
   `content_type_id` int(11) NOT NULL,
   `site_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `django_comments`
+--
+
+INSERT INTO `django_comments` (`id`, `object_pk`, `user_name`, `user_email`, `user_url`, `comment`, `submit_date`, `ip_address`, `is_public`, `is_removed`, `content_type_id`, `site_id`, `user_id`) VALUES
+(2, '3', 'Tomas', 'tomas@archimation.com', '', 'Nice House,Great work', '2016-11-20 19:40:48.574000', '127.0.0.1', 1, 0, 14, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -334,28 +381,28 @@ CREATE TABLE IF NOT EXISTS `django_content_type` (
 `id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `django_content_type`
 --
 
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
-(7, 'admin', 'logentry'),
-(10, 'auth', 'group'),
-(12, 'auth', 'permission'),
-(11, 'auth', 'user'),
-(13, 'contenttypes', 'contenttype'),
-(16, 'django_comments', 'comment'),
-(15, 'django_comments', 'commentflag'),
-(9, 'registration', 'registrationprofile'),
-(14, 'sessions', 'session'),
-(8, 'sites', 'site'),
-(18, 'tagging', 'tag'),
-(17, 'tagging', 'taggeditem'),
-(21, 'zinnia', 'author'),
-(19, 'zinnia', 'category'),
-(20, 'zinnia', 'entry');
+(1, 'admin', 'logentry'),
+(4, 'auth', 'group'),
+(6, 'auth', 'permission'),
+(5, 'auth', 'user'),
+(7, 'contenttypes', 'contenttype'),
+(10, 'django_comments', 'comment'),
+(9, 'django_comments', 'commentflag'),
+(3, 'registration', 'registrationprofile'),
+(8, 'sessions', 'session'),
+(2, 'sites', 'site'),
+(12, 'tagging', 'tag'),
+(11, 'tagging', 'taggeditem'),
+(15, 'zinnia', 'author'),
+(13, 'zinnia', 'category'),
+(14, 'zinnia', 'entry');
 
 -- --------------------------------------------------------
 
@@ -392,7 +439,6 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ht34dr3yb04sy8tsjtxofqzaabuk90sj', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-20 21:19:36.423000'),
 ('kktzz2lqq0gradbxukqsilyb3n80dgkn', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-10-16 16:41:55.455000'),
 ('mkad6nh2pu7yucxk9u2mje446cwvvcjv', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-25 08:32:33.128000'),
-('pzujppkl4d0su2dgwbpk0ynn6er90izx', 'NTU0NzhhMzhlMjFmMTMyZDExNzZiOWQ1NzdhZWE1NGJiYmE0OGRiMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjQyZDEyYzZlODQyZGRlYjVkMWRkMTY0MDA5N2Q4MjJhZmY4YmQ1NzEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-12-03 21:11:34.326000'),
 ('rwlajmj43to520268ot2bnjx211rft58', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-24 15:38:51.106000');
 
 -- --------------------------------------------------------
@@ -622,7 +668,16 @@ INSERT INTO `slider` (`id`, `title`, `cat_id`, `image`) VALUES
 CREATE TABLE IF NOT EXISTS `tagging_tag` (
 `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tagging_tag`
+--
+
+INSERT INTO `tagging_tag` (`id`, `name`) VALUES
+(1, 'Design'),
+(3, 'Exterior'),
+(2, 'Interior');
 
 -- --------------------------------------------------------
 
@@ -635,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `tagging_taggeditem` (
   `object_id` int(10) unsigned NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `tag_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -653,7 +708,16 @@ CREATE TABLE IF NOT EXISTS `zinnia_category` (
   `tree_id` int(10) unsigned NOT NULL,
   `level` int(10) unsigned NOT NULL,
   `parent_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `zinnia_category`
+--
+
+INSERT INTO `zinnia_category` (`id`, `title`, `slug`, `description`, `lft`, `rght`, `tree_id`, `level`, `parent_id`) VALUES
+(1, 'Design', 'design', '', 1, 2, 1, 0, NULL),
+(2, 'Interior', 'interior', '', 1, 2, 3, 0, NULL),
+(3, 'Exterior', 'exterior', '', 1, 2, 2, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -688,7 +752,16 @@ CREATE TABLE IF NOT EXISTS `zinnia_entry` (
   `image_caption` longtext NOT NULL,
   `lead` longtext NOT NULL,
   `publication_date` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `zinnia_entry`
+--
+
+INSERT INTO `zinnia_entry` (`id`, `title`, `slug`, `status`, `start_publication`, `end_publication`, `creation_date`, `last_update`, `content`, `comment_enabled`, `pingback_enabled`, `trackback_enabled`, `comment_count`, `pingback_count`, `trackback_count`, `excerpt`, `image`, `featured`, `tags`, `login_required`, `password`, `content_template`, `detail_template`, `image_caption`, `lead`, `publication_date`) VALUES
+(1, 'Scandinavian Interior', 'scandinavian-interior', 2, NULL, NULL, '2016-11-19 21:33:48.974000', '2016-11-19 21:35:41.747000', 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus. At vel suspendisse, vivamus aliquet pellentesque nec arcu odio neque, vehicula tincidunt tincidunt ut sit accumsan justo, semper erat, itaque ut. Iaculis elementum, duis ac, morbi commodo luctus esse ullamcorper. Consectetuer magna. Duis fermentum vestibulum, sed magnis ornare pellentesque, luctus quis, turpis sed vel quis vitae. Purus elit et scelerisque, in dapibus mollis.\r\nNulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis, at dignissim id, molestie non suspendisse. Lacus a ante bibendum malesuada nulla, varius fames ante lorem sed, rutrum lacus dictum nam. Nullam rhoncus, ante class dictum leo orci cras vivamus, dui sed sit integer. Turpis scelerisque velit id ut vitae porta, at sagittis quis montes felis fusce mauris, bibendum elit laoreet. Tincidunt integer fermentum, integer nec cubilia, ornare venenatis hac rutrum morbi. Et sed donec elit quis nonummy ut, luctus etiam, posuere congue, urna vestibulum integer iaculis sed est arcu, magna eleifend. Tempus dis enim dignissim, eros vel. In pellentesque neque non, donec turpis eget erat nibh, tellus in pretium ornare, sapien at lacus, vel nec nonummy nunc.', 1, 0, 0, 0, 0, 0, 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus....', 'uploads/zinnia/2016/11/19/preview_10.jpg', 0, 'Design', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Interior', '2016-11-19 21:33:48.974000'),
+(2, 'Norway House', 'norway-house', 2, NULL, NULL, '2016-11-19 21:36:51.374000', '2016-11-19 21:37:21.556000', 'Nulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis, at dignissim id, molestie non suspendisse. Lacus a ante bibendum malesuada nulla, varius fames ante lorem sed, rutrum lacus dictum nam. Nullam rhoncus, ante class dictum leo orci cras vivamus, dui sed sit integer. Turpis scelerisque velit id ut vitae porta, at sagittis quis montes felis fusce mauris, bibendum elit laoreet. Tincidunt integer fermentum, integer nec cubilia, ornare venenatis hac rutrum morbi. Et sed donec elit quis nonummy ut, luctus etiam, posuere congue, urna vestibulum integer iaculis sed est arcu, magna eleifend. Tempus dis enim dignissim, eros vel. In pellentesque neque non, donec turpis eget erat nibh, tellus in pretium ornare, sapien at lacus, vel nec nonummy nunc.\r\nVestibulum ligula sem placerat sem sed rhoncus, wisi rutrum hendrerit, nulla sit risus consectetuer. Vel auctor erat mollis eget neque ultricies, justo ut augue urna, volutpat ridiculus nunc id pellentesque vitae, integer fringilla eu nec odio. Neque nam luctus suscipit tellus, vestibulum nec rhoncus mauris cras ornare. Fusce vitae quis quam, molestie vel leo maecenas semper sapien, tincidunt fusce iaculis ipsum wisi. Purus metus in porta tellus class, elit amet, praesent etiam a et. Libero sit sociis aliquam vestibulum, conubia ultrices nulla magna quam sed in. Non vel neque tortor lectus, elementum velit mauris venenatis vitae platea ultricies, ipsum aliquam sit eget, augue phasellus duis. Maecenas tempus nibh. Integer erat malesuada inceptos in pharetra, lorem commodo ipsum vestibulum vestibulum parturient.\r\nVitae nostra, qui ut facilisi vestibulum tortor, magna dignissim morbi, eum tortor varius in non. Massa habitant. Placerat nascetur, nulla imperdiet sem viverra primis ridiculus. Placerat elit est congue eget, pellentesque consectetuer vulputate convallis mollis. Integer consectetuer arcu, mi proin augue nec elit eget nulla, vel vulputate, et placerat vel feugiat risus, ipsam dolor. Integer diam eu ipsum, a praesent, elit suspendisse, magna elit ut imperdiet odio tempus.', 1, 0, 0, 0, 0, 0, 'Nulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis,...', 'uploads/zinnia/2016/11/19/final22.jpg', 0, 'Exterior', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'House', '2016-11-19 21:36:51.374000'),
+(3, 'Japan Nobua House', 'japan-nobua-house', 2, NULL, NULL, '2016-11-19 21:38:33.175000', '2016-11-20 14:02:17.116000', 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus. At vel suspendisse, vivamus aliquet pellentesque nec arcu odio neque, vehicula tincidunt tincidunt ut sit accumsan justo, semper erat, itaque ut. Iaculis elementum, duis ac, morbi commodo luctus esse ullamcorper. Consectetuer magna. Duis fermentum vestibulum, sed magnis ornare pellentesque, luctus quis, turpis sed vel quis vitae. Purus elit et scelerisque, in dapibus mollis.\r\nNulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis, at dignissim id, molestie non suspendisse. Lacus a ante bibendum malesuada nulla, varius fames ante lorem sed, rutrum lacus dictum nam. Nullam rhoncus, ante class dictum leo orci cras vivamus, dui sed sit integer. Turpis scelerisque velit id ut vitae porta, at sagittis quis montes felis fusce mauris, bibendum elit laoreet. Tincidunt integer fermentum, integer nec cubilia, ornare venenatis hac rutrum morbi. Et sed donec elit quis nonummy ut, luctus etiam, posuere congue, urna vestibulum integer iaculis sed est arcu, magna eleifend. Tempus dis enim dignissim, eros vel. In pellentesque neque non, donec turpis eget erat nibh, tellus in pretium ornare, sapien at lacus, vel nec nonummy nunc.\r\nVestibulum ligula sem placerat sem sed rhoncus, wisi rutrum hendrerit, nulla sit risus consectetuer. Vel auctor erat mollis eget neque ultricies, justo ut augue urna, volutpat ridiculus nunc id pellentesque vitae, integer fringilla eu nec odio. Neque nam luctus suscipit tellus, vestibulum nec rhoncus mauris cras ornare. Fusce vitae quis quam, molestie vel leo maecenas semper sapien, tincidunt fusce iaculis ipsum wisi. Purus metus in porta tellus class, elit amet, praesent etiam a et. Libero sit sociis aliquam vestibulum, conubia ultrices nulla magna quam sed in. Non vel neque tortor lectus, elementum velit mauris venenatis vitae platea ultricies, ipsum aliquam sit eget, augue phasellus duis. Maecenas tempus nibh. Integer erat malesuada inceptos in pharetra, lorem commodo ipsum vestibulum vestibulum parturient.\r\nVitae nostra, qui ut facilisi vestibulum tortor, magna dignissim morbi, eum tortor varius in non. Massa habitant. Placerat nascetur, nulla imperdiet sem viverra primis ridiculus. Placerat elit est congue eget, pellentesque consectetuer vulputate convallis mollis. Integer consectetuer arcu, mi proin augue nec elit eget nulla, vel vulputate, et placerat vel feugiat risus, ipsam dolor. Integer diam eu ipsum, a praesent, elit suspendisse, magna elit ut imperdiet odio tempus.', 1, 0, 0, 2, 0, 0, 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus....', 'uploads/zinnia/2016/11/19/final-1.jpg', 0, '', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem.', '2016-11-19 21:38:33.175000');
 
 -- --------------------------------------------------------
 
@@ -700,7 +773,16 @@ CREATE TABLE IF NOT EXISTS `zinnia_entry_authors` (
 `id` int(11) NOT NULL,
   `entry_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `zinnia_entry_authors`
+--
+
+INSERT INTO `zinnia_entry_authors` (`id`, `entry_id`, `author_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -712,7 +794,17 @@ CREATE TABLE IF NOT EXISTS `zinnia_entry_categories` (
 `id` int(11) NOT NULL,
   `entry_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `zinnia_entry_categories`
+--
+
+INSERT INTO `zinnia_entry_categories` (`id`, `entry_id`, `category_id`) VALUES
+(1, 1, 2),
+(2, 2, 1),
+(3, 3, 1),
+(4, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -736,7 +828,16 @@ CREATE TABLE IF NOT EXISTS `zinnia_entry_sites` (
 `id` int(11) NOT NULL,
   `entry_id` int(11) NOT NULL,
   `site_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `zinnia_entry_sites`
+--
+
+INSERT INTO `zinnia_entry_sites` (`id`, `entry_id`, `site_id`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1);
 
 --
 -- Indexes for dumped tables
@@ -928,12 +1029,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
 --
@@ -943,17 +1044,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `auth_user_user_permissions`
 --
 ALTER TABLE `auth_user_user_permissions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=113;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=135;
 --
 -- AUTO_INCREMENT for table `django_comments`
 --
 ALTER TABLE `django_comments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `django_comment_flags`
 --
@@ -963,7 +1064,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
@@ -1013,32 +1114,32 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `tagging_tag`
 --
 ALTER TABLE `tagging_tag`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tagging_taggeditem`
 --
 ALTER TABLE `tagging_taggeditem`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `zinnia_category`
 --
 ALTER TABLE `zinnia_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `zinnia_entry`
 --
 ALTER TABLE `zinnia_entry`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `zinnia_entry_authors`
 --
 ALTER TABLE `zinnia_entry_authors`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `zinnia_entry_categories`
 --
 ALTER TABLE `zinnia_entry_categories`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `zinnia_entry_related`
 --
@@ -1048,7 +1149,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `zinnia_entry_sites`
 --
 ALTER TABLE `zinnia_entry_sites`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -1057,16 +1158,22 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- Constraints for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-ADD CONSTRAINT `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
+ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+ADD CONSTRAINT `auth_permissions_group_id_b120cbf9_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
+
+--
+-- Constraints for table `auth_permission`
+--
+ALTER TABLE `auth_permission`
+ADD CONSTRAINT `auth_permissi_content_type_id_2f476e4b_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
 -- Constraints for table `django_comments`
 --
 ALTER TABLE `django_comments`
-ADD CONSTRAINT `django_commen_content_type_id_c4afe962_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
-ADD CONSTRAINT `django_comments_site_id_9dcf666e_fk_django_site_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`),
-ADD CONSTRAINT `django_comments_user_id_a0a440a1_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+ADD CONSTRAINT `dcf666e_fk_django_sdjango_comments_site_id_9ite_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`),
+ADD CONSTRAINT `django_comments_user_id_a0a440a1_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+ADD CONSTRAINT `django_content_type` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
 -- Constraints for table `django_comment_flags`
@@ -1079,7 +1186,6 @@ ADD CONSTRAINT `django_comment_flags_user_id_f3f81f0a_fk_auth_user_id` FOREIGN K
 -- Constraints for table `tagging_taggeditem`
 --
 ALTER TABLE `tagging_taggeditem`
-ADD CONSTRAINT `tagging_tagge_content_type_id_ede1c265_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
 ADD CONSTRAINT `tagging_taggeditem_tag_id_f008ca79_fk_tagging_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tagging_tag` (`id`);
 
 --

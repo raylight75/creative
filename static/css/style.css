@@ -1017,7 +1017,7 @@ transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 10ms;}
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 .header-content {position: relative; background: no-repeat center center fixed; background-size: cover; text-align: center;}
 .header-content h6 {color: #fff;}
-.bg-header-content {width: 100%; height: 100%; background-size: cover; background-attachment: fixed;}
+.bg-header-content {width: 100%; height: 100%; background-attachment: fixed;}
 .half-height {height: 400px;}
 .text-header-portf {position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
 .main-categories {overflow: hidden;}

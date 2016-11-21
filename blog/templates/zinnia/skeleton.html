@@ -8,11 +8,10 @@
     <meta name="robots" content="follow, all"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="
-            {% block meta-description %}{% trans "Just another Zinnia weblog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
+            {% block meta-description %}{% trans "Personal Blog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
     <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
-    <meta name="author" content="Fantomas42"/>
+    <meta name="author" content="Tihomir Blajev"/>
     {% block meta %}{% endblock meta %}
-    <link rel="pingback" href="/xmlrpc/"/>
     <link rel="home" href="{% url 'zinnia:entry_archive_index' %}"/>
     <link rel="icon" href="{% static "images/favicon.png" %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
@@ -51,18 +50,17 @@
                         <div><i class="fa fa-times"></i></div>
                     </div>
                     <ul class="table-cell dl-menu dl-menuopen">
-                        <li class="menu-item"><a href="http://127.0.0.1:8000">Home<span class="fa fa-angle-down"></span></a>
+                        <li class="menu-item"><a href="/">Home<span class="fa fa-angle-down"></span></a>
                         </li>
-                        <li class="menu-item"><a href="http://127.0.0.1:8000/portfolio">Portfolio<span class="fa fa-angle-down"></span></a>
+                        <li class="menu-item"><a href="/portfolio">Portfolio<span class="fa fa-angle-down"></span></a>
                         </li>
-                        <li class="menu-item"><a href="http://127.0.0.1:8000/services">Services<span class="fa fa-angle-down"></span></a>
+                        <li class="menu-item"><a href="/services">Services<span class="fa fa-angle-down"></span></a>
                         </li>
-                        <li class="menu-item active"><a href="http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=27025"><a href="http://127.0.0.1:8000/weblog">Blog<span class="fa fa-angle-down"></span></a>
+                        <li class="menu-item active"><a href="/weblog">Blog<span class="fa fa-angle-down"></span></a>
                         </li>
-                        <li class="menu-item"><a href="http://127.0.0.1:8000/aboutme">About Me<span class="fa fa-angle-down"></span></a>
+                        <li class="menu-item"><a href="/aboutme">About Me<span class="fa fa-angle-down"></span></a>
                         </li>
-                        <li class="menu-item"><a href="http://127.0.0.1:8000/contacts">Contacts
-                            <span class="fa fa-angle-down"></span></a>
+                        <li class="menu-item"><a href="/contacts">Contacts<span class="fa fa-angle-down"></span></a>
                         </li>
                     </ul>
                 </nav>
@@ -118,7 +116,7 @@
         <div class="action-box action-before">
             <div class="text-action-box">
           <h3 class="entry-title">Tihomir Blajev Blog</h3>          
-          <h5 class="entry-title">Covering 3D, programming and other various interesting topics.</h5>
+          <h5 class="entry-title">Covering CG Arts, 3D, programming and other various interesting topics.</h5>
             </div>
         </div>                   
             {% block sidebar %}
@@ -150,10 +148,10 @@
         </div>
     </div>
 </footer>
-<script type="text/javascript" src="{% static "zinnia_bootstrap/assets/js/jquery.js" %}"></script>
-<script type="text/javascript" src="{% static "zinnia_bootstrap/bootstrap/js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/jquery-2.1.4.min.js" %}"></script>
 <script src="{% static "js/modernizr.custom.js" %}"></script>
 <script src="{% static "js/appear.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
 <script src="{% static "js/device.min.js" %}"></script>
 <script src="{% static "js/jquery.circliful.min.js" %}"></script>
 <script src="{% static "js/jquery.dlmenu.js" %}"></script>
@@ -162,6 +160,7 @@
 <script src="{% static "js/jquery.spincrement.js" %}"></script>
 <script src="{% static "js/jquery.twentytwenty.js" %}"></script>
 <script src="{% static "js/wow.min.js" %}"></script>
+<script src="{% static "js/jquery.youtubebackground.js" %}"></script>
 <script src="{% static "js/main.js" %}"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2016 at 06:47 PM
+-- Generation Time: Nov 21, 2016 at 08:23 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -1158,8 +1158,8 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- Constraints for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-ADD CONSTRAINT `auth_permissions_group_id_b120cbf9_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);
+ADD CONSTRAINT `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
 
 --
 -- Constraints for table `auth_permission`
@@ -1172,8 +1172,8 @@ ADD CONSTRAINT `auth_permissi_content_type_id_2f476e4b_fk_django_content_type_id
 --
 ALTER TABLE `django_comments`
 ADD CONSTRAINT `dcf666e_fk_django_sdjango_comments_site_id_9ite_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`),
-ADD CONSTRAINT `django_comments_user_id_a0a440a1_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
-ADD CONSTRAINT `django_content_type` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
+ADD CONSTRAINT `django_commen_content_type_id_c4afe962_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+ADD CONSTRAINT `django_comments_user_id_a0a440a1_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Constraints for table `django_comment_flags`

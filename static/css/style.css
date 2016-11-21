@@ -83,7 +83,8 @@ ul {list-style: none;}
 h1, h2, h3, h4, h5, h6, p{margin:0px; padding:0px;}
 button {outline: none; border: none; box-shadow: none; background: none;}
 @media screen and (min-width: 1280px){
-  .side-menu {padding-top: 255px;}
+.side-menu {padding-top: 255px;}
+.main-content {width: 85%;}
 }
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -3237,7 +3238,10 @@ a:focus, a:hover {color: inherit;}
 .item-info-line {padding: 20px 0;}
 .item-info-layout {display: inline-block; float: left; margin-right: 20px; font-family: 'Lato', sans-serif;}
 
-.widget {margin-bottom: 30px;}
+.widget {
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
 .widget .widget-title{border: 1px solid #333; text-align: center; padding: 10px 0; margin-bottom: 30px;}
 .widget_about img {width: 100%; margin-bottom: 10px;}
 

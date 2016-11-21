@@ -93,10 +93,7 @@
         </div>
     </div>
     <br>
-    <div class="container-fluid main-content">
-        <div class="row">
-            {% include "zinnia/tags/search_form.html" %}
-        </div>
+    <div class="container-fluid main-content">        
         <div id="content" class="hfeed col-md-8">
             {% block breadcrumbs %}{% endblock %}
             {% block content %}
@@ -117,9 +114,16 @@
                 </div>
             {% endblock content %}
         </div>
-        <div id="sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div id="sidebar" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 side-menu">        
+        <div class="action-box action-before">
+            <div class="text-action-box">
+          <h3 class="entry-title">Tihomir Blajev Blog</h3>          
+          <h5 class="entry-title">Covering 3D, programming and other various interesting topics.</h5>
+            </div>
+        </div>                   
             {% block sidebar %}
             {% endblock sidebar %}
+            {% include "zinnia/tags/search_form.html" %}
         </div>
     </div>
 </div>

@@ -82,10 +82,14 @@ button {background: none; border:0px none;}
 ul {list-style: none;}
 h1, h2, h3, h4, h5, h6, p{margin:0px; padding:0px;}
 button {outline: none; border: none; box-shadow: none; background: none;}
+
+/*------Custom Styling---------*/
+.content-lead {text-transform:initial; font-size: 14px; line-height: 24px;}
 @media screen and (min-width: 1280px){
 .side-menu {padding-top: 255px;}
 .main-content {width: 85%;}
 }
+
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
@@ -99,7 +103,7 @@ h3 {font-size: 32px; line-height: 32px; font-weight: 300; text-transform: upperc
 h4 { font-size: 26px; line-height: 26px; font-weight: 300; text-transform: uppercase;}
 h5 {font-size: 16px; line-height: 20px; font-weight: 300; text-transform: uppercase;}
 h6 {font-size: 13px; line-height: 16px; font-weight: 300; text-transform: uppercase;}
-p {font-size: 14px; line-height: 24px; font-weight: 300; font-family: 'Lato', sans-serif;}
+p {font-size: 16px; line-height: 28px; font-weight: 300; font-family: 'Lato', sans-serif;}
 a { color: inherit; font-family: 'Lato', sans-serif;}
 li, span {font-family: 'Lato', sans-serif;}
 .table-cell {display: table-cell; vertical-align: middle; height: inherit;}

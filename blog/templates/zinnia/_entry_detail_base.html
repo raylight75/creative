@@ -72,22 +72,19 @@
     </div>
     {% endif %}
     {% endblock entry-image %}
-     <div class="share clearfix">
-          <ul>
-              <li class="color-fb">
-                  <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ object.get_absolute_url }}">
-                  <i class="fa fa-facebook"></i>facebook<span class="color-fb-2">0</span></a></li>
-              <li class="color-tw">
-                  <a href="#">
-                  <i class="fa fa-twitter"></i>twitter<span class="color-tw-2">0</span></a></li>
-              <li class="color-gg">
-                  <a href="#">
-                  <i class="fa fa-google-plus"></i>google +<span class="color-gg-2">0</span></a></li>
-              <li class="color-pin">
-                  <a href="#">
-                  <i class="fa fa-pinterest"></i>pinterest<span class="color-pin-2">0</span></a></li>
-          </ul>
-     </div>
+      <br>
+      <div class="contact-socail large">
+          <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ object.get_absolute_url }}">
+              <i class="fa fa-facebook"></i></a>
+          <a href="https://plus.google.com/share?url={{ request.get_host }}{{ object.get_absolute_url }}">
+              <i class="fa fa-google-plus"></i></a>
+          <a href="http://www.twitter.com/share?url={{ request.get_host }}{{ object.get_absolute_url }}">
+              <i class="fa fa-twitter"></i></a>
+          <a href="http://pinterest.com/pin/create/button/?url={{ request.get_host }}{{ object.get_absolute_url }}">
+              <i class="fa fa-pinterest-p"></i></a>
+          <a href="#"><i class="fa fa-behance"></i></a>
+      </div>
+      <br>
     {% block entry-content %}
     <div class="entry-content lead">
       <h5>{{ object_content|safe }}</h5>
@@ -95,13 +92,15 @@
     {% endblock entry-content %}
     {% block continue-reading %}
     {% if continue_reading and object_content.has_more %}
-    <p class="continue-reading">
-      <a href="{{ object.get_absolute_url }}"
-         title="{% blocktrans with object=object.title percent=object_content.remaining_percent|floatformat:0 %}{{ percent }}% of {{ object }} still remains to read.{% endblocktrans %}"
-         rel="bookmark" class="btn btn-primary">
-        {% trans "Continue reading" %}
-      </a>
-    </p>
+        <div class="tarif-wrap marg-xs-b30">
+            <p class="continue-reading">
+                <a href="{{ object.get_absolute_url }}"
+                   title="{% blocktrans with object=object.title percent=object_content.remaining_percent|floatformat:0 %}{{ percent }}% of {{ object }} still remains to read.{% endblocktrans %}"
+                   rel="bookmark">
+                    {% trans "Continue reading" %}
+                </a>
+            </p>
+        </div>
     {% endif %}
     {% endblock continue-reading %}
   </div>

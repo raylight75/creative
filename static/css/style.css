@@ -2132,7 +2132,7 @@ button.mfp-close, button.mfp-arrow {width: 40px; height: 40px; background-color:
 .content-call_action {padding: 0 90px;}
 .action-box {margin-bottom: 45px; position: relative; padding: 25px 30px 15px 35px;}
 .action-box.action-before {border: 1px solid rgba(145,145,145,0.15); }
-.action-box.action-before:before {position: absolute; content: ""; top: 0; left: 0; width: 5px; height: 100%; background-color: #333;}
+.action-box.action-before:before {position: absolute; content: ""; top: 0; left: 0; width: 5px; height: 100%; background-color: #f89b1c;}
 .action-box h4, .action-box p {margin-bottom: 10px;}
 .action-box h4 {text-transform: inherit;}
 .action-box p {color: #b9b9b9;}
@@ -2218,14 +2218,14 @@ button.mfp-close, button.mfp-arrow {width: 40px; height: 40px; background-color:
 
 .pricing-page {background-color: #f8f8f8;}
 .column-price {padding: 0 90px;}
-.tarif-wrap {background-color: #fff; text-align: center; font-family: 'Lato', sans-serif;}
+.tarif-wrap {background-color: #fff; text-align: left; font-family: 'Lato', sans-serif;}
 
 .tarif-wrap .tarif-title {margin-top: 14px; font-size: 22px; line-height: 25px; font-weight: 400; text-transform: uppercase; letter-spacing: 2px;}
 .tarif-wrap .tarif-days {font-size: 14px; line-height: 18px; font-weight: 400; color: #b9b9b9; margin: 15px 0;}
 .tarif-wrap .tarif-content {font: 400 14px 'Lato', sans-serif; line-height: 18px; text-transform: uppercase; padding: 0 50px;}
 .tarif-wrap .tarif-content li {border-bottom: 1px solid #eee; padding: 15.5px 0; color: #333;}
 .tarif-wrap .tarif-content li:first-child {border-top: 1px solid #eee;}
-.tarif-wrap a {display: inline-block; border: 1px solid #333; margin-top: 30px; margin-bottom: 30px; padding-top: 20px; height: 50px; line-height: 47px; padding: 0 19px; border-radius: 25px; background-color: #333; color: #fff;}
+.tarif-wrap a {display: inline-block; border: 1px solid #f89b1c; padding-top: 20px; height: 50px; line-height: 47px; padding: 0 19px; border-radius: 25px; background-color: #f89b1c; color: #f8f8f8;}
 .tarif-wrap a:hover {background-color: #fff; color: #333;}
 
 .prices-border .tarif-wrap {border: 1px solid #eee;}

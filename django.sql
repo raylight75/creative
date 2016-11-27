@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.0.10.14
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 21, 2016 at 08:23 AM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: localhost:3306
+-- Generation Time: Nov 27, 2016 at 04:29 PM
+-- Server version: 5.6.33-cll-lve
+-- PHP Version: 5.6.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `django`
+-- Database: `tihoblaj_django`
 --
 
 -- --------------------------------------------------------
@@ -27,9 +27,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group` (
-`id` int(11) NOT NULL,
-  `name` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -38,10 +40,13 @@ CREATE TABLE IF NOT EXISTS `auth_group` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
-  `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` (`permission_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -50,11 +55,13 @@ CREATE TABLE IF NOT EXISTS `auth_group_permissions` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_permission` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
-  `codename` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=latin1;
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_01ab375a_uniq` (`content_type_id`,`codename`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50 ;
 
 --
 -- Dumping data for table `auth_permission`
@@ -118,7 +125,7 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `password` varchar(128) NOT NULL,
   `last_login` datetime(6) DEFAULT NULL,
   `is_superuser` tinyint(1) NOT NULL,
@@ -128,15 +135,17 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `email` varchar(254) NOT NULL,
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
-  `date_joined` datetime(6) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `date_joined` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$30000$GC7IFpgUvOgl$q2wMVsquhf7ZONzSptEJ+OyghvuCpDHcb1NLyX+tEPg=', '2016-11-20 19:37:39.746000', 1, 'admin', '', '', 'raylight75@gmail.com', 1, 1, '2016-11-19 20:41:23.706000'),
+(1, 'pbkdf2_sha256$30000$GC7IFpgUvOgl$q2wMVsquhf7ZONzSptEJ+OyghvuCpDHcb1NLyX+tEPg=', '2016-11-27 11:51:45.606631', 1, 'admin', '', '', 'raylight75@gmail.com', 1, 1, '2016-11-19 20:41:23.706000'),
 (2, 'pbkdf2_sha256$30000$5E3E6asuZOdq$jAuyAgLXwMgGiGYMro7N3G3F1fPhQPFcAapUQcVlrc0=', '2016-11-20 19:38:51.502000', 0, 'raylight75', 'Tiho', 'Blajev', 'raylight75@gmail.com', 1, 1, '2016-11-20 18:40:25.817000');
 
 -- --------------------------------------------------------
@@ -146,10 +155,13 @@ INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `userna
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user_groups` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `group_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_groups_user_id_94350c0c_uniq` (`user_id`,`group_id`),
+  KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -158,10 +170,13 @@ CREATE TABLE IF NOT EXISTS `auth_user_groups` (
 --
 
 CREATE TABLE IF NOT EXISTS `auth_user_user_permissions` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_user_permissions_user_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  KEY `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` (`permission_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `auth_user_user_permissions`
@@ -178,15 +193,18 @@ INSERT INTO `auth_user_user_permissions` (`id`, `user_id`, `permission_id`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `django_admin_log` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `action_time` datetime(6) NOT NULL,
   `object_id` longtext,
   `object_repr` varchar(200) NOT NULL,
   `action_flag` smallint(5) unsigned NOT NULL,
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=latin1;
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=180 ;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -326,7 +344,52 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (131, '2016-11-20 18:41:24.279000', '2', 'raylight75', 2, '[{"changed": {"fields": ["first_name", "last_name", "email", "is_staff"]}}]', 11, 1),
 (132, '2016-11-20 19:35:35.755000', '2', 'raylight75', 2, '[]', 5, 1),
 (133, '2016-11-20 19:37:14.697000', '2', 'raylight75', 2, '[]', 5, 1),
-(134, '2016-11-20 19:38:42.709000', '2', 'raylight75', 2, '[]', 5, 1);
+(134, '2016-11-20 19:38:42.709000', '2', 'raylight75', 2, '[]', 5, 1),
+(135, '2016-11-22 11:06:10.260057', '1', 'tihoblajev.com', 2, '[{"changed": {"fields": ["domain", "name"]}}]', 2, 1),
+(136, '2016-11-22 11:12:09.918797', '3', 'Japan Nobua House: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(137, '2016-11-22 11:12:36.298018', '3', 'Japan Nobua House: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(138, '2016-11-22 11:14:21.113815', '2', 'Norway House: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(139, '2016-11-22 11:14:43.937652', '2', 'Norway House: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(140, '2016-11-22 11:14:54.101678', '1', 'Scandinavian Interior: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(141, '2016-11-22 11:16:08.406681', '1', 'Scandinavian Interior: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(142, '2016-11-22 12:05:04.011672', '1', 'www.tihoblajev.com', 2, '[{"changed": {"fields": ["domain", "name"]}}]', 2, 1),
+(143, '2016-11-27 11:52:29.168912', '4', 'Personal', 1, '[{"added": {}}]', 13, 1),
+(144, '2016-11-27 11:53:00.388392', '3', 'Exterior', 3, '', 13, 1),
+(145, '2016-11-27 12:39:13.892926', '1', 'Nobuya Kashima House: published', 2, '[{"changed": {"fields": ["title", "lead", "content", "slug"]}}]', 14, 1),
+(146, '2016-11-27 12:40:32.023048', '1', 'Nobuya Kashima House: published', 2, '[{"changed": {"fields": ["image", "categories"]}}]', 14, 1),
+(147, '2016-11-27 12:40:51.941704', '1', 'Nobuya Kashima House: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(148, '2016-11-27 12:41:14.734967', '1', 'Nobuya Kashima House: published', 2, '[{"changed": {"fields": ["categories"]}}]', 14, 1),
+(149, '2016-11-27 12:42:35.139742', '1', 'Nobuya Kashima House: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(150, '2016-11-27 12:44:10.402143', '3', 'First Post: published', 2, '[{"changed": {"fields": ["title", "lead", "content", "categories"]}}]', 14, 1),
+(151, '2016-11-27 12:46:33.112534', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(152, '2016-11-27 12:47:49.927585', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(153, '2016-11-27 12:48:40.200430', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(154, '2016-11-27 12:49:42.196504', '3', 'First Post: published', 2, '[{"changed": {"fields": ["image", "slug"]}}]', 14, 1),
+(155, '2016-11-27 12:55:46.212253', '3', 'First Post: published', 2, '[{"changed": {"fields": ["image", "image_caption"]}}]', 14, 1),
+(156, '2016-11-27 12:58:15.322045', '2', 'Rules: published', 2, '[{"changed": {"fields": ["title", "lead", "content", "categories", "tags", "slug"]}}]', 14, 1),
+(157, '2016-11-27 12:58:40.912401', '2', 'Rules: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(158, '2016-11-27 12:59:12.111566', '2', 'Rules: published', 2, '[{"changed": {"fields": ["image"]}}]', 14, 1),
+(159, '2016-11-27 13:00:46.624420', '2', 'Rules: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(160, '2016-11-27 13:04:14.413107', '3', 'First Post: published', 2, '[{"changed": {"fields": ["lead"]}}]', 14, 1),
+(161, '2016-11-27 13:05:43.539888', '3', 'First Post: published', 2, '[{"changed": {"fields": ["lead"]}}]', 14, 1),
+(162, '2016-11-27 13:05:43.617728', '3', 'First Post: published', 2, '[{"changed": {"fields": ["lead"]}}]', 14, 1),
+(163, '2016-11-27 13:08:24.137092', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(164, '2016-11-27 13:08:59.810033', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(165, '2016-11-27 13:10:43.742192', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(166, '2016-11-27 13:12:29.821672', '6', 'design: Test mobile...', 3, '', 10, 1),
+(167, '2016-11-27 13:12:29.823909', '5', 'Tisho: Test comments...', 3, '', 10, 1),
+(168, '2016-11-27 13:12:29.825818', '4', 'testUser: test comments...', 3, '', 10, 1),
+(169, '2016-11-27 13:12:29.827828', '3', 'T: Test,mobile comment...', 3, '', 10, 1),
+(170, '2016-11-27 13:12:29.829717', '2', 'Tomas: Nice House,Great work...', 3, '', 10, 1),
+(171, '2016-11-27 13:13:58.425702', '2', 'Rules: published', 2, '[{"changed": {"fields": ["lead"]}}]', 14, 1),
+(172, '2016-11-27 13:14:25.211288', '4', 'Personal', 1, '[{"added": {}}]', 12, 1),
+(173, '2016-11-27 13:14:54.305187', '5', 'Rules', 1, '[{"added": {}}]', 13, 1),
+(174, '2016-11-27 13:15:08.216133', '2', 'Rules: published', 2, '[{"changed": {"fields": ["categories"]}}]', 14, 1),
+(175, '2016-11-27 13:15:55.392592', '6', 'Interior [Personal]', 1, '[{"added": {}}]', 11, 1),
+(176, '2016-11-27 13:16:08.981852', '6', 'Rules: published [Personal]', 2, '[{"changed": {"fields": ["content_type"]}}]', 11, 1),
+(177, '2016-11-27 13:18:20.714093', '2', 'Rules: published', 2, '[{"changed": {"fields": ["tags"]}}]', 14, 1),
+(178, '2016-11-27 13:37:38.046496', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(179, '2016-11-27 14:29:18.199343', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content", "excerpt"]}}]', 14, 1);
 
 -- --------------------------------------------------------
 
@@ -335,7 +398,7 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 --
 
 CREATE TABLE IF NOT EXISTS `django_comments` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `object_pk` longtext NOT NULL,
   `user_name` varchar(50) NOT NULL,
   `user_email` varchar(254) NOT NULL,
@@ -347,15 +410,13 @@ CREATE TABLE IF NOT EXISTS `django_comments` (
   `is_removed` tinyint(1) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `site_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `django_comments`
---
-
-INSERT INTO `django_comments` (`id`, `object_pk`, `user_name`, `user_email`, `user_url`, `comment`, `submit_date`, `ip_address`, `is_public`, `is_removed`, `content_type_id`, `site_id`, `user_id`) VALUES
-(2, '3', 'Tomas', 'tomas@archimation.com', '', 'Nice House,Great work', '2016-11-20 19:40:48.574000', '127.0.0.1', 1, 0, 14, 1, NULL);
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_commen_content_type_id_c4afe962_fk_django_content_type_id` (`content_type_id`),
+  KEY `django_comments_site_id_9dcf666e_fk_django_site_id` (`site_id`),
+  KEY `django_comments_user_id_a0a440a1_fk_auth_user_id` (`user_id`),
+  KEY `django_comments_submit_date_514ed2d9_uniq` (`submit_date`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -364,12 +425,16 @@ INSERT INTO `django_comments` (`id`, `object_pk`, `user_name`, `user_email`, `us
 --
 
 CREATE TABLE IF NOT EXISTS `django_comment_flags` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `flag` varchar(30) NOT NULL,
   `flag_date` datetime(6) NOT NULL,
   `comment_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_comment_flags_user_id_537f77a7_uniq` (`user_id`,`comment_id`,`flag`),
+  KEY `django_comment_flags_comment_id_d8054933_fk_django_comments_id` (`comment_id`),
+  KEY `django_comment_flags_327a6c43` (`flag`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -378,10 +443,12 @@ CREATE TABLE IF NOT EXISTS `django_comment_flags` (
 --
 
 CREATE TABLE IF NOT EXISTS `django_content_type` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `app_label` varchar(100) NOT NULL,
-  `model` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `django_content_type`
@@ -411,11 +478,12 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `django_migrations` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `applied` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -426,7 +494,9 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
 CREATE TABLE IF NOT EXISTS `django_session` (
   `session_key` varchar(40) NOT NULL,
   `session_data` longtext NOT NULL,
-  `expire_date` datetime(6) NOT NULL
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_de54fa62` (`expire_date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -439,7 +509,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ht34dr3yb04sy8tsjtxofqzaabuk90sj', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-20 21:19:36.423000'),
 ('kktzz2lqq0gradbxukqsilyb3n80dgkn', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-10-16 16:41:55.455000'),
 ('mkad6nh2pu7yucxk9u2mje446cwvvcjv', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-25 08:32:33.128000'),
-('rwlajmj43to520268ot2bnjx211rft58', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-24 15:38:51.106000');
+('rwlajmj43to520268ot2bnjx211rft58', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-24 15:38:51.106000'),
+('y4j095l0hs8mmdkjb4b9acy3cf9cbsa7', 'NTU0NzhhMzhlMjFmMTMyZDExNzZiOWQ1NzdhZWE1NGJiYmE0OGRiMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjQyZDEyYzZlODQyZGRlYjVkMWRkMTY0MDA5N2Q4MjJhZmY4YmQ1NzEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-12-11 11:51:45.609839');
 
 -- --------------------------------------------------------
 
@@ -448,17 +519,19 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 --
 
 CREATE TABLE IF NOT EXISTS `django_site` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `domain` varchar(100) NOT NULL,
-  `name` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_site_domain_a2e37b91_uniq` (`domain`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `django_site`
 --
 
 INSERT INTO `django_site` (`id`, `domain`, `name`) VALUES
-(1, 'example.com', 'example.com');
+(1, 'www.tihoblajev.com', 'www.tihoblajev.com');
 
 -- --------------------------------------------------------
 
@@ -467,11 +540,12 @@ INSERT INTO `django_site` (`id`, `domain`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `image` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(32) NOT NULL,
   `cat_id` int(11) NOT NULL,
-  `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+  `image` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
 --
 -- Dumping data for table `image`
@@ -536,9 +610,10 @@ INSERT INTO `image` (`id`, `title`, `cat_id`, `image`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `img_cat` (
-`id` int(11) NOT NULL,
-  `cat` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `img_cat`
@@ -559,14 +634,15 @@ INSERT INTO `img_cat` (`id`, `cat`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `info` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `aboutme` longtext NOT NULL,
   `email` varchar(32) NOT NULL,
   `phone` varchar(32) NOT NULL,
   `skype` varchar(32) NOT NULL,
   `address` varchar(32) NOT NULL,
-  `contact_info` longtext NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `contact_info` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `info`
@@ -582,11 +658,13 @@ INSERT INTO `info` (`id`, `aboutme`, `email`, `phone`, `skype`, `address`, `cont
 --
 
 CREATE TABLE IF NOT EXISTS `registration_registrationprofile` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `activation_key` varchar(40) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `activated` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `activated` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -595,11 +673,12 @@ CREATE TABLE IF NOT EXISTS `registration_registrationprofile` (
 --
 
 CREATE TABLE IF NOT EXISTS `service` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `text` longtext NOT NULL,
   `name` varchar(32) NOT NULL,
-  `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `image` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `service`
@@ -620,9 +699,10 @@ INSERT INTO `service` (`id`, `text`, `name`, `image`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `sld_cat` (
-`id` int(11) NOT NULL,
-  `cat` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `sld_cat`
@@ -641,11 +721,12 @@ INSERT INTO `sld_cat` (`id`, `cat`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `slider` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(32) NOT NULL,
   `cat_id` int(11) NOT NULL,
-  `image` varchar(32) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `image` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `slider`
@@ -666,9 +747,11 @@ INSERT INTO `slider` (`id`, `title`, `cat_id`, `image`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tagging_tag` (
-`id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `tagging_tag`
@@ -677,7 +760,8 @@ CREATE TABLE IF NOT EXISTS `tagging_tag` (
 INSERT INTO `tagging_tag` (`id`, `name`) VALUES
 (1, 'Design'),
 (3, 'Exterior'),
-(2, 'Interior');
+(2, 'Interior'),
+(4, 'Personal');
 
 -- --------------------------------------------------------
 
@@ -686,11 +770,23 @@ INSERT INTO `tagging_tag` (`id`, `name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `tagging_taggeditem` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `object_id` int(10) unsigned NOT NULL,
   `content_type_id` int(11) NOT NULL,
-  `tag_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `tag_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tagging_taggeditem_tag_id_3d53f09d_uniq` (`tag_id`,`content_type_id`,`object_id`),
+  KEY `tagging_taggeditem_af31437c` (`object_id`),
+  KEY `tagging_tagge_content_type_id_ede1c265_fk_django_content_type_id` (`content_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `tagging_taggeditem`
+--
+
+INSERT INTO `tagging_taggeditem` (`id`, `object_id`, `content_type_id`, `tag_id`) VALUES
+(5, 1, 14, 1),
+(7, 2, 14, 4);
 
 -- --------------------------------------------------------
 
@@ -699,7 +795,7 @@ CREATE TABLE IF NOT EXISTS `tagging_taggeditem` (
 --
 
 CREATE TABLE IF NOT EXISTS `zinnia_category` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
@@ -707,8 +803,15 @@ CREATE TABLE IF NOT EXISTS `zinnia_category` (
   `rght` int(10) unsigned NOT NULL,
   `tree_id` int(10) unsigned NOT NULL,
   `level` int(10) unsigned NOT NULL,
-  `parent_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `parent_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `slug` (`slug`),
+  KEY `zinnia_category_caf7cc51` (`lft`),
+  KEY `zinnia_category_3cfbd988` (`rght`),
+  KEY `zinnia_category_656442a0` (`tree_id`),
+  KEY `zinnia_category_c9e9a848` (`level`),
+  KEY `zinnia_category_6be37982` (`parent_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `zinnia_category`
@@ -717,7 +820,8 @@ CREATE TABLE IF NOT EXISTS `zinnia_category` (
 INSERT INTO `zinnia_category` (`id`, `title`, `slug`, `description`, `lft`, `rght`, `tree_id`, `level`, `parent_id`) VALUES
 (1, 'Design', 'design', '', 1, 2, 1, 0, NULL),
 (2, 'Interior', 'interior', '', 1, 2, 3, 0, NULL),
-(3, 'Exterior', 'exterior', '', 1, 2, 2, 0, NULL);
+(4, 'Personal', 'personal', '', 1, 2, 4, 0, NULL),
+(5, 'Rules', 'rules', '', 1, 2, 5, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -726,9 +830,9 @@ INSERT INTO `zinnia_category` (`id`, `title`, `slug`, `description`, `lft`, `rgh
 --
 
 CREATE TABLE IF NOT EXISTS `zinnia_entry` (
-`id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `slug` varchar(255) CHARACTER SET latin1 NOT NULL,
   `status` int(11) NOT NULL,
   `start_publication` datetime(6) DEFAULT NULL,
   `end_publication` datetime(6) DEFAULT NULL,
@@ -742,26 +846,34 @@ CREATE TABLE IF NOT EXISTS `zinnia_entry` (
   `pingback_count` int(11) NOT NULL,
   `trackback_count` int(11) NOT NULL,
   `excerpt` longtext NOT NULL,
-  `image` varchar(100) NOT NULL,
+  `image` varchar(100) CHARACTER SET latin1 NOT NULL,
   `featured` tinyint(1) NOT NULL,
-  `tags` varchar(255) NOT NULL,
+  `tags` varchar(255) CHARACTER SET latin1 NOT NULL,
   `login_required` tinyint(1) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `content_template` varchar(250) NOT NULL,
-  `detail_template` varchar(250) NOT NULL,
-  `image_caption` longtext NOT NULL,
+  `password` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `content_template` varchar(250) CHARACTER SET latin1 NOT NULL,
+  `detail_template` varchar(250) CHARACTER SET latin1 NOT NULL,
+  `image_caption` longtext CHARACTER SET latin1 NOT NULL,
   `lead` longtext NOT NULL,
-  `publication_date` datetime(6) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `publication_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `zinnia_entry_2dbcba41` (`slug`),
+  KEY `zinnia_entry_9acb4454` (`status`),
+  KEY `zinnia_entry_6dc6f11d` (`start_publication`),
+  KEY `zinnia_entry_b803a79a` (`end_publication`),
+  KEY `zinnia_entry_slug_8de07f28_idx` (`slug`,`publication_date`),
+  KEY `zinnia_entry_status_b9d97cbc_idx` (`status`,`publication_date`,`start_publication`,`end_publication`),
+  KEY `zinnia_entry_93b83098` (`publication_date`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `zinnia_entry`
 --
 
 INSERT INTO `zinnia_entry` (`id`, `title`, `slug`, `status`, `start_publication`, `end_publication`, `creation_date`, `last_update`, `content`, `comment_enabled`, `pingback_enabled`, `trackback_enabled`, `comment_count`, `pingback_count`, `trackback_count`, `excerpt`, `image`, `featured`, `tags`, `login_required`, `password`, `content_template`, `detail_template`, `image_caption`, `lead`, `publication_date`) VALUES
-(1, 'Scandinavian Interior', 'scandinavian-interior', 2, NULL, NULL, '2016-11-19 21:33:48.974000', '2016-11-19 21:35:41.747000', 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus. At vel suspendisse, vivamus aliquet pellentesque nec arcu odio neque, vehicula tincidunt tincidunt ut sit accumsan justo, semper erat, itaque ut. Iaculis elementum, duis ac, morbi commodo luctus esse ullamcorper. Consectetuer magna. Duis fermentum vestibulum, sed magnis ornare pellentesque, luctus quis, turpis sed vel quis vitae. Purus elit et scelerisque, in dapibus mollis.\r\nNulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis, at dignissim id, molestie non suspendisse. Lacus a ante bibendum malesuada nulla, varius fames ante lorem sed, rutrum lacus dictum nam. Nullam rhoncus, ante class dictum leo orci cras vivamus, dui sed sit integer. Turpis scelerisque velit id ut vitae porta, at sagittis quis montes felis fusce mauris, bibendum elit laoreet. Tincidunt integer fermentum, integer nec cubilia, ornare venenatis hac rutrum morbi. Et sed donec elit quis nonummy ut, luctus etiam, posuere congue, urna vestibulum integer iaculis sed est arcu, magna eleifend. Tempus dis enim dignissim, eros vel. In pellentesque neque non, donec turpis eget erat nibh, tellus in pretium ornare, sapien at lacus, vel nec nonummy nunc.', 1, 0, 0, 0, 0, 0, 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus....', 'uploads/zinnia/2016/11/19/preview_10.jpg', 0, 'Design', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Interior', '2016-11-19 21:33:48.974000'),
-(2, 'Norway House', 'norway-house', 2, NULL, NULL, '2016-11-19 21:36:51.374000', '2016-11-19 21:37:21.556000', 'Nulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis, at dignissim id, molestie non suspendisse. Lacus a ante bibendum malesuada nulla, varius fames ante lorem sed, rutrum lacus dictum nam. Nullam rhoncus, ante class dictum leo orci cras vivamus, dui sed sit integer. Turpis scelerisque velit id ut vitae porta, at sagittis quis montes felis fusce mauris, bibendum elit laoreet. Tincidunt integer fermentum, integer nec cubilia, ornare venenatis hac rutrum morbi. Et sed donec elit quis nonummy ut, luctus etiam, posuere congue, urna vestibulum integer iaculis sed est arcu, magna eleifend. Tempus dis enim dignissim, eros vel. In pellentesque neque non, donec turpis eget erat nibh, tellus in pretium ornare, sapien at lacus, vel nec nonummy nunc.\r\nVestibulum ligula sem placerat sem sed rhoncus, wisi rutrum hendrerit, nulla sit risus consectetuer. Vel auctor erat mollis eget neque ultricies, justo ut augue urna, volutpat ridiculus nunc id pellentesque vitae, integer fringilla eu nec odio. Neque nam luctus suscipit tellus, vestibulum nec rhoncus mauris cras ornare. Fusce vitae quis quam, molestie vel leo maecenas semper sapien, tincidunt fusce iaculis ipsum wisi. Purus metus in porta tellus class, elit amet, praesent etiam a et. Libero sit sociis aliquam vestibulum, conubia ultrices nulla magna quam sed in. Non vel neque tortor lectus, elementum velit mauris venenatis vitae platea ultricies, ipsum aliquam sit eget, augue phasellus duis. Maecenas tempus nibh. Integer erat malesuada inceptos in pharetra, lorem commodo ipsum vestibulum vestibulum parturient.\r\nVitae nostra, qui ut facilisi vestibulum tortor, magna dignissim morbi, eum tortor varius in non. Massa habitant. Placerat nascetur, nulla imperdiet sem viverra primis ridiculus. Placerat elit est congue eget, pellentesque consectetuer vulputate convallis mollis. Integer consectetuer arcu, mi proin augue nec elit eget nulla, vel vulputate, et placerat vel feugiat risus, ipsam dolor. Integer diam eu ipsum, a praesent, elit suspendisse, magna elit ut imperdiet odio tempus.', 1, 0, 0, 0, 0, 0, 'Nulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis,...', 'uploads/zinnia/2016/11/19/final22.jpg', 0, 'Exterior', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'House', '2016-11-19 21:36:51.374000'),
-(3, 'Japan Nobua House', 'japan-nobua-house', 2, NULL, NULL, '2016-11-19 21:38:33.175000', '2016-11-20 14:02:17.116000', 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus. At vel suspendisse, vivamus aliquet pellentesque nec arcu odio neque, vehicula tincidunt tincidunt ut sit accumsan justo, semper erat, itaque ut. Iaculis elementum, duis ac, morbi commodo luctus esse ullamcorper. Consectetuer magna. Duis fermentum vestibulum, sed magnis ornare pellentesque, luctus quis, turpis sed vel quis vitae. Purus elit et scelerisque, in dapibus mollis.\r\nNulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis, at dignissim id, molestie non suspendisse. Lacus a ante bibendum malesuada nulla, varius fames ante lorem sed, rutrum lacus dictum nam. Nullam rhoncus, ante class dictum leo orci cras vivamus, dui sed sit integer. Turpis scelerisque velit id ut vitae porta, at sagittis quis montes felis fusce mauris, bibendum elit laoreet. Tincidunt integer fermentum, integer nec cubilia, ornare venenatis hac rutrum morbi. Et sed donec elit quis nonummy ut, luctus etiam, posuere congue, urna vestibulum integer iaculis sed est arcu, magna eleifend. Tempus dis enim dignissim, eros vel. In pellentesque neque non, donec turpis eget erat nibh, tellus in pretium ornare, sapien at lacus, vel nec nonummy nunc.\r\nVestibulum ligula sem placerat sem sed rhoncus, wisi rutrum hendrerit, nulla sit risus consectetuer. Vel auctor erat mollis eget neque ultricies, justo ut augue urna, volutpat ridiculus nunc id pellentesque vitae, integer fringilla eu nec odio. Neque nam luctus suscipit tellus, vestibulum nec rhoncus mauris cras ornare. Fusce vitae quis quam, molestie vel leo maecenas semper sapien, tincidunt fusce iaculis ipsum wisi. Purus metus in porta tellus class, elit amet, praesent etiam a et. Libero sit sociis aliquam vestibulum, conubia ultrices nulla magna quam sed in. Non vel neque tortor lectus, elementum velit mauris venenatis vitae platea ultricies, ipsum aliquam sit eget, augue phasellus duis. Maecenas tempus nibh. Integer erat malesuada inceptos in pharetra, lorem commodo ipsum vestibulum vestibulum parturient.\r\nVitae nostra, qui ut facilisi vestibulum tortor, magna dignissim morbi, eum tortor varius in non. Massa habitant. Placerat nascetur, nulla imperdiet sem viverra primis ridiculus. Placerat elit est congue eget, pellentesque consectetuer vulputate convallis mollis. Integer consectetuer arcu, mi proin augue nec elit eget nulla, vel vulputate, et placerat vel feugiat risus, ipsam dolor. Integer diam eu ipsum, a praesent, elit suspendisse, magna elit ut imperdiet odio tempus.', 1, 0, 0, 2, 0, 0, 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus....', 'uploads/zinnia/2016/11/19/final-1.jpg', 0, '', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem.', '2016-11-19 21:38:33.175000');
+(1, 'Nobuya Kashima House', 'Nobuya-Kashima-House', 2, NULL, NULL, '2016-11-19 21:33:48.974000', '2016-11-27 12:42:34.879077', 'My favorite  3D style  in 3D VIZ and in real architecture, this is the reason to create this 3D image.  It is a Nobuya Kashima House from reference image and i try to make a scene that recreates the real world lighting.', 1, 0, 0, 1, 0, 0, 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus....', 'uploads/zinnia/2016/11/27/ar5.jpg', 0, 'Design', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Japanese Architecture', '2016-11-19 21:33:48.000000'),
+(2, 'Rules', 'rules', 2, NULL, NULL, '2016-11-19 21:36:51.374000', '2016-11-27 13:18:20.673175', 'Втори Пост ВАЖНО!!\r\nПравила до колкото съществуват в интернет и за тези които въобще решат да пишат и коментират тук.\r\nИмайте на предвид че блога си е частен – аз си го подържам и плащам не е Dnes.bg , така че който пише да е без глупости и излишен хейт, темите ще са най-различни така че нека сме позитивни.', 1, 0, 0, 1, 0, 0, 'Nulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis,...', 'uploads/zinnia/2016/11/27/post-missing.png', 0, 'personal', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Една дума само..rules', '2016-11-19 21:36:51.000000'),
+(3, 'First Post', 'first-post', 2, NULL, NULL, '2016-11-19 21:38:33.175000', '2016-11-27 14:29:17.872758', 'Първи пост , който ще е на български естествено.\r\n\r\nИ така... отново update на целия website за 3 –ти път, реших тотално да напусна ужасно бавния Wordpress и този път избрах Python Django. Минах през Raw HTML, PHP и Laravel, Django беше най-бързото за пускане и подръжка-така или иначе няма да има смазващ трафик освен роднини приятели и  някой клиенти.\r\n<img src="http://blog.spiralytics.com/hs-fs/hub/1964188/file-3879076587-jpg/blog-files/first-blog-post-winning-600x321.jpg?t=1479110278909" alt="first_post" class="img-thumbnail img-responsive" />\r\nМоже да разгледате портфолиото ,което силно outdated някой неща са вече на 8-9 години защото работата ми в Designconnected ми отнема доста от времето, качил съм много малко от рендерите които съм правил и някой неща от настоящата ми работа в която естествено са замесени и целия ни екип ат талантливи артисти. Естествено ще качвам и нови снимки, рендери, и други интерестни неща.\r\nБлога ще е персонален и семейно ориентиран, ще има от CG Art, програмиране до как да си направим сирене и лютеница. Евентуално ще е лична трибуна да за някое лично мнение по всякакви теми от политика до правене на цементови замазки.\r\n\r\nНе на последно място не всичко работи още.. ако някой види нещо да пише с коментар или в email формата.', 1, 0, 0, 3, 0, 0, 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus....', 'uploads/zinnia/2016/11/27/write1.jpg', 0, '', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', 'welcome', 'Първи пост , който ще е на български естествено.\r\nИ така... отново update на целия website за 3 –ти път, реших тотално да напусна ужасно бавния Wordpress и този път избрах Python Django.', '2016-11-19 21:38:33.000000');
 
 -- --------------------------------------------------------
 
@@ -770,10 +882,13 @@ INSERT INTO `zinnia_entry` (`id`, `title`, `slug`, `status`, `start_publication`
 --
 
 CREATE TABLE IF NOT EXISTS `zinnia_entry_authors` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) NOT NULL,
-  `author_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `author_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `zinnia_entry_authors_entry_id_15a74736_uniq` (`entry_id`,`author_id`),
+  KEY `zinnia_entry_authors_author_id_c95ec445_fk_auth_user_id` (`author_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `zinnia_entry_authors`
@@ -791,20 +906,24 @@ INSERT INTO `zinnia_entry_authors` (`id`, `entry_id`, `author_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `zinnia_entry_categories` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `zinnia_entry_categories_entry_id_06e8a1ea_uniq` (`entry_id`,`category_id`),
+  KEY `zinnia_entry_categori_category_id_1af4a3b8_fk_zinnia_category_id` (`category_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `zinnia_entry_categories`
 --
 
 INSERT INTO `zinnia_entry_categories` (`id`, `entry_id`, `category_id`) VALUES
-(1, 1, 2),
-(2, 2, 1),
-(3, 3, 1),
-(4, 3, 3);
+(5, 1, 1),
+(6, 1, 4),
+(8, 2, 4),
+(9, 2, 5),
+(7, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -813,10 +932,13 @@ INSERT INTO `zinnia_entry_categories` (`id`, `entry_id`, `category_id`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `zinnia_entry_related` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `from_entry_id` int(11) NOT NULL,
-  `to_entry_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `to_entry_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `zinnia_entry_related_from_entry_id_f5c132fc_uniq` (`from_entry_id`,`to_entry_id`),
+  KEY `zinnia_entry_related_to_entry_id_f3ace6a2_fk_zinnia_entry_id` (`to_entry_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -825,10 +947,13 @@ CREATE TABLE IF NOT EXISTS `zinnia_entry_related` (
 --
 
 CREATE TABLE IF NOT EXISTS `zinnia_entry_sites` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) NOT NULL,
-  `site_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `site_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `zinnia_entry_sites_entry_id_f65c3bb6_uniq` (`entry_id`,`site_id`),
+  KEY `zinnia_entry_sites_site_id_3b37fedc_fk_django_site_id` (`site_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `zinnia_entry_sites`
@@ -840,317 +965,6 @@ INSERT INTO `zinnia_entry_sites` (`id`, `entry_id`, `site_id`) VALUES
 (3, 3, 1);
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `auth_group`
---
-ALTER TABLE `auth_group`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`);
-
---
--- Indexes for table `auth_group_permissions`
---
-ALTER TABLE `auth_group_permissions`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_group_permissions_group_id_0cd325b0_uniq` (`group_id`,`permission_id`), ADD KEY `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` (`permission_id`);
-
---
--- Indexes for table `auth_permission`
---
-ALTER TABLE `auth_permission`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_permission_content_type_id_01ab375a_uniq` (`content_type_id`,`codename`);
-
---
--- Indexes for table `auth_user`
---
-ALTER TABLE `auth_user`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `username` (`username`);
-
---
--- Indexes for table `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_user_groups_user_id_94350c0c_uniq` (`user_id`,`group_id`), ADD KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`);
-
---
--- Indexes for table `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `auth_user_user_permissions_user_id_14a6b632_uniq` (`user_id`,`permission_id`), ADD KEY `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` (`permission_id`);
-
---
--- Indexes for table `django_admin_log`
---
-ALTER TABLE `django_admin_log`
- ADD PRIMARY KEY (`id`), ADD KEY `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` (`content_type_id`), ADD KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`);
-
---
--- Indexes for table `django_comments`
---
-ALTER TABLE `django_comments`
- ADD PRIMARY KEY (`id`), ADD KEY `django_commen_content_type_id_c4afe962_fk_django_content_type_id` (`content_type_id`), ADD KEY `django_comments_site_id_9dcf666e_fk_django_site_id` (`site_id`), ADD KEY `django_comments_user_id_a0a440a1_fk_auth_user_id` (`user_id`), ADD KEY `django_comments_submit_date_514ed2d9_uniq` (`submit_date`);
-
---
--- Indexes for table `django_comment_flags`
---
-ALTER TABLE `django_comment_flags`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_comment_flags_user_id_537f77a7_uniq` (`user_id`,`comment_id`,`flag`), ADD KEY `django_comment_flags_comment_id_d8054933_fk_django_comments_id` (`comment_id`), ADD KEY `django_comment_flags_327a6c43` (`flag`);
-
---
--- Indexes for table `django_content_type`
---
-ALTER TABLE `django_content_type`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_content_type_app_label_76bd3d3b_uniq` (`app_label`,`model`);
-
---
--- Indexes for table `django_migrations`
---
-ALTER TABLE `django_migrations`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `django_session`
---
-ALTER TABLE `django_session`
- ADD PRIMARY KEY (`session_key`), ADD KEY `django_session_de54fa62` (`expire_date`);
-
---
--- Indexes for table `django_site`
---
-ALTER TABLE `django_site`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `django_site_domain_a2e37b91_uniq` (`domain`);
-
---
--- Indexes for table `image`
---
-ALTER TABLE `image`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `img_cat`
---
-ALTER TABLE `img_cat`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `info`
---
-ALTER TABLE `info`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `registration_registrationprofile`
---
-ALTER TABLE `registration_registrationprofile`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `user_id` (`user_id`);
-
---
--- Indexes for table `service`
---
-ALTER TABLE `service`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `sld_cat`
---
-ALTER TABLE `sld_cat`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `slider`
---
-ALTER TABLE `slider`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tagging_tag`
---
-ALTER TABLE `tagging_tag`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `name` (`name`);
-
---
--- Indexes for table `tagging_taggeditem`
---
-ALTER TABLE `tagging_taggeditem`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `tagging_taggeditem_tag_id_3d53f09d_uniq` (`tag_id`,`content_type_id`,`object_id`), ADD KEY `tagging_taggeditem_af31437c` (`object_id`), ADD KEY `tagging_tagge_content_type_id_ede1c265_fk_django_content_type_id` (`content_type_id`);
-
---
--- Indexes for table `zinnia_category`
---
-ALTER TABLE `zinnia_category`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `slug` (`slug`), ADD KEY `zinnia_category_caf7cc51` (`lft`), ADD KEY `zinnia_category_3cfbd988` (`rght`), ADD KEY `zinnia_category_656442a0` (`tree_id`), ADD KEY `zinnia_category_c9e9a848` (`level`), ADD KEY `zinnia_category_6be37982` (`parent_id`);
-
---
--- Indexes for table `zinnia_entry`
---
-ALTER TABLE `zinnia_entry`
- ADD PRIMARY KEY (`id`), ADD KEY `zinnia_entry_2dbcba41` (`slug`), ADD KEY `zinnia_entry_9acb4454` (`status`), ADD KEY `zinnia_entry_6dc6f11d` (`start_publication`), ADD KEY `zinnia_entry_b803a79a` (`end_publication`), ADD KEY `zinnia_entry_slug_8de07f28_idx` (`slug`,`publication_date`), ADD KEY `zinnia_entry_status_b9d97cbc_idx` (`status`,`publication_date`,`start_publication`,`end_publication`), ADD KEY `zinnia_entry_93b83098` (`publication_date`);
-
---
--- Indexes for table `zinnia_entry_authors`
---
-ALTER TABLE `zinnia_entry_authors`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `zinnia_entry_authors_entry_id_15a74736_uniq` (`entry_id`,`author_id`), ADD KEY `zinnia_entry_authors_author_id_c95ec445_fk_auth_user_id` (`author_id`);
-
---
--- Indexes for table `zinnia_entry_categories`
---
-ALTER TABLE `zinnia_entry_categories`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `zinnia_entry_categories_entry_id_06e8a1ea_uniq` (`entry_id`,`category_id`), ADD KEY `zinnia_entry_categori_category_id_1af4a3b8_fk_zinnia_category_id` (`category_id`);
-
---
--- Indexes for table `zinnia_entry_related`
---
-ALTER TABLE `zinnia_entry_related`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `zinnia_entry_related_from_entry_id_f5c132fc_uniq` (`from_entry_id`,`to_entry_id`), ADD KEY `zinnia_entry_related_to_entry_id_f3ace6a2_fk_zinnia_entry_id` (`to_entry_id`);
-
---
--- Indexes for table `zinnia_entry_sites`
---
-ALTER TABLE `zinnia_entry_sites`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `zinnia_entry_sites_entry_id_f65c3bb6_uniq` (`entry_id`,`site_id`), ADD KEY `zinnia_entry_sites_site_id_3b37fedc_fk_django_site_id` (`site_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `auth_group`
---
-ALTER TABLE `auth_group`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `auth_group_permissions`
---
-ALTER TABLE `auth_group_permissions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `auth_permission`
---
-ALTER TABLE `auth_permission`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=50;
---
--- AUTO_INCREMENT for table `auth_user`
---
-ALTER TABLE `auth_user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `auth_user_groups`
---
-ALTER TABLE `auth_user_groups`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `auth_user_user_permissions`
---
-ALTER TABLE `auth_user_user_permissions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `django_admin_log`
---
-ALTER TABLE `django_admin_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=135;
---
--- AUTO_INCREMENT for table `django_comments`
---
-ALTER TABLE `django_comments`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `django_comment_flags`
---
-ALTER TABLE `django_comment_flags`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `django_content_type`
---
-ALTER TABLE `django_content_type`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
---
--- AUTO_INCREMENT for table `django_migrations`
---
-ALTER TABLE `django_migrations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `django_site`
---
-ALTER TABLE `django_site`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `image`
---
-ALTER TABLE `image`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=52;
---
--- AUTO_INCREMENT for table `img_cat`
---
-ALTER TABLE `img_cat`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
---
--- AUTO_INCREMENT for table `info`
---
-ALTER TABLE `info`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `registration_registrationprofile`
---
-ALTER TABLE `registration_registrationprofile`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `service`
---
-ALTER TABLE `service`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `sld_cat`
---
-ALTER TABLE `sld_cat`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `slider`
---
-ALTER TABLE `slider`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `tagging_tag`
---
-ALTER TABLE `tagging_tag`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `tagging_taggeditem`
---
-ALTER TABLE `tagging_taggeditem`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `zinnia_category`
---
-ALTER TABLE `zinnia_category`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `zinnia_entry`
---
-ALTER TABLE `zinnia_entry`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `zinnia_entry_authors`
---
-ALTER TABLE `zinnia_entry_authors`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `zinnia_entry_categories`
---
-ALTER TABLE `zinnia_entry_categories`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `zinnia_entry_related`
---
-ALTER TABLE `zinnia_entry_related`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `zinnia_entry_sites`
---
-ALTER TABLE `zinnia_entry_sites`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
 -- Constraints for dumped tables
 --
 
@@ -1158,69 +972,69 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- Constraints for table `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-ADD CONSTRAINT `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
+  ADD CONSTRAINT `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  ADD CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);
 
 --
 -- Constraints for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-ADD CONSTRAINT `auth_permissi_content_type_id_2f476e4b_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
+  ADD CONSTRAINT `auth_permissi_content_type_id_2f476e4b_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);
 
 --
 -- Constraints for table `django_comments`
 --
 ALTER TABLE `django_comments`
-ADD CONSTRAINT `dcf666e_fk_django_sdjango_comments_site_id_9ite_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`),
-ADD CONSTRAINT `django_commen_content_type_id_c4afe962_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
-ADD CONSTRAINT `django_comments_user_id_a0a440a1_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `dcf666e_fk_django_sdjango_comments_site_id_9ite_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`),
+  ADD CONSTRAINT `django_commen_content_type_id_c4afe962_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  ADD CONSTRAINT `django_comments_user_id_a0a440a1_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Constraints for table `django_comment_flags`
 --
 ALTER TABLE `django_comment_flags`
-ADD CONSTRAINT `django_comment_flags_comment_id_d8054933_fk_django_comments_id` FOREIGN KEY (`comment_id`) REFERENCES `django_comments` (`id`),
-ADD CONSTRAINT `django_comment_flags_user_id_f3f81f0a_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
+  ADD CONSTRAINT `django_comment_flags_comment_id_d8054933_fk_django_comments_id` FOREIGN KEY (`comment_id`) REFERENCES `django_comments` (`id`),
+  ADD CONSTRAINT `django_comment_flags_user_id_f3f81f0a_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`);
 
 --
 -- Constraints for table `tagging_taggeditem`
 --
 ALTER TABLE `tagging_taggeditem`
-ADD CONSTRAINT `tagging_taggeditem_tag_id_f008ca79_fk_tagging_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tagging_tag` (`id`);
+  ADD CONSTRAINT `tagging_taggeditem_tag_id_f008ca79_fk_tagging_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `tagging_tag` (`id`);
 
 --
 -- Constraints for table `zinnia_category`
 --
 ALTER TABLE `zinnia_category`
-ADD CONSTRAINT `zinnia_category_parent_id_9957d607_fk_zinnia_category_id` FOREIGN KEY (`parent_id`) REFERENCES `zinnia_category` (`id`);
+  ADD CONSTRAINT `zinnia_category_parent_id_9957d607_fk_zinnia_category_id` FOREIGN KEY (`parent_id`) REFERENCES `zinnia_category` (`id`);
 
 --
 -- Constraints for table `zinnia_entry_authors`
 --
 ALTER TABLE `zinnia_entry_authors`
-ADD CONSTRAINT `zinnia_entry_authors_author_id_c95ec445_fk_auth_user_id` FOREIGN KEY (`author_id`) REFERENCES `auth_user` (`id`),
-ADD CONSTRAINT `zinnia_entry_authors_entry_id_7e8cdb2d_fk_zinnia_entry_id` FOREIGN KEY (`entry_id`) REFERENCES `zinnia_entry` (`id`);
+  ADD CONSTRAINT `zinnia_entry_authors_author_id_c95ec445_fk_auth_user_id` FOREIGN KEY (`author_id`) REFERENCES `auth_user` (`id`),
+  ADD CONSTRAINT `zinnia_entry_authors_entry_id_7e8cdb2d_fk_zinnia_entry_id` FOREIGN KEY (`entry_id`) REFERENCES `zinnia_entry` (`id`);
 
 --
 -- Constraints for table `zinnia_entry_categories`
 --
 ALTER TABLE `zinnia_entry_categories`
-ADD CONSTRAINT `zinnia_entry_categori_category_id_1af4a3b8_fk_zinnia_category_id` FOREIGN KEY (`category_id`) REFERENCES `zinnia_category` (`id`),
-ADD CONSTRAINT `zinnia_entry_categories_entry_id_2245c94e_fk_zinnia_entry_id` FOREIGN KEY (`entry_id`) REFERENCES `zinnia_entry` (`id`);
+  ADD CONSTRAINT `zinnia_entry_categori_category_id_1af4a3b8_fk_zinnia_category_id` FOREIGN KEY (`category_id`) REFERENCES `zinnia_category` (`id`),
+  ADD CONSTRAINT `zinnia_entry_categories_entry_id_2245c94e_fk_zinnia_entry_id` FOREIGN KEY (`entry_id`) REFERENCES `zinnia_entry` (`id`);
 
 --
 -- Constraints for table `zinnia_entry_related`
 --
 ALTER TABLE `zinnia_entry_related`
-ADD CONSTRAINT `zinnia_entry_related_from_entry_id_ef0e020e_fk_zinnia_entry_id` FOREIGN KEY (`from_entry_id`) REFERENCES `zinnia_entry` (`id`),
-ADD CONSTRAINT `zinnia_entry_related_to_entry_id_f3ace6a2_fk_zinnia_entry_id` FOREIGN KEY (`to_entry_id`) REFERENCES `zinnia_entry` (`id`);
+  ADD CONSTRAINT `zinnia_entry_related_from_entry_id_ef0e020e_fk_zinnia_entry_id` FOREIGN KEY (`from_entry_id`) REFERENCES `zinnia_entry` (`id`),
+  ADD CONSTRAINT `zinnia_entry_related_to_entry_id_f3ace6a2_fk_zinnia_entry_id` FOREIGN KEY (`to_entry_id`) REFERENCES `zinnia_entry` (`id`);
 
 --
 -- Constraints for table `zinnia_entry_sites`
 --
 ALTER TABLE `zinnia_entry_sites`
-ADD CONSTRAINT `zinnia_entry_sites_entry_id_b62220dc_fk_zinnia_entry_id` FOREIGN KEY (`entry_id`) REFERENCES `zinnia_entry` (`id`),
-ADD CONSTRAINT `zinnia_entry_sites_site_id_3b37fedc_fk_django_site_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`);
+  ADD CONSTRAINT `zinnia_entry_sites_entry_id_b62220dc_fk_zinnia_entry_id` FOREIGN KEY (`entry_id`) REFERENCES `zinnia_entry` (`id`),
+  ADD CONSTRAINT `zinnia_entry_sites_site_id_3b37fedc_fk_django_site_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -189,7 +189,7 @@ li, span {font-family: 'Lato', sans-serif;}
 .marg-lg-t95{margin-top:95px;}
 .marg-lg-t100{margin-top:100px;}	
 .marg-lg-t105{margin-top:105px;}	
-.marg-lg-t110{margin-top:110px;}	
+.marg-lg-t110{margin-top:50px;}
 .marg-lg-t115{margin-top:115px;}	
 .marg-lg-t120{margin-top:120px;}	
 .marg-lg-t125{margin-top:125px;}	
@@ -1409,7 +1409,7 @@ button.mfp-close, button.mfp-arrow {width: 40px; height: 40px; background-color:
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
 .header-about {background: url("../images/baner-bg-5.jpg") no-repeat center center fixed; background-size: cover;}
-.sec-about {display: inline-block; padding-top: 100px; text-align: center;}
+.sec-about {display: inline-block; /*padding-top: 100px;*/ text-align: center;}
 .sec-about img {display: block; margin-top: 25px; margin-bottom: 50px;}
 .sec-about .about-img {margin-top: 80px;}
 .text-header-portf img {margin-top: 25px; margin-bottom: 25px;}

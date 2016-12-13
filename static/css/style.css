@@ -85,6 +85,8 @@ button {outline: none; border: none; box-shadow: none; background: none;}
 
 /*------Custom Styling---------*/
 .content-lead {text-transform:initial; font-size: 14px; line-height: 24px;}
+.search-text {text-align: center;}
+.search-form {margin-left: auto; margin-right: auto;}
 @media screen and (min-width: 1280px){
 .side-menu {padding-top: 255px;}
 .main-content {width: 85%;}

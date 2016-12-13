@@ -2,9 +2,9 @@
 <form method="get" id="main_searchform" action="{% url 'zinnia:entry_search' %}"
       class="well form-search form-horizontal">
     <div class="form-group">
-        <h3>{% trans "Search" %}</h3>
+        <h3 class="search-text">{% trans "Search" %}</h3>
         <br>
-        <div class="input-group col-xs-12 col-sm-12 col-md-11 col-lg-11" id="search-form">
+        <div class="input-group col-xs-12 col-sm-12 col-md-11 col-lg-11 search-form" id="search-form">
             <input type="text" value="{{ pattern }}"
                    name="pattern"
                    id="main_searchbox"

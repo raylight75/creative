@@ -14,7 +14,8 @@ def index(request):
 def aboutme(request):
     info = Info.objects.get(id=1)
     sliders = Slider.objects.all()
-    return render(request, 'frontend/aboutme.html', {'info': info, 'sliders': sliders})
+    context = {'info': info, 'sliders': sliders}
+    return render(request, 'frontend/aboutme.html', context)
 
 
 def contacts(request):    
@@ -47,10 +48,12 @@ def thanks(request):
 def portfolio(request):
     images = Image.objects.all()
     cats = Img_Cat.objects.all()
-    return render(request, 'frontend/portfolio.html', {'images': images, 'cats': cats})
+    context = {'images': images, 'cats': cats}
+    return render(request, 'frontend/portfolio.html', context)
 
 
 def services(request):
     service = Service.objects.all()
     sliders = Slider.objects.get(cat_id=2)
-    return render(request, 'frontend/services.html', {'service': service, 'sliders': sliders})
+    context = {'service': service, 'sliders': sliders}
+    return render(request, 'frontend/services.html', context)

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Nov 27, 2016 at 04:29 PM
+-- Generation Time: Dec 20, 2016 at 02:56 PM
 -- Server version: 5.6.33-cll-lve
 -- PHP Version: 5.6.20
 
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$30000$GC7IFpgUvOgl$q2wMVsquhf7ZONzSptEJ+OyghvuCpDHcb1NLyX+tEPg=', '2016-11-27 11:51:45.606631', 1, 'admin', '', '', 'raylight75@gmail.com', 1, 1, '2016-11-19 20:41:23.706000'),
+(1, 'pbkdf2_sha256$30000$GC7IFpgUvOgl$q2wMVsquhf7ZONzSptEJ+OyghvuCpDHcb1NLyX+tEPg=', '2016-12-19 12:37:26.695528', 1, 'admin', '', '', 'raylight75@gmail.com', 1, 1, '2016-11-19 20:41:23.706000'),
 (2, 'pbkdf2_sha256$30000$5E3E6asuZOdq$jAuyAgLXwMgGiGYMro7N3G3F1fPhQPFcAapUQcVlrc0=', '2016-11-20 19:38:51.502000', 0, 'raylight75', 'Tiho', 'Blajev', 'raylight75@gmail.com', 1, 1, '2016-11-20 18:40:25.817000');
 
 -- --------------------------------------------------------
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` (`content_type_id`),
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=180 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=198 ;
 
 --
 -- Dumping data for table `django_admin_log`
@@ -389,7 +389,25 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (176, '2016-11-27 13:16:08.981852', '6', 'Rules: published [Personal]', 2, '[{"changed": {"fields": ["content_type"]}}]', 11, 1),
 (177, '2016-11-27 13:18:20.714093', '2', 'Rules: published', 2, '[{"changed": {"fields": ["tags"]}}]', 14, 1),
 (178, '2016-11-27 13:37:38.046496', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
-(179, '2016-11-27 14:29:18.199343', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content", "excerpt"]}}]', 14, 1);
+(179, '2016-11-27 14:29:18.199343', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content", "excerpt"]}}]', 14, 1),
+(180, '2016-11-27 15:01:37.817027', '3', 'First Post: published', 2, '[{"changed": {"fields": ["content"]}}]', 14, 1),
+(181, '2016-11-27 15:31:55.509763', '3', 'First Post: published', 2, '[{"changed": {"fields": ["excerpt"]}}]', 14, 1),
+(182, '2016-11-27 15:33:48.898108', '3', 'First Post: published', 2, '[{"changed": {"fields": ["featured"]}}]', 14, 1),
+(183, '2016-11-27 15:37:37.177317', '3', 'First Post: published', 2, '[]', 14, 1),
+(184, '2016-11-27 15:37:57.228353', '3', 'First Post: published', 2, '[{"changed": {"fields": ["featured"]}}]', 14, 1),
+(185, '2016-11-27 15:39:45.491192', '3', 'First Post: published', 2, '[{"changed": {"fields": ["excerpt"]}}]', 14, 1),
+(186, '2016-11-27 15:40:39.414428', '3', 'First Post: published', 2, '[{"changed": {"fields": ["excerpt"]}}]', 14, 1),
+(187, '2016-11-27 15:44:53.040034', '2', 'Rules: published', 2, '[{"changed": {"fields": ["excerpt"]}}]', 14, 1),
+(188, '2016-11-27 15:45:10.803430', '1', 'Nobuya Kashima House: published', 2, '[{"changed": {"fields": ["excerpt"]}}]', 14, 1),
+(189, '2016-11-27 15:53:18.716579', '3', 'First Post: published', 2, '[{"changed": {"fields": ["excerpt"]}}]', 14, 1),
+(190, '2016-11-27 15:58:11.306965', '3', 'First Post: published', 2, '[{"changed": {"fields": ["excerpt"]}}]', 14, 1),
+(191, '2016-11-27 16:16:58.193755', '3', 'Portfolio Update: published', 2, '[{"changed": {"fields": ["title", "slug"]}}]', 14, 1),
+(192, '2016-11-27 16:19:39.512407', '3', 'New Blog: published', 2, '[{"changed": {"fields": ["title", "slug"]}}]', 14, 1),
+(193, '2016-11-28 20:18:06.919611', '1', 'raylight75@gmail.com', 2, '[{"changed": {"fields": ["aboutme"]}}]', 16, 1),
+(194, '2016-12-07 20:54:52.047680', '7', 'Slider object', 1, '[{"added": {}}]', 19, 1),
+(195, '2016-12-07 21:03:02.234575', '52', 'Image object', 1, '[{"added": {}}]', 17, 1),
+(196, '2016-12-10 08:29:12.271682', '8', 'Slider object', 1, '[{"added": {}}]', 19, 1),
+(197, '2016-12-10 08:29:38.416495', '53', 'Image object', 1, '[{"added": {}}]', 17, 1);
 
 -- --------------------------------------------------------
 
@@ -416,7 +434,15 @@ CREATE TABLE IF NOT EXISTS `django_comments` (
   KEY `django_comments_site_id_9dcf666e_fk_django_site_id` (`site_id`),
   KEY `django_comments_user_id_a0a440a1_fk_auth_user_id` (`user_id`),
   KEY `django_comments_submit_date_514ed2d9_uniq` (`submit_date`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `django_comments`
+--
+
+INSERT INTO `django_comments` (`id`, `object_pk`, `user_name`, `user_email`, `user_url`, `comment`, `submit_date`, `ip_address`, `is_public`, `is_removed`, `content_type_id`, `site_id`, `user_id`) VALUES
+(7, '3', 'Tomas', 't_muler@architekten-verzeichnis.net', '', 'Good  work my friend, nice renders', '2016-11-28 09:29:05.800157', '212.116.146.26', 1, 0, 14, 1, NULL),
+(8, '3', 'admin', 'raylight75@gmail.com', '', 'Thanks', '2016-12-03 09:43:29.152100', '79.100.249.202', 1, 0, 14, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -448,7 +474,7 @@ CREATE TABLE IF NOT EXISTS `django_content_type` (
   `model` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `django_content_type_app_label_76bd3d3b_uniq` (`app_label`,`model`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
 --
 -- Dumping data for table `django_content_type`
@@ -459,6 +485,11 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (4, 'auth', 'group'),
 (6, 'auth', 'permission'),
 (5, 'auth', 'user'),
+(17, 'backend', 'image'),
+(16, 'backend', 'info'),
+(20, 'backend', 'service'),
+(18, 'backend', 'sld_cat'),
+(19, 'backend', 'slider'),
 (7, 'contenttypes', 'contenttype'),
 (10, 'django_comments', 'comment'),
 (9, 'django_comments', 'commentflag'),
@@ -505,12 +536,12 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('9f82mmjau95hskx2pjkw085oi4ufd6sj', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-21 10:59:17.380000'),
+('dhk8p0zdh2eo4gbc7lqx52ie1pklaas8', 'NTU0NzhhMzhlMjFmMTMyZDExNzZiOWQ1NzdhZWE1NGJiYmE0OGRiMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjQyZDEyYzZlODQyZGRlYjVkMWRkMTY0MDA5N2Q4MjJhZmY4YmQ1NzEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-12-11 15:33:01.320412'),
 ('glco278pwno3jb63sye7yts448y0ihe1', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-23 08:16:10.226000'),
 ('ht34dr3yb04sy8tsjtxofqzaabuk90sj', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-20 21:19:36.423000'),
 ('kktzz2lqq0gradbxukqsilyb3n80dgkn', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-10-16 16:41:55.455000'),
 ('mkad6nh2pu7yucxk9u2mje446cwvvcjv', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-25 08:32:33.128000'),
-('rwlajmj43to520268ot2bnjx211rft58', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-24 15:38:51.106000'),
-('y4j095l0hs8mmdkjb4b9acy3cf9cbsa7', 'NTU0NzhhMzhlMjFmMTMyZDExNzZiOWQ1NzdhZWE1NGJiYmE0OGRiMTp7Il9hdXRoX3VzZXJfaGFzaCI6IjQyZDEyYzZlODQyZGRlYjVkMWRkMTY0MDA5N2Q4MjJhZmY4YmQ1NzEiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-12-11 11:51:45.609839');
+('rwlajmj43to520268ot2bnjx211rft58', 'MzljZjFhMzAwMTJjOGY4ODcyNTExMTA5MDgxYTliMDczZmJkNjA0MTp7Il9hdXRoX3VzZXJfaGFzaCI6ImJhOWJiYzAyOWQ0MzE3ZDIyOWZhYWI0MGM4ZWE4MDg0ODlhNWE3MjIiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=', '2016-11-24 15:38:51.106000');
 
 -- --------------------------------------------------------
 
@@ -545,7 +576,7 @@ CREATE TABLE IF NOT EXISTS `image` (
   `cat_id` int(11) NOT NULL,
   `image` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
 
 --
 -- Dumping data for table `image`
@@ -601,7 +632,9 @@ INSERT INTO `image` (`id`, `title`, `cat_id`, `image`) VALUES
 (48, 'Black Lambo', 2, 'images/a3.jpg'),
 (49, 'Sunset', 2, 'images/a2.jpg'),
 (50, 'Room', 3, 'images/Suny_Room_2.jpg'),
-(51, 'McLaren', 2, 'images/corona_Mclaren.jpg');
+(51, 'McLaren', 2, 'images/corona_Mclaren.jpg'),
+(52, 'Frank sofa', 3, 'images/slider5_7yWYa7I.jpg'),
+(53, 'Blue', 3, 'images/slider8_uW0F94B.jpg');
 
 -- --------------------------------------------------------
 
@@ -635,21 +668,27 @@ INSERT INTO `img_cat` (`id`, `cat`) VALUES
 
 CREATE TABLE IF NOT EXISTS `info` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `aboutme` longtext NOT NULL,
-  `email` varchar(32) NOT NULL,
-  `phone` varchar(32) NOT NULL,
-  `skype` varchar(32) NOT NULL,
-  `address` varchar(32) NOT NULL,
-  `contact_info` longtext NOT NULL,
+  `notice` varchar(32) NOT NULL,
+  `title` varchar(32) NOT NULL,
+  `text` longtext NOT NULL,
+  `email` varchar(32) DEFAULT NULL,
+  `phone` varchar(32) DEFAULT NULL,
+  `skype` varchar(32) DEFAULT NULL,
+  `address` varchar(32) DEFAULT NULL,
+  `cat` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `info`
 --
 
-INSERT INTO `info` (`id`, `aboutme`, `email`, `phone`, `skype`, `address`, `contact_info`) VALUES
-(1, '<p>\r\n     Hello, my name is Tihomir Blajev. I am a 3d Artist from the city of Plovdiv, Bulgaria. \r\nWelcome to my online portfolio website showcasing a range of 3D generated images created by me. This is the place where you can see a very small selection of the projects that I’ve been involved with over the years as a 3D Artist. \r\nI currently work full-time last 5 year as a 3d Artist at Designconnected  where my responsibilities include rendering, modeling, texturing, lighting and creating basic animation. I have been working also for 6 years as a freelance 3d artist. \r\n<q class=" alignleft">\r\nThe projects seen on my website are a result of 10 years work and experience. I must say that in some of them, become so pretty because our modelers in Designconnected did great work on 3d models.\r\n</q>\r\nI started my work early in 2004 using  Alias Maya and gradually made the transition to Autodesk 3D Max and other 3d packages. I am skilled in lighting, rendering, 3D modelling, texturing, unwraping and basic animation and also have a lot of experience working with Autodesk products. I find them all very exciting programs to use and create projects with.\r\n     I have won many awards and my work has been posted on the front pages of popular websites like Evermotion, CGTalk, CGArena ,  CGArchitect,  3D Total,  3DBG ,  Blender Guru,  Blender Artist .  Many of my renders were posted by online magazines and books like The art of Blender,  3d Artist ,  3D World  ,  CGArena ,  Ceiga .\r\n<q class=" alignright"> \r\n     My latest interest has become programming. I am especially interested  and very passionate in web orientated programming and Frameworks with PHP, Python and  Ruby. I am very passionate and devoted to my work and constantly trying to better my knowledge and learn new skills in this dinamic situation.\r\n</q>\r\n</p>', 'raylight75@gmail.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'For more aditional information like PDF, complete CV, feel free to contact me.');
+INSERT INTO `info` (`id`, `notice`, `title`, `text`, `email`, `phone`, `skype`, `address`, `cat`) VALUES
+(1, 'about-info', 'Few words about me', '<p>\r\n     Hello, my name is Tihomir Blajev. I am a 3d Artist from the city of Plovdiv, Bulgaria. \r\nWelcome to my online portfolio website showcasing a range of 3D generated images created by me. This is the place where you can see a very small selection of the projects that I’ve been involved with over the years as a 3D Artist. \r\nI currently work full-time last 5 year as a 3d Artist at Designconnected  where my responsibilities include rendering, modeling, texturing, lighting and creating basic animation. I have been working also for 6 years as a freelance 3d artist. \r\n<q class=" alignleft">\r\nThe projects seen on my website are a result of 10 years work and experience. I must say that in some of them, become so pretty because our modelers in Designconnected did great work on 3d models.\r\n</q>\r\nI started my work early in 2004 using  Alias Maya and gradually made the transition to Autodesk 3D Max and other 3d packages. I am skilled in lighting, rendering, 3D modelling, texturing, unwraping and basic animation and also have a lot of experience working with Autodesk products. I find them all very exciting programs to use and create projects with.\r\n     I have won many awards and my work has been posted on the front pages of popular websites like Evermotion, CGTalk, CGArena ,  CGArchitect,  3D Total,  3DBG ,  Blender Guru,  Blender Artist .  Many of my renders were posted by online magazines and books like The art of Blender,  3d Artist ,  3D World  ,  CGArena ,  Ceiga .\r\n<q class=" alignright"> \r\n     My latest interest has become programming. I am especially interested  and very passionate in web orientated programming and Frameworks with PHP, Python and  Ruby. I am very passionate and devoted to my work and constantly trying to better my knowledge and learn new skills in this dinamic situation.\r\n</q>\r\n</p>', 'raylight75@gmail.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'about'),
+(2, '10+ Years Experience', 'Freelance 3D Artist', '10 years experience in ArchiVIZ and CG industry mostly in private project. For more aditional information about project use email form.', 'raylight75@tihoblajev.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'skills'),
+(3, '5+ Years Experience', '3D Artist at Designconnected', 'I currently work full-time as a 3d Artist at Designconnected my responsibilities include rendering, modeling, texturing, lighting and basic animation.', 'tblajev@yahoo.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'skills'),
+(4, 'Notice:', 'Contact Info', 'For more aditional information like PDF, complete CV, feel free to contact me via skype, emails or social links.', 'raylight75@gmail.com', '+359898735129', 'tiho1975', 'Skopie 45,Plovdiv,Bulgaria', 'contact'),
+(5, 'Additional Info', 'Additional Info', 'I currently work full-time as a 3d Artist at Designconnected my responsibilities include rendering, modeling, texturing, lighting and basic animation.', 'tihomir@designconnected.com', '+35932539170', 'tihomir_blazhev', 'bul Hristo Botev 92B', 'contact');
 
 -- --------------------------------------------------------
 
@@ -726,7 +765,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `cat_id` int(11) NOT NULL,
   `image` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `slider`
@@ -738,7 +777,9 @@ INSERT INTO `slider` (`id`, `title`, `cat_id`, `image`) VALUES
 (3, 'service_bg', 2, 'images/contact-sep2.jpg'),
 (4, 'Slide_aboutme', 3, 'images/dezeen_banner2.jpg'),
 (5, 'About_top', 4, 'images/baner-bg-11.jpg'),
-(6, 'Miura', 1, 'images/miura.jpg');
+(6, 'Miura', 1, 'images/miura.jpg'),
+(7, 'Frank sofa', 1, 'images/slider5.jpg'),
+(8, 'Blue', 1, 'images/slider8.jpg');
 
 -- --------------------------------------------------------
 
@@ -778,7 +819,7 @@ CREATE TABLE IF NOT EXISTS `tagging_taggeditem` (
   UNIQUE KEY `tagging_taggeditem_tag_id_3d53f09d_uniq` (`tag_id`,`content_type_id`,`object_id`),
   KEY `tagging_taggeditem_af31437c` (`object_id`),
   KEY `tagging_tagge_content_type_id_ede1c265_fk_django_content_type_id` (`content_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tagging_taggeditem`
@@ -786,7 +827,7 @@ CREATE TABLE IF NOT EXISTS `tagging_taggeditem` (
 
 INSERT INTO `tagging_taggeditem` (`id`, `object_id`, `content_type_id`, `tag_id`) VALUES
 (5, 1, 14, 1),
-(7, 2, 14, 4);
+(8, 2, 14, 4);
 
 -- --------------------------------------------------------
 
@@ -871,9 +912,9 @@ CREATE TABLE IF NOT EXISTS `zinnia_entry` (
 --
 
 INSERT INTO `zinnia_entry` (`id`, `title`, `slug`, `status`, `start_publication`, `end_publication`, `creation_date`, `last_update`, `content`, `comment_enabled`, `pingback_enabled`, `trackback_enabled`, `comment_count`, `pingback_count`, `trackback_count`, `excerpt`, `image`, `featured`, `tags`, `login_required`, `password`, `content_template`, `detail_template`, `image_caption`, `lead`, `publication_date`) VALUES
-(1, 'Nobuya Kashima House', 'Nobuya-Kashima-House', 2, NULL, NULL, '2016-11-19 21:33:48.974000', '2016-11-27 12:42:34.879077', 'My favorite  3D style  in 3D VIZ and in real architecture, this is the reason to create this 3D image.  It is a Nobuya Kashima House from reference image and i try to make a scene that recreates the real world lighting.', 1, 0, 0, 1, 0, 0, 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus....', 'uploads/zinnia/2016/11/27/ar5.jpg', 0, 'Design', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Japanese Architecture', '2016-11-19 21:33:48.000000'),
-(2, 'Rules', 'rules', 2, NULL, NULL, '2016-11-19 21:36:51.374000', '2016-11-27 13:18:20.673175', 'Втори Пост ВАЖНО!!\r\nПравила до колкото съществуват в интернет и за тези които въобще решат да пишат и коментират тук.\r\nИмайте на предвид че блога си е частен – аз си го подържам и плащам не е Dnes.bg , така че който пише да е без глупости и излишен хейт, темите ще са най-различни така че нека сме позитивни.', 1, 0, 0, 1, 0, 0, 'Nulla non libero faucibus sed integer, vestibulum arcu venenatis metus, quam in, lobortis mauris sit pellentesque vivamus. Ut pharetra id posuere. Ridiculus adipiscing in leo risus vel, ut scelerisque at justo malesuada, quis tempor euismod, semper tempor in integer lectus. Blandit velit luctus sapien duis, augue et sed nullam quis,...', 'uploads/zinnia/2016/11/27/post-missing.png', 0, 'personal', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Една дума само..rules', '2016-11-19 21:36:51.000000'),
-(3, 'First Post', 'first-post', 2, NULL, NULL, '2016-11-19 21:38:33.175000', '2016-11-27 14:29:17.872758', 'Първи пост , който ще е на български естествено.\r\n\r\nИ така... отново update на целия website за 3 –ти път, реших тотално да напусна ужасно бавния Wordpress и този път избрах Python Django. Минах през Raw HTML, PHP и Laravel, Django беше най-бързото за пускане и подръжка-така или иначе няма да има смазващ трафик освен роднини приятели и  някой клиенти.\r\n<img src="http://blog.spiralytics.com/hs-fs/hub/1964188/file-3879076587-jpg/blog-files/first-blog-post-winning-600x321.jpg?t=1479110278909" alt="first_post" class="img-thumbnail img-responsive" />\r\nМоже да разгледате портфолиото ,което силно outdated някой неща са вече на 8-9 години защото работата ми в Designconnected ми отнема доста от времето, качил съм много малко от рендерите които съм правил и някой неща от настоящата ми работа в която естествено са замесени и целия ни екип ат талантливи артисти. Естествено ще качвам и нови снимки, рендери, и други интерестни неща.\r\nБлога ще е персонален и семейно ориентиран, ще има от CG Art, програмиране до как да си направим сирене и лютеница. Евентуално ще е лична трибуна да за някое лично мнение по всякакви теми от политика до правене на цементови замазки.\r\n\r\nНе на последно място не всичко работи още.. ако някой види нещо да пише с коментар или в email формата.', 1, 0, 0, 3, 0, 0, 'Lorem ipsum dolor sit amet, sed integer quam, wisi mauris tempus placerat, lacus hac curae. Vivamus nisl leo metus euismod, libero commodo donec pede odio ullamcorper, vivamus imperdiet bibendum vestibulum tortor urna non, sed magna mauris sem. Convallis sollicitudin nunc, vulputate mauris in amet malesuada pellentesque. Varius inceptos erat vivamus....', 'uploads/zinnia/2016/11/27/write1.jpg', 0, '', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', 'welcome', 'Първи пост , който ще е на български естествено.\r\nИ така... отново update на целия website за 3 –ти път, реших тотално да напусна ужасно бавния Wordpress и този път избрах Python Django.', '2016-11-19 21:38:33.000000');
+(1, 'Nobuya Kashima House', 'Nobuya-Kashima-House', 2, NULL, NULL, '2016-11-19 21:33:48.974000', '2016-11-27 15:45:10.727644', 'My favorite  3D style  in 3D VIZ and in real architecture, this is the reason to create this 3D image.  It is a Nobuya Kashima House from reference image and i try to make a scene that recreates the real world lighting.', 1, 0, 0, 1, 0, 0, 'Japanese Architecture', 'uploads/zinnia/2016/11/27/ar5.jpg', 0, 'Design', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Japanese Architecture', '2016-11-19 21:33:48.000000'),
+(2, 'Rules', 'rules', 2, NULL, NULL, '2016-11-19 21:36:51.374000', '2016-11-27 15:44:53.005440', 'Втори Пост ВАЖНО!!\r\nПравила до колкото съществуват в интернет и за тези които въобще решат да пишат и коментират тук.\r\nИмайте на предвид че блога си е частен – аз си го подържам и плащам не е Dnes.bg , така че който пише да е без глупости и излишен хейт, темите ще са най-различни така че нека сме позитивни.', 1, 0, 0, 1, 0, 0, 'Една дума само..rules', 'uploads/zinnia/2016/11/27/post-missing.png', 0, 'personal', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', '', 'Една дума само..rules', '2016-11-19 21:36:51.000000'),
+(3, 'New Blog', 'new-blog', 2, NULL, NULL, '2016-11-19 21:38:33.175000', '2016-11-27 16:19:39.473059', 'Първи пост , който ще е на български естествено.\r\n\r\n&nbsp И така... отново update на целия website за 3 –ти път, реших тотално да напусна ужасно бавния Wordpress и този път избрах Python Django. Минах през Raw HTML, PHP и Laravel, Django беше най-бързото за пускане и поддръжка - така или иначе няма да има смазващ трафик освен роднини приятели и някои клиенти.\r\n<img src="http://blog.spiralytics.com/hs-fs/hub/1964188/file-3879076587-jpg/blog-files/first-blog-post-winning-600x321.jpg?t=1479110278909" alt="first_post" class="img-thumbnail img-responsive" />\r\nМоже да разгледате портфолиото, което силно outdated някои неща са вече на 8-9 години, защото работата ми в Designconnected ми отнема доста от времето. Качил съм много малко от рендерите, които съм правил и някои неща от настоящата ми работа, в която естествено са замесени и целия ни екип от талантливи артисти. \r\n&nbsp Естествено ще качвам и нови снимки, рендери и други интерестни неща. Блогът ще е персонален и семейно ориентиран. Ще има от CG Art, програмиране до как да си направим сирене и лютеница. Евентуално ще е лична трибуна за някое лично мнение по всякакви теми от политика до правене на циментови замазки.\r\n\r\nНе на последно място не всичко работи още.. ако някой види нещо да пише с коментар или в email формата.', 1, 0, 0, 5, 0, 0, 'Първи пост , който ще е на български естествено.\r\nИ така... отново update на целия website за 3 –ти път, реших тотално да напусна ужасно бавния Wordpress и този път избрах Python Django.', 'uploads/zinnia/2016/11/27/write1.jpg', 0, '', 0, '', 'zinnia/_entry_detail.html', 'entry_detail.html', 'welcome', 'Първи пост , който ще е на български естествено.\r\nИ така... отново update на целия website за 3 –ти път, реших тотално да напусна ужасно бавния Wordpress и този път избрах Python Django.', '2016-11-19 21:38:33.000000');
 
 -- --------------------------------------------------------
 

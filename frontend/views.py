@@ -12,16 +12,17 @@ def index(request):
 
 
 def aboutme(request):
-    info = Info.objects.get(id=1)
+    info = Info.objects.get(cat='about')
+    skills = Info.objects.filter(cat='skills')
     sliders = Slider.objects.all()
-    context = {'info': info, 'sliders': sliders}
+    context = {'info': info, 'sliders': sliders, 'skills': skills}
     return render(request, 'frontend/aboutme.html', context)
 
 
 def contacts(request):    
     if request.method == 'GET':
         form_class = ContactForm
-        info = Info.objects.all() 
+        info = Info.objects.filter(cat ='contact') 
         context = {"form": form_class, "info": info}
     else:
         form = ContactForm(request.POST)
@@ -30,7 +31,7 @@ def contacts(request):
             from_email = form.cleaned_data['contact_email']            
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['admin@example.com'])                
+                send_mail(subject, message, from_email, ['raylight75@tihoblajev.com'])                
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('thanks')       

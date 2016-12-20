@@ -41,10 +41,10 @@ class SliderAdmin(admin.ModelAdmin):
 
 @admin.register(Info)
 class InfoAdmin(admin.ModelAdmin):
-    list_filter = ('email', 'skype')
-    list_display = ('id', 'aboutme', 'email', 'phone', 'skype', 'address')
+    list_filter = ('email', 'skype', 'cat', 'title')
+    list_display = ('id', 'notice', 'title','text', 'email', 'phone', 'skype', 'address', 'cat')
     list_display_links = ('email', 'phone')
-    search_fields = ('id', 'email',)
+    search_fields = ('id', 'email', 'cat', 'title')
 
 
 @admin.register(Service)

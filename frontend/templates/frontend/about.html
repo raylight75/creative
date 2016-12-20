@@ -20,7 +20,7 @@
                 <!-- title categories -->
                 <div class="second-title">
                     <h2>
-                        Few Words About Me
+                        {{ info.title }}
                     </h2>
                 </div>
                 <div class="shortcodes-page">
@@ -32,7 +32,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="text-wrapper-quotes">
-                                            {% autoescape off %}{{ info.aboutme }}{% endautoescape %}
+                                            {% autoescape off %}{{ info.text }}{% endautoescape %}
                                         </div>
                                     </div>
                                 </div>

@@ -10,25 +10,25 @@
                     </div>
                     <br>
                     {% for skil in skills %}
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="contact-5-info">
-                            <!-- tabs -->                            
-                            <div class="contact-5-tabs">
-                                <ul class="tab-nav">
-                                    <li class="active">
-                                        <a href="">{{ skil.title }} </a>
-                                    </li>
-                                </ul>
-                                <div class="tab-panes">
-                                    <div class="contact-5-tab pane-1 active">
-                                        <h5>{{ skil.notice }}</h5>
-                                        <p>{{ skil.text }}</p>
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="contact-5-info">
+                                <!-- tabs -->
+                                <div class="contact-5-tabs">
+                                    <ul class="tab-nav">
+                                        <li class="active">
+                                            <a href="">{{ skil.title }} </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-panes">
+                                        <div class="contact-5-tab pane-1 active">
+                                            <h5>{{ skil.notice }}</h5>
+                                            <p>{{ skil.text }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
-                    </div>
-                    {% endfor %}                    
+                    {% endfor %}
                 </div>
             </div>
         </div>

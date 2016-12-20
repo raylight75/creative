@@ -1,29 +1,29 @@
 {% load static %}
 <div class="row">
-        <!-- about us -->
-        <div class="col-md-6 no-padd">
-            <div class="simple-slider">
-                <div class="swiper-container" data-autoplay="0" data-center="0" data-loop="1" data-slides-per-view="1"
-                     data-speed="500">
-                    <div class="swiper-wrapper">
-                            <img alt="slider-about" class="img-responsive s-img-switch" data-s-hidden="1"
-                                 src="{{MEDIA_URL}}/{{ sliders.3.image }}">
-                            </img>
-                    </div>
-                    <div class="pagination paginat-about">
-                    </div>
+    <!-- about us -->
+    <div class="col-md-6 no-padd">
+        <div class="simple-slider">
+            <div class="swiper-container" data-autoplay="0" data-center="0" data-loop="1" data-slides-per-view="1"
+                 data-speed="500">
+                <div class="swiper-wrapper">
+                    <img alt="slider-about" class="img-responsive s-img-switch" data-s-hidden="1"
+                         src="{{ MEDIA_URL }}/{{ sliders.3.image }}">
+                    </img>
+                </div>
+                <div class="pagination paginat-about">
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="sec-about">
-                <!-- title categories -->
-                <div class="second-title">
-                    <h2>
-                        {{ info.title }}
-                    </h2>
-                </div>
-                <div class="shortcodes-page">
+    </div>
+    <div class="col-md-6">
+        <div class="sec-about">
+            <!-- title categories -->
+            <div class="second-title">
+                <h2>
+                    {{ info.title }}
+                </h2>
+            </div>
+            <div class="shortcodes-page">
                 <div class="column-price">
                     <div class="quotes-content">
                         <!-- quotes content -->
@@ -42,8 +42,8 @@
                     <!-- .quotes content -->
                 </div>
             </div>
-            </div>
-            <!-- .title categories -->
         </div>
-        <!-- .about us -->
+        <!-- .title categories -->
     </div>
+    <!-- .about us -->
+</div>

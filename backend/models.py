@@ -61,7 +61,7 @@ class Info(models.Model):
     email = models.CharField(max_length=32)
     phone = models.CharField(max_length=32)
     skype = models.CharField(max_length=32)
-    address = models.CharField(max_length=32)    
+    address = models.CharField(max_length=32)
     cat = models.CharField(max_length=32)
 
     def __str__(self):

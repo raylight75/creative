@@ -3,8 +3,8 @@
         <div class="col-md-12">
             <div class="container">
                 <div class="row marg-xs-t50 marg-lg-t110">
-                {% for i in info %}
-                    <div class="col-xs-12 col-sm-6">                        
+                    {% for i in info %}
+                        <div class="col-xs-12 col-sm-6">
                             <div class="contact-5-info ">
                                 <div class="contact-5-tabs">
                                     <ul class="tab-nav">
@@ -13,8 +13,7 @@
                                         </li>
                                     </ul>
                                     <div class="tab-panes">
-                                        <div class="contact-5-tab pane-1 active">                                    
-                                        </p>
+                                        <div class="contact-5-tab pane-1 active">
                                             <p class="info-text"><strong>Notice:</strong> {{ i.text }}</p>
                                             <p><strong>Email:</strong> <a class="" href="mailto:#">{{ i.email }}</a>
                                                 <br>
@@ -27,9 +26,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>                       
-                       </div>
-                {% endfor %}            
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

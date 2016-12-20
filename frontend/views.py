@@ -19,29 +19,29 @@ def aboutme(request):
     return render(request, 'frontend/aboutme.html', context)
 
 
-def contacts(request):    
+def contacts(request):
     if request.method == 'GET':
         form_class = ContactForm
-        info = Info.objects.filter(cat ='contact') 
+        info = Info.objects.filter(cat='contact')
         context = {"form": form_class, "info": info}
     else:
         form = ContactForm(request.POST)
-        if form.is_valid():            
+        if form.is_valid():
             subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['contact_email']            
+            from_email = form.cleaned_data['contact_email']
             message = form.cleaned_data['message']
             try:
-                send_mail(subject, message, from_email, ['raylight75@tihoblajev.com'])                
+                send_mail(subject, message, from_email, ['raylight75@tihoblajev.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
-            return redirect('thanks')       
+            return redirect('thanks')
     return render(request, 'frontend/contacts.html', context)
 
 
 def thanks(request):
     messages.success(request, 'Thank you for your Email.')
     form_class = ContactForm
-    info = Info.objects.all() 
+    info = Info.objects.all()
     context = {"form": form_class, "info": info}
     return render(request, 'frontend/contacts.html', context)
 

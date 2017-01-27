@@ -87,9 +87,27 @@ button {outline: none; border: none; box-shadow: none; background: none;}
 .content-lead {text-transform:initial; font-size: 14px; line-height: 24px;}
 .search-text {text-align: center;}
 .search-form {margin-left: auto; margin-right: auto;}
+.panel-default>.sidemenu {
+	color: #333 ;
+    background-color: rgba(221, 221, 221, 0.7);
+    border-color: #ddd;
+    font: 500 18px 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+.sidemenu {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
 @media screen and (min-width: 1280px){
 .side-menu {padding-top: 255px;}
 .main-content {width: 85%;}
+}
+.well-right {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;    
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
@@ -97,16 +115,16 @@ button {outline: none; border: none; box-shadow: none; background: none;}
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 /* 03 - GLOBAL STYLES */
 /*-------------------------------------------------------------------------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {font-family: 'Unica One', cursive; }
+h1, h2, h3, h4, h5, h6 {font-family: 'Montserrat', sans-serif; }
 
 h1 {font-size: 52px; font-weight: 300; line-height: 52px; text-transform: uppercase;}
-h2 {font-size: 46px; line-height: 46px; font-weight: 300; text-transform: uppercase;}
+h2 {font-size: 34px; line-height: 46px; font-weight: 300; text-transform: uppercase;}
 h3 {font-size: 32px; line-height: 32px; font-weight: 300; text-transform: uppercase;}
 h4 { font-size: 26px; line-height: 26px; font-weight: 300; text-transform: uppercase;}
 h5 {font-size: 16px; line-height: 20px; font-weight: 300; text-transform: uppercase;}
 h6 {font-size: 13px; line-height: 16px; font-weight: 300; text-transform: uppercase;}
-p {font-size: 16px; line-height: 28px; font-weight: 300; font-family: 'Lato', sans-serif;}
-a { color: inherit; font-family: 'Lato', sans-serif;}
+p {font-size: 16px; line-height: 28px; font-weight: 300; font-family: 'Montserrat', sans-serif;}
+a { color: inherit; font-family: 'Montserrat', sans-serif;}
 li, span {font-family: 'Lato', sans-serif;}
 .table-cell {display: table-cell; vertical-align: middle; height: inherit;}
 .vertical-align {-webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); top:50%; position: absolute; width: 100%; left: 0px;}
@@ -949,7 +967,7 @@ transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 10ms;}
 .categories {position: relative; width: 100%;}
 .fillter-wrap {text-align: center; padding: 15px 0;}
 .fillter-wrap ul li {display: inline-block; position: relative; line-height: 28px; padding: 8px 15px;}
-.fillter-wrap .but {display: block; font: 700 11px 'Lato', sans-serif;  text-transform: uppercase; letter-spacing: 3px; color: #999; padding: 5px 0; border-bottom: 1px solid #fff;}
+.fillter-wrap .but {display: block; font: 700 11px 'Montserrat', sans-serif;  text-transform: uppercase; letter-spacing: 3px; color: #999; padding: 5px 0; border-bottom: 1px solid #fff;}
 .fillter-wrap .active-fillter {color: #333; border-bottom: 2px solid #f89b1c; transition: all .3s ease-out;}
 
 
@@ -1613,16 +1631,16 @@ button.mfp-close, button.mfp-arrow {width: 40px; height: 40px; background-color:
     text-transform: uppercase;
     letter-spacing: 0.4em;
     line-height: 1.4;
-    font-family: 'Unica One', cursive;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .service-1-box .service-1-desc{
     color: #777;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 1.86; 
     text-align: left;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -1640,7 +1658,7 @@ button.mfp-close, button.mfp-arrow {width: 40px; height: 40px; background-color:
     margin-bottom: 30px;
     font-size: 16px;
     font-weight: 300;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.7; 
     letter-spacing: .2px;
     color: rgba(255,255,255,0.7);
@@ -3498,8 +3516,8 @@ a:focus, a:hover {color: inherit;}
 /* form */
 .contact-form-2 h2{
     text-align: center;
-    text-transform: none;
-    font-family: Lato,sans-serif;  
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;  
 }
 
 .contact-form-2 input.name, .contact-form-2 input.email, .contact-form-2 input.website, .contact-form-2 textarea{
@@ -3684,7 +3702,7 @@ a:focus, a:hover {color: inherit;}
 
 .contact-5-info .info-text{
     margin-bottom: 30px;
-    font-family: 'Lato', sans-serif; 
+    font-family: 'Montserrat', sans-serif; 
     letter-spacing: 0;
     font-weight: 400;
     font-size: 14px;
@@ -3756,7 +3774,7 @@ a:focus, a:hover {color: inherit;}
     text-transform: none;
     color: #000;
     font-size: 16px;
-    font-family: 'Lato', sans-serif; 
+    font-family: 'Montserrat', sans-serif; 
 }
 
 .s-img-col{

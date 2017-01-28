@@ -73,6 +73,7 @@
     {% endif %}
     {% endblock entry-image %}
       <br>
+      <h5>SHARE ON</h5>
       <div class="contact-socail large">
           <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.get_host }}{{ object.get_absolute_url }}">
               <i class="fa fa-facebook"></i></a>
@@ -121,16 +122,6 @@
       {% endfor %}
     </p>
     {% endblock entry-tags %}
-    {% block entry-shorturl %}
-    <p class="entry-shorturl">
-      <span class="glyphicon glyphicon-bookmark"></span> <strong>{% trans "Short url" %}</strong> :
-      <a href="{{ object.short_url }}"
-         title="{% blocktrans with object=object.title %}Short URL to {{ object }}{% endblocktrans %}"
-         rel="shortlink">
-        {{ object.short_url }}
-      </a>
-    </p>
-    {% endblock entry-shorturl %}
     {% block entry-discussions %}
     <p class="entry-discussions">
       <span class="glyphicon glyphicon-comment"></span> <strong>{% trans "Discussions" %}</strong> :

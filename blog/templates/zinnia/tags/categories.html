@@ -1,17 +1,16 @@
 {% load i18n %}
-<ul class="category-root list-group">
-  {% for category in categories %}
-  <li class="list-group-item{% if category.slug == context_category.slug %} current{% endif %}">
-    <a href="{{ category.get_absolute_url }}"
-       title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}
-      <span class="label label-info">
-        {% blocktrans count entry_count=category.count_entries_published %}{{ entry_count }} entry{% plural %}{{ entry_count }} entries{% endblocktrans %}
+{% for category in categories %}
+    {% if category.slug == context_category.slug %} current{% endif %}
+    <p>
+        <a class="menu-text" href="{{ category.get_absolute_url }}"
+           title="{% blocktrans %}Show all entries in {{ category }}{% endblocktrans %}">{{ category }}
+            <span class="badge">
+        {% blocktrans count entry_count=category.count_entries_published %}{{ entry_count }}
+            {% plural %}{{ entry_count }}{% endblocktrans %}
       </span>
-    </a>
-  </li>
-  {% empty %}
-  <li class="list-group-item">
-    <a href="#">{% trans "No categories yet." %}</a>
-  </li>
-  {% endfor %}
-</ul>
+        </a>
+    </p>
+{% empty %}
+    {% trans "No categories yet." %}
+{% endfor %}
+

@@ -9,7 +9,7 @@
     {% endif %}
 
     {% for page_number in begin %}
-    <li class="page {% ifequal page.number page_number %}active{% endifequal %}">
+    <li class="page-custom {% ifequal page.number page_number %}active{% endifequal %}">
       {% ifequal page.number page_number %}
       <a href="#">{{ page_number }}</a>
       {% else %}

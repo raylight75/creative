@@ -400,7 +400,7 @@ nav {height: inherit; position: relative; float: left;}
 }
 
 
-nav > ul > li {float: left; display: block; margin-right: 10px; padding:6px 12px;}
+nav > ul > li {float: left; display: block; margin-right: 10px; padding:6px 0px;}
 nav ul .menu-item {position: relative;}
 nav ul .menu-item:hover:before { position: absolute; left: -10px; top: -7px; transition: content 1s ease;}
 nav ul .menu-item:hover:after {position: absolute; right: -10px; top: -7px; transition: content 1s ease;}

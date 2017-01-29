@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="description" content="
             {% block meta-description %}{% trans "Personal Blog." %}{% endblock meta-description %}{% block meta-description-page %}{% endblock meta-description-page %}"/>
-    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, zinnia{% endblock meta-keywords %}"/>
+    <meta name="keywords" content="{% block meta-keywords %}django, blog, weblog, raylight75{% endblock meta-keywords %}"/>
     <meta name="author" content="Tihomir Blajev"/>
     {% block meta %}{% endblock meta %}
     <link rel="home" href="{% url 'zinnia:entry_archive_index' %}"/>
@@ -21,8 +21,6 @@
     <link href='https://fonts.googleapis.com/css?family=Unica+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static "css/menu/component.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
-    {% block link %}{% endblock link %}
-    {% block script %}{% endblock script %}
 </head>
 <body>
 

@@ -1,5 +1,6 @@
 {% extends "zinnia:zinnia/base.html" %}
 {% load zinnia i18n %}
+{% load zinnia %}
 
 {% block sidebar %}
     <div class="col-md-12">
@@ -37,6 +38,8 @@
                     </div>
                 </li>
             </ul>
+            {% block content-related %}
+            {% endblock content-related %}
         </div>
         <aside class="sidebar-layouts">
             <ul>
@@ -44,14 +47,14 @@
                     <h4 class="widget-title">Follow Me On</h4>
                     <div class="social-links">
                         <ul>
-                            <li> <a href="https://www.facebook.com/tblajev">
-                        <i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.facebook.com/tblajev">
+                                <i class="fa fa-facebook"></i></a></li>
                             <li><a href="contacts"><i class="fa fa-envelope"></i></a></li>
                             <li><a href="skype:tiho_blazhev?userinfo"><i class="fa fa-skype"></i></a></li>
                             <li><a href="https://plus.google.com/u/0/111015710125146416925">
-                        <i class="fa fa-google-plus"></i></a></li>
+                                <i class="fa fa-google-plus"></i></a></li>
                             <li><a href="http://www.facebook.com/sharer/sharer.php?u=www.tihoblajev.com">
-                        <i class="fa fa-share"></i></a></li>
+                                <i class="fa fa-share"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                         </ul>
                     </div>

@@ -111,7 +111,7 @@
   <footer class="entry-footer well">
     {% block entry-tags %}
     <p class="entry-tags">
-      <span class="glyphicon glyphicon-tags"></span> <strong>{% trans "Tags" %}</strong> :
+      <span class="glyphicon glyphicon-tags"></span>  &nbsp<strong>{% trans "Tags" %}</strong> :
       {% for tag in object.tags_list %}
       <a href="{% url 'zinnia:tag_detail' tag %}"
          title="{% blocktrans %}Show all entries tagged by {{ tag }}{% endblocktrans %}"
@@ -123,7 +123,7 @@
     {% endblock entry-tags %}
     {% block entry-discussions %}
     <p class="entry-discussions">
-      <span class="glyphicon glyphicon-comment"></span> <strong>{% trans "Discussions" %}</strong> :
+      <span class="glyphicon glyphicon-comment"></span> &nbsp<strong>{% trans "Discussions" %}</strong> :
       {% block entry-comments %}
       {% with comment_count=object.comment_count %}
       {% if comment_count %}

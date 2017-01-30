@@ -84,6 +84,8 @@ h1, h2, h3, h4, h5, h6, p{margin:0px; padding:0px;}
 button {outline: none; border: none; box-shadow: none; background: none;}
 
 /*------Custom Styling---------*/
+.archives-h3 {color: #fff ;}
+.years-archives {color: #fff ;}
 .btn-custom {color: #fff; background-color: #f89b1c; border-color: #f89b1c;}
 .content-lead {text-transform:initial; font-size: 14px; line-height: 24px;}
 .menu-text {color: #bbbbbb ;}

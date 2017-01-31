@@ -109,6 +109,10 @@ button {outline: none; border: none; box-shadow: none; background: none;}
 .side-menu {padding-top: 255px;}
 .main-content {width: 85%;}
 }
+.main-content {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
 .well-right {
     min-height: 20px;
     padding: 19px;
@@ -127,7 +131,7 @@ h2 {font-size: 34px; line-height: 46px; font-weight: 300; text-transform: upperc
 h3 {font-size: 28px; line-height: 32px; font-weight: 300; text-transform: uppercase;}
 h4 { font-size: 26px; line-height: 26px; font-weight: 300; text-transform: uppercase;}
 h5 {font-size: 14px; line-height: 20px; font-weight: 300; text-transform: uppercase;}
-h6 {font-size: 20px; line-height: 16px; font-weight: 300; text-transform: uppercase;}
+h6 {font-size: 20px; line-height: 24px; font-weight: 300; text-transform: uppercase;}
 p {font-size: 16px; line-height: 28px; font-weight: 300; font-family: 'Montserrat', sans-serif;}
 a { color: inherit; font-family: 'Montserrat', sans-serif;}
 li, span {font-family: 'Lato', sans-serif;}

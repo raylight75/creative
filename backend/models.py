@@ -5,7 +5,7 @@ from django.contrib.sites.models import Site
 from django.db import models
 
 
-class Img_Cat(models.Model):
+class ImgCat(models.Model):
     cat = models.CharField(max_length=32)
 
     def __str__(self):
@@ -18,7 +18,7 @@ class Img_Cat(models.Model):
         db_table = 'img_cat'
 
 
-class Siteimage_Cat(models.Model):
+class SiteimageCat(models.Model):
     cat = models.CharField(max_length=32)
 
     def __str__(self):
@@ -33,7 +33,7 @@ class Siteimage_Cat(models.Model):
 
 class Image(models.Model):
     title = models.CharField(max_length=32)
-    cat = models.ForeignKey(Img_Cat)
+    cat = models.ForeignKey(ImgCat)
     image = models.ImageField(upload_to="images")
 
     def thumb(self):
@@ -47,16 +47,17 @@ class Image(models.Model):
         db_table = 'image'
 
 
-class Site_image(models.Model):
+class SiteImage(models.Model):
     title = models.CharField(max_length=32)
-    cat = models.ForeignKey(Siteimage_Cat)
+    cat = models.ForeignKey(SiteimageCat)
     image = models.ImageField(upload_to="images")
 
     def thumb(self):
         return mark_safe('<img src="/public/%s" width="40" height="20" />' % (self.image))
 
     def link(self):
-        return '<img class="img-responsive" src="%s/public/%s" alt="">' % (Site.objects.get_current().domain, self.image)
+        return '<img class="img-responsive" src="%s/public/%s" alt="">' % \
+               (Site.objects.get_current().domain, self.image)
 
     class Meta:
         ordering = ('id',)

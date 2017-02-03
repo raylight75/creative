@@ -1,20 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from backend.models import Site_image, Info, Service, Image, Img_Cat
+from backend.models import SiteImage, Info, Service, Image, ImgCat
 from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 
 
 def index(request):
-    sliders = Site_image.objects.filter(cat_id=1)
+    sliders = SiteImage.objects.filter(cat_id=1)
     return render(request, 'frontend/index.html', {'sliders': sliders})
 
 
 def aboutme(request):
     info = Info.objects.get(cat='about')
     skills = Info.objects.filter(cat='skills')
-    sliders = Site_image.objects.all()
+    sliders = SiteImage.objects.all()
     context = {'info': info, 'sliders': sliders, 'skills': skills}
     return render(request, 'frontend/aboutme.html', context)
 
@@ -48,13 +48,13 @@ def thanks(request):
 
 def portfolio(request):
     images = Image.objects.all()
-    cats = Img_Cat.objects.all()
+    cats = ImgCat.objects.all()
     context = {'images': images, 'cats': cats}
     return render(request, 'frontend/portfolio.html', context)
 
 
 def services(request):
     service = Service.objects.all()
-    sliders = Site_image.objects.get(cat_id=2)
+    sliders = SiteImage.objects.get(cat_id=2)
     context = {'service': service, 'sliders': sliders}
     return render(request, 'frontend/services.html', context)

@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from django.utils.safestring import mark_safe
+from django.contrib.sites.models import Site
 
 from django.db import models
 
@@ -12,10 +13,12 @@ class Img_Cat(models.Model):
 
     class Meta:
         ordering = ('id',)
+        verbose_name = 'category'
+        verbose_name_plural = 'Image Categories'
         db_table = 'img_cat'
 
 
-class Sld_Cat(models.Model):
+class Siteimage_Cat(models.Model):
     cat = models.CharField(max_length=32)
 
     def __str__(self):
@@ -23,7 +26,9 @@ class Sld_Cat(models.Model):
 
     class Meta:
         ordering = ('id',)
-        db_table = 'sld_cat'
+        verbose_name = 'category'
+        verbose_name_plural = 'SiteImage Categories'
+        db_table = 'siteimage_cat'
 
 
 class Image(models.Model):
@@ -38,20 +43,26 @@ class Image(models.Model):
 
     class Meta:
         ordering = ('id',)
+        verbose_name_plural = 'Portfolio Images'
         db_table = 'image'
 
 
-class Slider(models.Model):
+class Site_image(models.Model):
     title = models.CharField(max_length=32)
-    cat = models.ForeignKey(Sld_Cat)
+    cat = models.ForeignKey(Siteimage_Cat)
     image = models.ImageField(upload_to="images")
 
     def thumb(self):
         return mark_safe('<img src="/public/%s" width="40" height="20" />' % (self.image))
 
+    def link(self):
+        return '<img class="img-responsive" src="%s/public/%s" alt="">' % (Site.objects.get_current().domain, self.image)
+
     class Meta:
         ordering = ('id',)
-        db_table = 'slider'
+        verbose_name = 'image'
+        verbose_name_plural = 'Site Images'
+        db_table = 'site_image'
 
 
 class Info(models.Model):

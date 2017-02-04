@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from django_summernote.admin import SummernoteModelAdmin
 from backend.models import ImgCat, SiteImage, Info, Service, Image, SiteimageCat
 
 
@@ -40,7 +40,7 @@ class SliderAdmin(admin.ModelAdmin):
 
 
 @admin.register(Info)
-class InfoAdmin(admin.ModelAdmin):
+class InfoAdmin(SummernoteModelAdmin):
     list_filter = ('email', 'skype', 'cat', 'title')
     list_display = ('id', 'notice', 'title', 'text', 'email', 'phone', 'skype', 'address', 'cat')
     list_display_links = ('email', 'phone')

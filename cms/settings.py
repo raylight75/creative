@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_comments',
+    'django_summernote',
     'mptt',
     'tagging',
     'zinnia',
@@ -170,5 +171,12 @@ EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = False
 EMAIL_PORT = 1025
 
-#ZINNIA SETTINGS
+# ZINNIA SETTINGS
 ZINNIA_PAGINATION = 2
+
+# SUMMERNOTE CONFIG
+SUMMERNOTE_CONFIG = {
+    # Change editor size
+    'width': '90%',
+    'height': '560',
+}

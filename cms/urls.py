@@ -23,6 +23,7 @@ from django.conf import settings
 urlpatterns = [
     url(r'^', include('frontend.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^summernote/', include('django_summernote.urls')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     # url(r'^web/admins', include('app.urls')),
     # url(r'^product_admin/', admin_site.urls),

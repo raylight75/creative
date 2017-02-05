@@ -31,12 +31,12 @@
                         {% get_recent_comments %}
                     </div>
                 </li>
-                <li>
+                {% comment %}<li>
                     <div class="content-info-det">
                         <h6>{% trans "Popular entries" %}</h6>
                         {% get_popular_entries %}
                     </div>
-                </li>
+                </li>{% endcomment %}
                 <li>
                     <div class="content-info-det">
                         <h6>{% trans "Tags" %}</h6>
@@ -44,8 +44,8 @@
                     </div>
                 </li>
             </ul>
-            {% block content-related %}
-            {% endblock content-related %}
+            {% comment %}{% block content-related %}
+            {% endblock content-related %}{% endcomment %}
         </div>
         <aside class="sidebar-layouts">
             <ul>

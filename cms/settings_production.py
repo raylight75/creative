@@ -20,7 +20,7 @@ SITE_ROOT = PROJECT_ROOT
 # Path to media files, e.g. images
 MEDIA_ROOT = os.path.join(SITE_ROOT, 'public')
 MEDIA_URL = '/portfolio/public/'
-STATIC_ROOT = "/home/tihoblaj/public_html/portfolio/static"
+# STATIC_ROOT = "/home/tihoblaj/public_html/portfolio/static"
 STATIC_URL = '/portfolio/static/'
 
 # Quick-start development settings - unsuitable for production
@@ -50,9 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_comments',
+    'django_summernote',
     'mptt',
     'tagging',
-    'zinnia_bootstrap',
     'zinnia',
 ]
 
@@ -135,7 +135,10 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 REGISTRATION_OPEN = True  # If True, users can register
 ACCOUNT_ACTIVATION_DAYS = 7  # One-week activation window; you may, of course, use a different value.
@@ -144,11 +147,20 @@ INCLUDE_AUTH_URLS = True
 INCLUDE_REGISTER_URL = True
 LOGIN_REDIRECT_URL = '/web/profile'
 
-# For email
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'sender@gmail.com'
-# EMAIL_HOST_PASSWORD = 'app_specific_password'
-# EMAIL_PORT = 587
-# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = True
+EMAIL_HOST = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 465
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# ZINNIA SETTINGS
+ZINNIA_PAGINATION = 2
+
+# SUMMERNOTE CONFIG
+SUMMERNOTE_CONFIG = {
+    # Change editor size
+    'width': '90%',
+    'height': '560',
+}

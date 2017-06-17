@@ -7,18 +7,27 @@ git pull origin master
 git add .
 git push origin master
 
+INSTALL LATES PYTHON
+python get-pip.py - installed in Python 3.6
 
-python get-pip.py
+INSTALL DJANGO:
+pip install Django
 python manage.py runserver
 django-admin startproject mysite
 python manage.py startapp polls
 
 Install MySQL:
 easy_install MySQL-python or pip install MySQL-python
+pip install mysqlclient - for Python 3.6
 pip install Pillow
 pip install django-tinymce
 
+Create ADMIN:
+pip install django-registration-redux
+python manage.py createsuperuser
+
 for BLOG
+pip install django-summernote
 pip install django-blog-zinnia
 pip install django-app-namespace-template-loader
 
@@ -29,11 +38,8 @@ python manage.py migrate
 pip freeze///show packages
 pip uninstall <package>
 
-Create ADMIN:
-pip install django-registration-redux
-python manage.py createsuperuser
-
 /////////////////////////////////////////////////////////////////////////////////////
+
 
 Many to one through
 

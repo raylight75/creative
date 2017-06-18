@@ -1,6 +1,11 @@
-{% extends "zinnia:zinnia/base.html" %}
+{% extends "zinnia/skeleton.html" %}
 {% load zinnia i18n %}
 {% load zinnia %}
+
+{% block breadcrumbs %}
+  {% trans "Blog" as root_name %}
+  {% zinnia_breadcrumbs root_name %}
+{% endblock breadcrumbs %}
 
 {% block sidebar %}
     <div class="col-md-12">

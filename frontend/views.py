@@ -6,16 +6,14 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 
 
-def index(request):
-    sliders = SiteImage.objects.filter(cat_id=1)
-    return render(request, 'frontend/index.html', {'sliders': sliders})
+def index(request):    
+    return render(request, 'frontend/index.html')
 
 
 def aboutme(request):
     info = Info.objects.get(cat='about')
-    skills = Info.objects.filter(cat='skills')
-    sliders = SiteImage.objects.all()
-    context = {'info': info, 'sliders': sliders, 'skills': skills}
+    skills = Info.objects.filter(cat='skills')    
+    context = {'info': info, 'skills': skills}
     return render(request, 'frontend/aboutme.html', context)
 
 
@@ -54,7 +52,6 @@ def portfolio(request):
 
 
 def services(request):
-    service = Service.objects.all()
-    sliders = SiteImage.objects.get(cat_id=2)
-    context = {'service': service, 'sliders': sliders}
+    service = Service.objects.all()    
+    context = {'service': service}
     return render(request, 'frontend/services.html', context)

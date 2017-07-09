@@ -39,7 +39,7 @@ def contacts(request):
 def thanks(request):
     messages.success(request, 'Thank you for your Email.')
     form_class = ContactForm
-    info = Info.objects.all()
+    info = Info.objects.filter(cat='contact')
     context = {"form": form_class, "info": info}
     return render(request, 'frontend/contacts.html', context)
 

@@ -95,9 +95,9 @@ b, strong {
 .search-text {text-align: center;}
 .search-form {margin-left: auto; margin-right: auto;}
 .panel-default>.panel-heading {
-    color: #333;
-    background-color: #f5f5f5;
-    border-color: #ddd;
+    color: #fff;
+    background-color: #f89b1c;
+    border-color: #f89b1c;
     font-family: 'Montserrat', sans-serif;
 }
 .panel-default>.sidemenu {
@@ -2188,7 +2188,7 @@ button.mfp-close, button.mfp-arrow {width: 40px; height: 40px; background-color:
 .action-box.action-before:before {position: absolute; content: ""; top: 0; left: 0; width: 5px; height: 100%; background-color: #f89b1c;}
 .action-box h4, .action-box p {margin-bottom: 10px;}
 .action-box h4 {text-transform: inherit;}
-.action-box p {color: #b9b9b9;}
+.action-box p {color: #333;}
 
 .action-box.action-before-bg {background-color: rgba(145,145,145,0.08); border: none;}
 .action-box.action-before-bg .btn-action-box {margin-top: 10%;}

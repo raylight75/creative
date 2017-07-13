@@ -108,7 +108,7 @@
   {% endblock entry-body %}
 
   {% block entry-footer %}
-  <footer class="entry-footer well">
+ <div class="action-box action-before">
     {% block entry-tags %}
     <p class="entry-tags">
       <span class="glyphicon glyphicon-tags"></span>  &nbsp<strong>{% trans "Tags" %}</strong> :
@@ -146,6 +146,6 @@
       {% endblock entry-comments %}
     </p>
     {% endblock entry-discussions %}
-  </footer>
+ </div>
   {% endblock entry-footer %}
 </article>

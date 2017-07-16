@@ -628,6 +628,17 @@
 	/***********************************/
 	/* 04 - WINDOW LOAD */
 	/**********************************/
+	// Add hidden class if item hidden
+	var itemReveal = Isotope.Item.prototype.reveal;
+	Isotope.Item.prototype.reveal = function () {
+		itemReveal.apply(this, arguments);
+		jQuery(this.element).removeClass('isotope-hidden');
+	};
+	var itemHide = Isotope.Item.prototype.hide;
+	Isotope.Item.prototype.hide = function () {
+		itemHide.apply(this, arguments);
+		jQuery(this.element).addClass('isotope-hidden');
+	};
  
     $(window).on('load', function() {
     	height_container(); 
@@ -728,7 +739,8 @@
 	
 	if ($('.popup-gallery').length) {
 		$('.popup-gallery').magnificPopup({
-			delegate: '.view-item',
+			delegate: '.item:not(.isotope-hidden) .view-item',
+			//delegate: '.view-item',
 			type: 'image',
 			removalDelay: 100,
 			tLoading: 'Loading image #%curr%...',

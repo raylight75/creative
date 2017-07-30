@@ -3,5 +3,6 @@ static/* linguist-vendored
 * text=auto
 *.css linguist-language=Python
 *.js linguist-language=Python
+*.html linguist-language=Python
 *.css linguist-vendored
 *.scss linguist-vendored
